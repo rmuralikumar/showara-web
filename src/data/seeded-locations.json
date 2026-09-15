@@ -1,0 +1,2559 @@
+{
+  "cities": [
+    {
+      "id": "bengaluru",
+      "name": "Bengaluru",
+      "state": "Karnataka",
+      "slug": "bengaluru",
+      "latitude": 12.9716,
+      "longitude": 77.5946,
+      "tier": "metro",
+      "isPopular": 1
+    },
+    {
+      "id": "mumbai",
+      "name": "Mumbai",
+      "state": "Maharashtra",
+      "slug": "mumbai",
+      "latitude": 19.076,
+      "longitude": 72.8777,
+      "tier": "metro",
+      "isPopular": 1
+    },
+    {
+      "id": "delhi-ncr",
+      "name": "Delhi-NCR",
+      "state": "Delhi",
+      "slug": "delhi-ncr",
+      "latitude": 28.6139,
+      "longitude": 77.209,
+      "tier": "metro",
+      "isPopular": 1
+    },
+    {
+      "id": "hyderabad",
+      "name": "Hyderabad",
+      "state": "Telangana",
+      "slug": "hyderabad",
+      "latitude": 17.385,
+      "longitude": 78.4867,
+      "tier": "metro",
+      "isPopular": 1
+    },
+    {
+      "id": "chennai",
+      "name": "Chennai",
+      "state": "Tamil Nadu",
+      "slug": "chennai",
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "tier": "metro",
+      "isPopular": 1
+    },
+    {
+      "id": "kolkata",
+      "name": "Kolkata",
+      "state": "West Bengal",
+      "slug": "kolkata",
+      "latitude": 22.5726,
+      "longitude": 88.3639,
+      "tier": "metro",
+      "isPopular": 1
+    },
+    {
+      "id": "pune",
+      "name": "Pune",
+      "state": "Maharashtra",
+      "slug": "pune",
+      "latitude": 18.5204,
+      "longitude": 73.8567,
+      "tier": "metro",
+      "isPopular": 1
+    },
+    {
+      "id": "ahmedabad",
+      "name": "Ahmedabad",
+      "state": "Gujarat",
+      "slug": "ahmedabad",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "tier": "metro",
+      "isPopular": 1
+    },
+    {
+      "id": "jaipur",
+      "name": "Jaipur",
+      "state": "Rajasthan",
+      "slug": "jaipur",
+      "latitude": 26.9124,
+      "longitude": 75.7873,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "lucknow",
+      "name": "Lucknow",
+      "state": "Uttar Pradesh",
+      "slug": "lucknow",
+      "latitude": 26.8467,
+      "longitude": 80.9462,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "chandigarh",
+      "name": "Chandigarh",
+      "state": "Punjab",
+      "slug": "chandigarh",
+      "latitude": 30.7333,
+      "longitude": 76.7794,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "kochi",
+      "name": "Kochi",
+      "state": "Kerala",
+      "slug": "kochi",
+      "latitude": 9.9312,
+      "longitude": 76.2673,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "surat",
+      "name": "Surat",
+      "state": "Gujarat",
+      "slug": "surat",
+      "latitude": 21.1702,
+      "longitude": 72.8311,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "indore",
+      "name": "Indore",
+      "state": "Madhya Pradesh",
+      "slug": "indore",
+      "latitude": 22.7196,
+      "longitude": 75.8577,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "nagpur",
+      "name": "Nagpur",
+      "state": "Maharashtra",
+      "slug": "nagpur",
+      "latitude": 21.1458,
+      "longitude": 79.0882,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "patna",
+      "name": "Patna",
+      "state": "Bihar",
+      "slug": "patna",
+      "latitude": 25.5941,
+      "longitude": 85.1376,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "bhopal",
+      "name": "Bhopal",
+      "state": "Madhya Pradesh",
+      "slug": "bhopal",
+      "latitude": 23.2599,
+      "longitude": 77.4126,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "vadodara",
+      "name": "Vadodara",
+      "state": "Gujarat",
+      "slug": "vadodara",
+      "latitude": 22.3072,
+      "longitude": 73.1812,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "visakhapatnam",
+      "name": "Visakhapatnam",
+      "state": "Andhra Pradesh",
+      "slug": "visakhapatnam",
+      "latitude": 17.6868,
+      "longitude": 83.2185,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "coimbatore",
+      "name": "Coimbatore",
+      "state": "Tamil Nadu",
+      "slug": "coimbatore",
+      "latitude": 11.0168,
+      "longitude": 76.9558,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "thiruvananthapuram",
+      "name": "Thiruvananthapuram",
+      "state": "Kerala",
+      "slug": "thiruvananthapuram",
+      "latitude": 8.5241,
+      "longitude": 76.9366,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "mysuru",
+      "name": "Mysuru",
+      "state": "Karnataka",
+      "slug": "mysuru",
+      "latitude": 12.2958,
+      "longitude": 76.6394,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "mangaluru",
+      "name": "Mangaluru",
+      "state": "Karnataka",
+      "slug": "mangaluru",
+      "latitude": 12.9141,
+      "longitude": 74.856,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "madurai",
+      "name": "Madurai",
+      "state": "Tamil Nadu",
+      "slug": "madurai",
+      "latitude": 9.9252,
+      "longitude": 78.1198,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "kozhikode",
+      "name": "Kozhikode",
+      "state": "Kerala",
+      "slug": "kozhikode",
+      "latitude": 11.2588,
+      "longitude": 75.7804,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "bhubaneswar",
+      "name": "Bhubaneswar",
+      "state": "Odisha",
+      "slug": "bhubaneswar",
+      "latitude": 20.2961,
+      "longitude": 85.8245,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "guwahati",
+      "name": "Guwahati",
+      "state": "Assam",
+      "slug": "guwahati",
+      "latitude": 26.1445,
+      "longitude": 91.7362,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "agra",
+      "name": "Agra",
+      "state": "Uttar Pradesh",
+      "slug": "agra",
+      "latitude": 27.1767,
+      "longitude": 78.0081,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "varanasi",
+      "name": "Varanasi",
+      "state": "Uttar Pradesh",
+      "slug": "varanasi",
+      "latitude": 25.3176,
+      "longitude": 82.9739,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "amritsar",
+      "name": "Amritsar",
+      "state": "Punjab",
+      "slug": "amritsar",
+      "latitude": 31.634,
+      "longitude": 74.8723,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "dehradun",
+      "name": "Dehradun",
+      "state": "Uttarakhand",
+      "slug": "dehradun",
+      "latitude": 30.3165,
+      "longitude": 78.0322,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "jodhpur",
+      "name": "Jodhpur",
+      "state": "Rajasthan",
+      "slug": "jodhpur",
+      "latitude": 26.2389,
+      "longitude": 73.0243,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "raipur",
+      "name": "Raipur",
+      "state": "Chhattisgarh",
+      "slug": "raipur",
+      "latitude": 21.2514,
+      "longitude": 81.6296,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "ranchi",
+      "name": "Ranchi",
+      "state": "Jharkhand",
+      "slug": "ranchi",
+      "latitude": 23.3441,
+      "longitude": 85.3096,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "vijayawada",
+      "name": "Vijayawada",
+      "state": "Andhra Pradesh",
+      "slug": "vijayawada",
+      "latitude": 16.5062,
+      "longitude": 80.648,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "nashik",
+      "name": "Nashik",
+      "state": "Maharashtra",
+      "slug": "nashik",
+      "latitude": 19.9975,
+      "longitude": 73.7898,
+      "tier": "tier-2",
+      "isPopular": 0
+    },
+    {
+      "id": "aurangabad",
+      "name": "Aurangabad",
+      "state": "Maharashtra",
+      "slug": "aurangabad",
+      "latitude": 19.8762,
+      "longitude": 75.3433,
+      "tier": "tier-3",
+      "isPopular": 0
+    },
+    {
+      "id": "rajkot",
+      "name": "Rajkot",
+      "state": "Gujarat",
+      "slug": "rajkot",
+      "latitude": 22.3039,
+      "longitude": 70.8022,
+      "tier": "tier-3",
+      "isPopular": 0
+    },
+    {
+      "id": "gwalior",
+      "name": "Gwalior",
+      "state": "Madhya Pradesh",
+      "slug": "gwalior",
+      "latitude": 26.2183,
+      "longitude": 78.1828,
+      "tier": "tier-3",
+      "isPopular": 0
+    },
+    {
+      "id": "jabalpur",
+      "name": "Jabalpur",
+      "state": "Madhya Pradesh",
+      "slug": "jabalpur",
+      "latitude": 23.1815,
+      "longitude": 79.9864,
+      "tier": "tier-3",
+      "isPopular": 0
+    }
+  ],
+  "theatres": [
+    {
+      "id": "th-blr-pvr-nexus",
+      "slug": "pvr-nexus-koramangala",
+      "name": "PVR INOX: Nexus Mall, Koramangala",
+      "chain": "PVR INOX",
+      "cityId": "bengaluru",
+      "address": "2nd Floor, Nexus Mall, Hosur Road, Chikku Lakshmaiah Layout, Koramangala, Bengaluru - 560095",
+      "area": "Koramangala",
+      "latitude": 12.9352,
+      "longitude": 77.6119,
+      "amenities": [
+        "IMAX with Laser",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking",
+        "Food & Beverage Counter"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Audi 1 - IMAX Laser",
+          "format": "IMAX 2D",
+          "seatingCapacity": 260
+        },
+        {
+          "screenNumber": 2,
+          "name": "Audi 2 - Dolby Atmos",
+          "format": "2D",
+          "seatingCapacity": 180
+        },
+        {
+          "screenNumber": 3,
+          "name": "Audi 3 - Gold Class",
+          "format": "2D",
+          "seatingCapacity": 60
+        },
+        {
+          "screenNumber": 4,
+          "name": "Audi 4 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 160
+        }
+      ],
+      "phone": "+91 80 4910 8800",
+      "source": "chain_directory",
+      "sourceId": "PVR-BLR-001"
+    },
+    {
+      "id": "th-blr-pvr-vega",
+      "slug": "pvr-vega-city-bannerghatta",
+      "name": "PVR INOX: Vega City Mall, Bannerghatta Road",
+      "chain": "PVR INOX",
+      "cityId": "bengaluru",
+      "address": "4th & 5th Floor, Vega City Mall, Srinivas Industrial Estate, Bannerghatta Main Road, BTM 2nd Stage, Bengaluru - 560076",
+      "area": "Bannerghatta Road",
+      "latitude": 12.9069,
+      "longitude": 77.5998,
+      "amenities": [
+        "IMAX with Laser",
+        "4DX",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Audi 1 - IMAX Laser",
+          "format": "IMAX 3D",
+          "seatingCapacity": 290
+        },
+        {
+          "screenNumber": 2,
+          "name": "Audi 2 - 4DX Sensory",
+          "format": "4DX",
+          "seatingCapacity": 140
+        },
+        {
+          "screenNumber": 3,
+          "name": "Audi 3 - P[XL] Atmos",
+          "format": "2D",
+          "seatingCapacity": 220
+        }
+      ],
+      "phone": "+91 80 6702 4444",
+      "source": "chain_directory",
+      "sourceId": "PVR-BLR-002"
+    },
+    {
+      "id": "th-blr-pvr-directors-cut",
+      "slug": "pvr-directors-cut-forum-rex-walk",
+      "name": "PVR Director's Cut: Forum Rex Walk, Brigade Road",
+      "chain": "PVR INOX",
+      "cityId": "bengaluru",
+      "address": "Rex Walk, Brigade Road, Shanthala Nagar, Ashok Nagar, Bengaluru - 560001",
+      "area": "Brigade Road",
+      "latitude": 12.9738,
+      "longitude": 77.6083,
+      "amenities": [
+        "Recliner Seats",
+        "4K RGB Laser Projection",
+        "Dolby Atmos",
+        "Valet Parking",
+        "Food & Beverage Counter"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Director's Salon 1",
+          "format": "Dolby Cinema",
+          "seatingCapacity": 55
+        },
+        {
+          "screenNumber": 2,
+          "name": "Director's Salon 2",
+          "format": "2D",
+          "seatingCapacity": 65
+        }
+      ],
+      "phone": "+91 80 4567 8900",
+      "source": "chain_directory",
+      "sourceId": "PVR-BLR-003"
+    },
+    {
+      "id": "th-blr-cinepolis-shantiniketan",
+      "slug": "cinepolis-forum-shantiniketan-whitefield",
+      "name": "Cinepolis: Forum Shantiniketan, Whitefield",
+      "chain": "Cinepolis",
+      "cityId": "bengaluru",
+      "address": "4th Floor, Forum Shantiniketan Mall, Thigalarapalya, Hoodi, Whitefield, Bengaluru - 560067",
+      "area": "Whitefield",
+      "latitude": 12.9897,
+      "longitude": 77.7289,
+      "amenities": [
+        "IMAX with Laser",
+        "Dolby Atmos",
+        "4DX",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Macro XE Atmos",
+          "format": "2D",
+          "seatingCapacity": 280
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - 4DX",
+          "format": "4DX",
+          "seatingCapacity": 110
+        },
+        {
+          "screenNumber": 3,
+          "name": "Screen 3 - VIP Lounge",
+          "format": "2D",
+          "seatingCapacity": 70
+        }
+      ],
+      "phone": "+91 80 6722 5500",
+      "source": "chain_directory",
+      "sourceId": "CIN-BLR-001"
+    },
+    {
+      "id": "th-blr-urvashi",
+      "slug": "urvashi-cinema-lalbagh-road",
+      "name": "Urvashi Cinema: Lalbagh Road",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "40, Lalbagh Road, Mavalli, Sudhama Nagar, Bengaluru - 560027",
+      "area": "Lalbagh Road",
+      "latitude": 12.9553,
+      "longitude": 77.5897,
+      "amenities": [
+        "4K RGB Laser Projection",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Food & Beverage Counter"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Main Auditorium - Dual 4K Laser & 64-Ch Atmos",
+          "format": "2D",
+          "seatingCapacity": 580
+        }
+      ],
+      "phone": "+91 80 2222 2333",
+      "source": "chain_directory",
+      "sourceId": "URV-BLR-001"
+    },
+    {
+      "id": "th-blr-navrang",
+      "slug": "navrang-theatre-rajajinagar",
+      "name": "Navrang Theatre: Rajajinagar",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "1st Block, Dr. Rajkumar Road, Navrang Circle, Rajajinagar, Bengaluru - 560010",
+      "area": "Rajajinagar",
+      "latitude": 12.9982,
+      "longitude": 77.5539,
+      "amenities": [
+        "Dolby Atmos",
+        "4K RGB Laser Projection",
+        "Food & Beverage Counter"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Main Screen - 4K Dolby Atmos",
+          "format": "2D",
+          "seatingCapacity": 480
+        }
+      ],
+      "phone": "+91 80 2332 5055",
+      "source": "chain_directory",
+      "sourceId": "NAV-BLR-001"
+    },
+    {
+      "id": "th-blr-inox-garuda",
+      "slug": "inox-garuda-mall-magrath-road",
+      "name": "INOX: Garuda Mall, Magrath Road",
+      "chain": "PVR INOX",
+      "cityId": "bengaluru",
+      "address": "4th Floor, Garuda Mall, Magrath Road, Ashok Nagar, Bengaluru - 560025",
+      "area": "Ashok Nagar",
+      "latitude": 12.9702,
+      "longitude": 77.6094,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Atmos Premier",
+          "format": "2D",
+          "seatingCapacity": 190
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 160
+        }
+      ],
+      "phone": "+91 80 4112 0000",
+      "source": "chain_directory",
+      "sourceId": "INOX-BLR-001"
+    },
+    {
+      "id": "th-mum-phoenix-palladium",
+      "slug": "pvr-phoenix-palladium-lower-parel",
+      "name": "PVR INOX: Phoenix Palladium, Lower Parel",
+      "chain": "PVR INOX",
+      "cityId": "mumbai",
+      "address": "462, Senapati Bapat Marg, Lower Parel, Mumbai - 400013",
+      "area": "Lower Parel",
+      "latitude": 18.9953,
+      "longitude": 72.8242,
+      "amenities": [
+        "IMAX with Laser",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - IMAX Laser",
+          "format": "IMAX 2D",
+          "seatingCapacity": 260
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - Atmos Gold",
+          "format": "2D",
+          "seatingCapacity": 140
+        },
+        {
+          "screenNumber": 3,
+          "name": "Screen 3 - Premiere 3D",
+          "format": "3D",
+          "seatingCapacity": 180
+        }
+      ],
+      "phone": "+91 22 6601 4400",
+      "source": "chain_directory",
+      "sourceId": "PVR-BOM-001"
+    },
+    {
+      "id": "th-mum-cinepolis-viviana",
+      "slug": "cinepolis-viviana-mall-thane",
+      "name": "Cinepolis: Viviana Mall, Thane",
+      "chain": "Cinepolis",
+      "cityId": "mumbai",
+      "address": "Eastern Express Highway, Near Jupiter Hospital, Laxmi Nagar, Thane West, Mumbai - 400606",
+      "area": "Thane",
+      "latitude": 19.2082,
+      "longitude": 72.9715,
+      "amenities": [
+        "IMAX with Laser",
+        "4DX",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - IMAX with Laser",
+          "format": "IMAX 3D",
+          "seatingCapacity": 310
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - 4DX Sensory",
+          "format": "4DX",
+          "seatingCapacity": 128
+        },
+        {
+          "screenNumber": 3,
+          "name": "Screen 3 - VIP Lounge",
+          "format": "2D",
+          "seatingCapacity": 80
+        }
+      ],
+      "phone": "+91 22 6170 1400",
+      "source": "chain_directory",
+      "sourceId": "CIN-BOM-001"
+    },
+    {
+      "id": "th-mum-inox-inorbit",
+      "slug": "inox-inorbit-mall-malad",
+      "name": "PVR INOX: Inorbit Mall, Malad West",
+      "chain": "PVR INOX",
+      "cityId": "mumbai",
+      "address": "2nd Floor, Inorbit Mall, New Link Road, Malad West, Mumbai - 400064",
+      "area": "Malad West",
+      "latitude": 19.1728,
+      "longitude": 72.8361,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Insignia Atmos",
+          "format": "2D",
+          "seatingCapacity": 110
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 220
+        }
+      ],
+      "phone": "+91 22 4000 1200",
+      "source": "chain_directory",
+      "sourceId": "INOX-BOM-002"
+    },
+    {
+      "id": "th-mum-miraj-wadala",
+      "slug": "miraj-cinemas-imax-wadala",
+      "name": "Miraj Cinemas: IMAX Wadala",
+      "chain": "Miraj",
+      "cityId": "mumbai",
+      "address": "Bhakti Park, Anik Wadala Link Road, Chembur, Mumbai - 400037",
+      "area": "Wadala",
+      "latitude": 19.0307,
+      "longitude": 72.8833,
+      "amenities": [
+        "IMAX with Laser",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Audi 1 - Dome IMAX Laser",
+          "format": "IMAX 2D",
+          "seatingCapacity": 450
+        },
+        {
+          "screenNumber": 2,
+          "name": "Audi 2 - Atmos Classic",
+          "format": "2D",
+          "seatingCapacity": 220
+        }
+      ],
+      "phone": "+91 22 2404 1000",
+      "source": "chain_directory",
+      "sourceId": "MIR-BOM-001"
+    },
+    {
+      "id": "th-del-pvr-select-citywalk",
+      "slug": "pvr-select-citywalk-saket",
+      "name": "PVR INOX: Select Citywalk, Saket",
+      "chain": "PVR INOX",
+      "cityId": "delhi-ncr",
+      "address": "A-3, District Centre, Saket, New Delhi - 110017",
+      "area": "Saket",
+      "latitude": 28.5284,
+      "longitude": 77.2192,
+      "amenities": [
+        "IMAX with Laser",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Audi 1 - IMAX Laser",
+          "format": "IMAX 2D",
+          "seatingCapacity": 280
+        },
+        {
+          "screenNumber": 2,
+          "name": "Audi 2 - Gold Class Atmos",
+          "format": "2D",
+          "seatingCapacity": 60
+        },
+        {
+          "screenNumber": 3,
+          "name": "Audi 3 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 210
+        }
+      ],
+      "phone": "+91 11 4058 8888",
+      "source": "chain_directory",
+      "sourceId": "PVR-DEL-001"
+    },
+    {
+      "id": "th-del-pvr-plaza",
+      "slug": "pvr-plaza-connaught-place",
+      "name": "PVR Heritage: Plaza, Connaught Place",
+      "chain": "PVR INOX",
+      "cityId": "delhi-ncr",
+      "address": "H Block, Radial Road 4, Connaught Place, New Delhi - 110001",
+      "area": "Connaught Place",
+      "latitude": 28.6328,
+      "longitude": 77.2197,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Valet Parking",
+        "Food & Beverage Counter"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Main Heritage Audi - Dolby Atmos",
+          "format": "2D",
+          "seatingCapacity": 320
+        }
+      ],
+      "phone": "+91 11 2331 4455",
+      "source": "chain_directory",
+      "sourceId": "PVR-DEL-002"
+    },
+    {
+      "id": "th-del-cinepolis-dlf-avenue",
+      "slug": "cinepolis-dlf-avenue-saket",
+      "name": "Cinepolis: DLF Avenue, Saket",
+      "chain": "Cinepolis",
+      "cityId": "delhi-ncr",
+      "address": "Press Enclave Marg, Saket District Centre, Sector 6, Pushp Vihar, New Delhi - 110017",
+      "area": "Saket",
+      "latitude": 28.5273,
+      "longitude": 77.2185,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Macro XE",
+          "format": "2D",
+          "seatingCapacity": 250
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 170
+        }
+      ],
+      "phone": "+91 11 4606 0000",
+      "source": "chain_directory",
+      "sourceId": "CIN-DEL-001"
+    },
+    {
+      "id": "th-hyd-amb",
+      "slug": "amb-cinemas-gachibowli",
+      "name": "AMB Cinemas: Sarath City Capital Mall, Gachibowli",
+      "chain": "AMB",
+      "cityId": "hyderabad",
+      "address": "Sarath City Capital Mall, Whitefields, Gachibowli - Miyapur Road, Kondapur, Hyderabad - 500084",
+      "area": "Gachibowli",
+      "latitude": 17.4568,
+      "longitude": 78.3654,
+      "amenities": [
+        "Dolby Atmos",
+        "4K RGB Laser Projection",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Laser Atmos Super",
+          "format": "2D",
+          "seatingCapacity": 380
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - VIP Lounge",
+          "format": "2D",
+          "seatingCapacity": 90
+        },
+        {
+          "screenNumber": 3,
+          "name": "Screen 3 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 240
+        }
+      ],
+      "phone": "+91 40 6828 8888",
+      "source": "chain_directory",
+      "sourceId": "AMB-HYD-001"
+    },
+    {
+      "id": "th-hyd-prasad-imax",
+      "slug": "prasads-multiplex-necklace-road",
+      "name": "Prasads Multiplex: Necklace Road",
+      "chain": "Prasads",
+      "cityId": "hyderabad",
+      "address": "NTR Gardens, LIC Division, Khairatabad, Hyderabad - 500004",
+      "area": "Khairatabad",
+      "latitude": 17.4125,
+      "longitude": 78.4682,
+      "amenities": [
+        "Dolby Atmos",
+        "4K RGB Laser Projection",
+        "Wheelchair Accessible",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Large Screen - Dual 4K Laser",
+          "format": "2D",
+          "seatingCapacity": 600
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - Atmos Sound",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "phone": "+91 40 2344 8888",
+      "source": "chain_directory",
+      "sourceId": "PRA-HYD-001"
+    },
+    {
+      "id": "th-hyd-pvr-next-galleria",
+      "slug": "pvr-next-galleria-panjagutta",
+      "name": "PVR INOX: Next Galleria Mall, Panjagutta",
+      "chain": "PVR INOX",
+      "cityId": "hyderabad",
+      "address": "Nagarjuna Circle, Panjagutta, Hyderabad - 500082",
+      "area": "Panjagutta",
+      "latitude": 17.4267,
+      "longitude": 78.4519,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - P[XL] Atmos",
+          "format": "2D",
+          "seatingCapacity": 290
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - 3D Atmos",
+          "format": "3D",
+          "seatingCapacity": 180
+        }
+      ],
+      "phone": "+91 40 4567 1122",
+      "source": "chain_directory",
+      "sourceId": "PVR-HYD-002"
+    },
+    {
+      "id": "th-che-spi-escape",
+      "slug": "spi-escape-express-avenue-royapettah",
+      "name": "SPI Escape: Express Avenue Mall, Royapettah",
+      "chain": "PVR INOX",
+      "cityId": "chennai",
+      "address": "Express Avenue Mall, Whites Road, Royapettah, Chennai - 600014",
+      "area": "Royapettah",
+      "latitude": 13.0583,
+      "longitude": 80.2642,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Blush",
+          "format": "2D",
+          "seatingCapacity": 230
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - Weave",
+          "format": "2D",
+          "seatingCapacity": 190
+        },
+        {
+          "screenNumber": 3,
+          "name": "Screen 3 - Spot 3D",
+          "format": "3D",
+          "seatingCapacity": 170
+        }
+      ],
+      "phone": "+91 44 4224 4224",
+      "source": "chain_directory",
+      "sourceId": "SPI-CHE-001"
+    },
+    {
+      "id": "th-che-pvr-vr",
+      "slug": "pvr-vr-chennai-anna-nagar",
+      "name": "PVR INOX: VR Chennai, Anna Nagar",
+      "chain": "PVR INOX",
+      "cityId": "chennai",
+      "address": "Jawaharlal Nehru Road, Thirumangalam, Anna Nagar, Chennai - 600040",
+      "area": "Anna Nagar",
+      "latitude": 13.0847,
+      "longitude": 80.1932,
+      "amenities": [
+        "IMAX with Laser",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - IMAX Laser",
+          "format": "IMAX 2D",
+          "seatingCapacity": 340
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - P[XL] Atmos",
+          "format": "2D",
+          "seatingCapacity": 260
+        },
+        {
+          "screenNumber": 3,
+          "name": "Screen 3 - Gold Class",
+          "format": "2D",
+          "seatingCapacity": 70
+        }
+      ],
+      "phone": "+91 44 6665 5555",
+      "source": "chain_directory",
+      "sourceId": "PVR-CHE-002"
+    },
+    {
+      "id": "th-kol-inox-quest",
+      "slug": "inox-quest-mall-park-circus",
+      "name": "PVR INOX: Quest Mall, Park Circus",
+      "chain": "PVR INOX",
+      "cityId": "kolkata",
+      "address": "33, Syed Amir Ali Avenue, Park Circus, Beck Bagan, Kolkata - 700017",
+      "area": "Park Circus",
+      "latitude": 22.5393,
+      "longitude": 88.3653,
+      "amenities": [
+        "IMAX with Laser",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - IMAX Laser",
+          "format": "IMAX 2D",
+          "seatingCapacity": 270
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - Insignia Atmos",
+          "format": "2D",
+          "seatingCapacity": 80
+        },
+        {
+          "screenNumber": 3,
+          "name": "Screen 3 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 190
+        }
+      ],
+      "phone": "+91 33 4000 8800",
+      "source": "chain_directory",
+      "sourceId": "INOX-CCU-001"
+    },
+    {
+      "id": "th-kol-pvr-south-city",
+      "slug": "pvr-south-city-mall-jadavpur",
+      "name": "PVR INOX: South City Mall, Jadavpur",
+      "chain": "PVR INOX",
+      "cityId": "kolkata",
+      "address": "375, Prince Anwar Shah Road, South City Complex, Jadavpur, Kolkata - 700068",
+      "area": "Jadavpur",
+      "latitude": 22.4998,
+      "longitude": 88.3619,
+      "amenities": [
+        "Dolby Atmos",
+        "IMAX with Laser",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - IMAX Laser",
+          "format": "IMAX 3D",
+          "seatingCapacity": 290
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - Gold Atmos",
+          "format": "2D",
+          "seatingCapacity": 65
+        }
+      ],
+      "phone": "+91 33 4001 2233",
+      "source": "chain_directory",
+      "sourceId": "PVR-CCU-002"
+    },
+    {
+      "id": "th-pun-pvr-phoenix-marketcity",
+      "slug": "pvr-phoenix-marketcity-viman-nagar",
+      "name": "PVR INOX: Phoenix Marketcity, Viman Nagar",
+      "chain": "PVR INOX",
+      "cityId": "pune",
+      "address": "S No 207, Viman Nagar Road, Clover Park, Viman Nagar, Pune - 411014",
+      "area": "Viman Nagar",
+      "latitude": 18.5621,
+      "longitude": 73.9167,
+      "amenities": [
+        "IMAX with Laser",
+        "4DX",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - IMAX Laser",
+          "format": "IMAX 2D",
+          "seatingCapacity": 310
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - 4DX Sensory",
+          "format": "4DX",
+          "seatingCapacity": 130
+        },
+        {
+          "screenNumber": 3,
+          "name": "Screen 3 - P[XL] Atmos",
+          "format": "2D",
+          "seatingCapacity": 240
+        }
+      ],
+      "phone": "+91 20 6689 0088",
+      "source": "chain_directory",
+      "sourceId": "PVR-PNQ-001"
+    },
+    {
+      "id": "th-pun-cinepolis-westend",
+      "slug": "cinepolis-westend-mall-aundh",
+      "name": "Cinepolis: Westend Mall, Aundh",
+      "chain": "Cinepolis",
+      "cityId": "pune",
+      "address": "Near Parihar Chowk, Mahadji Shinde Road, Harmony Society, Ward No. 8, Aundh, Pune - 411007",
+      "area": "Aundh",
+      "latitude": 18.5583,
+      "longitude": 73.8078,
+      "amenities": [
+        "IMAX with Laser",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - IMAX Laser",
+          "format": "IMAX 2D",
+          "seatingCapacity": 280
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - Macro XE Atmos",
+          "format": "2D",
+          "seatingCapacity": 220
+        }
+      ],
+      "phone": "+91 20 6767 5500",
+      "source": "chain_directory",
+      "sourceId": "CIN-PNQ-001"
+    },
+    {
+      "id": "th-amd-pvr-acropolis",
+      "slug": "pvr-acropolis-mall-thaltej",
+      "name": "PVR INOX: Acropolis Mall, Thaltej",
+      "chain": "PVR INOX",
+      "cityId": "ahmedabad",
+      "address": "SG Highway, Thaltej, Ahmedabad - 380054",
+      "area": "Thaltej",
+      "latitude": 23.0531,
+      "longitude": 72.5089,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - P[XL] Atmos",
+          "format": "2D",
+          "seatingCapacity": 260
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 190
+        }
+      ],
+      "phone": "+91 79 4000 7800",
+      "source": "chain_directory",
+      "sourceId": "PVR-AMD-001"
+    },
+    {
+      "id": "th-amd-cinepolis-alpha-one",
+      "slug": "cinepolis-nexus-ahmedabad-one-vastrapur",
+      "name": "Cinepolis: Nexus Ahmedabad One, Vastrapur",
+      "chain": "Cinepolis",
+      "cityId": "ahmedabad",
+      "address": "Plot No-216, TPU 1, Vastrapur, Ahmedabad - 380015",
+      "area": "Vastrapur",
+      "latitude": 23.0374,
+      "longitude": 72.5312,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Macro XE Atmos",
+          "format": "2D",
+          "seatingCapacity": 270
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - VIP Lounge",
+          "format": "2D",
+          "seatingCapacity": 75
+        }
+      ],
+      "phone": "+91 79 6777 4400",
+      "source": "chain_directory",
+      "sourceId": "CIN-AMD-001"
+    },
+    {
+      "id": "th-cok-pvr-lulu",
+      "slug": "pvr-lulu-mall-edappally",
+      "name": "PVR INOX: LuLu International Mall, Edappally",
+      "chain": "PVR INOX",
+      "cityId": "kochi",
+      "address": "LuLu International Shopping Mall, 34/1000, Old NH 47, Edappally, Kochi - 682024",
+      "area": "Edappally",
+      "latitude": 10.0284,
+      "longitude": 76.3079,
+      "amenities": [
+        "IMAX with Laser",
+        "4DX",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - IMAX Laser",
+          "format": "IMAX 2D",
+          "seatingCapacity": 300
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - 4DX Sensory",
+          "format": "4DX",
+          "seatingCapacity": 120
+        },
+        {
+          "screenNumber": 3,
+          "name": "Screen 3 - P[XL] Atmos",
+          "format": "2D",
+          "seatingCapacity": 240
+        }
+      ],
+      "phone": "+91 484 272 7700",
+      "source": "chain_directory",
+      "sourceId": "PVR-COK-001"
+    },
+    {
+      "id": "th-cok-cinepolis-centre-square",
+      "slug": "cinepolis-centre-square-mall-mg-road",
+      "name": "Cinepolis: Centre Square Mall, MG Road",
+      "chain": "Cinepolis",
+      "cityId": "kochi",
+      "address": "6th to 8th Floor, Centre Square Mall, Rajaji Road, Shenoys, Ernakulam, Kochi - 682035",
+      "area": "MG Road",
+      "latitude": 9.9734,
+      "longitude": 76.2825,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Macro XE Atmos",
+          "format": "2D",
+          "seatingCapacity": 260
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - VIP Lounge",
+          "format": "2D",
+          "seatingCapacity": 80
+        }
+      ],
+      "phone": "+91 484 669 8800",
+      "source": "chain_directory",
+      "sourceId": "CIN-COK-001"
+    },
+    {
+      "id": "th-jai-raj-mandir",
+      "slug": "raj-mandir-cinema-bhagwan-das-road",
+      "name": "Raj Mandir Cinema: Bhagwan Das Road",
+      "chain": "Independent",
+      "cityId": "jaipur",
+      "address": "C-16, Bhagwan Das Road, Panch Batti, C Scheme, Ashok Nagar, Jaipur - 302001",
+      "area": "C Scheme",
+      "latitude": 26.9156,
+      "longitude": 75.8089,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Cafeteria",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "The Jewel Screen - Heritage 70mm Atmos",
+          "format": "2D",
+          "seatingCapacity": 1100
+        }
+      ],
+      "phone": "+91 141 237 4694",
+      "source": "chain_directory",
+      "sourceId": "RJM-JAI-001"
+    },
+    {
+      "id": "th-jai-inox-crystal-palm",
+      "slug": "inox-crystal-palm-mall-bais-godam",
+      "name": "PVR INOX: Crystal Palm Mall, Bais Godam",
+      "chain": "PVR INOX",
+      "cityId": "jaipur",
+      "address": "4th Floor, Crystal Palm Mall, Sahakar Marg, Bais Godam Circle, Jaipur - 302001",
+      "area": "Sahakar Marg",
+      "latitude": 26.9021,
+      "longitude": 75.7933,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Atmos Premier",
+          "format": "2D",
+          "seatingCapacity": 210
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 160
+        }
+      ],
+      "phone": "+91 141 404 0400",
+      "source": "chain_directory",
+      "sourceId": "INOX-JAI-001"
+    },
+    {
+      "id": "th-ixc-pvr-elante",
+      "slug": "pvr-elante-mall-industrial-area",
+      "name": "PVR INOX: Nexus Elante Mall",
+      "chain": "PVR INOX",
+      "cityId": "chandigarh",
+      "address": "3rd Floor, Nexus Elante Mall, 178-178A, Purv Marg, Industrial Area Phase I, Chandigarh - 160002",
+      "area": "Industrial Area Phase I",
+      "latitude": 30.7055,
+      "longitude": 76.8013,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - P[XL] Atmos",
+          "format": "2D",
+          "seatingCapacity": 280
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - Gold Class",
+          "format": "2D",
+          "seatingCapacity": 75
+        }
+      ],
+      "phone": "+91 172 400 3300",
+      "source": "chain_directory",
+      "sourceId": "PVR-IXC-001"
+    },
+    {
+      "id": "th-lko-pvr-phoenix-palassio",
+      "slug": "pvr-phoenix-palassio-amar-shaheed-path",
+      "name": "PVR INOX: Phoenix Palassio, Gomti Nagar Extn",
+      "chain": "PVR INOX",
+      "cityId": "lucknow",
+      "address": "Sector 7, Amar Shaheed Path, Gomti Nagar Extension, Lucknow - 226010",
+      "area": "Gomti Nagar Extension",
+      "latitude": 26.8028,
+      "longitude": 81.0118,
+      "amenities": [
+        "IMAX with Laser",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - IMAX Laser",
+          "format": "IMAX 2D",
+          "seatingCapacity": 310
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - Luxe Atmos",
+          "format": "2D",
+          "seatingCapacity": 85
+        }
+      ],
+      "phone": "+91 522 678 8000",
+      "source": "chain_directory",
+      "sourceId": "PVR-LKO-001"
+    },
+    {
+      "id": "th-idr-inox-c21",
+      "slug": "inox-c21-mall-vijay-nagar",
+      "name": "PVR INOX: C21 Mall, Vijay Nagar",
+      "chain": "PVR INOX",
+      "cityId": "indore",
+      "address": "Plot No. 136/1, C21 Mall, AB Road, Vijay Nagar, Indore - 452010",
+      "area": "Vijay Nagar",
+      "latitude": 22.7533,
+      "longitude": 75.8937,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Atmos Premier",
+          "format": "2D",
+          "seatingCapacity": 230
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 180
+        }
+      ],
+      "phone": "+91 731 426 6666",
+      "source": "chain_directory",
+      "sourceId": "INOX-IDR-001"
+    },
+    {
+      "id": "th-stv-pvr-vr-surat",
+      "slug": "pvr-vr-surat-duplas",
+      "name": "PVR INOX: VR Surat, Dumas Road",
+      "chain": "PVR INOX",
+      "cityId": "surat",
+      "address": "VR Surat Mall, Dumas Road, Magdalla, Surat - 395007",
+      "area": "Dumas Road",
+      "latitude": 21.1442,
+      "longitude": 72.7482,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Atmos Laser",
+          "format": "2D",
+          "seatingCapacity": 250
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 170
+        }
+      ],
+      "phone": "+91 261 671 1100",
+      "source": "chain_directory",
+      "sourceId": "PVR-STV-001"
+    },
+    {
+      "id": "th-cjb-broadway-cinemas",
+      "slug": "broadway-cinemas-avinaashi-road",
+      "name": "Broadway Cinemas: KMCH Campus, Avinashi Road",
+      "chain": "Broadway",
+      "cityId": "coimbatore",
+      "address": "Avinashi Road, Civil Aerodrome Post, Peelamedu, Coimbatore - 641014",
+      "area": "Peelamedu",
+      "latitude": 11.0418,
+      "longitude": 77.0373,
+      "amenities": [
+        "IMAX with Laser",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "EPIQ - Barco Laser Atmos",
+          "format": "2D",
+          "seatingCapacity": 390
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - IMAX with Laser",
+          "format": "IMAX 2D",
+          "seatingCapacity": 310
+        }
+      ],
+      "phone": "+91 422 456 7890",
+      "source": "chain_directory",
+      "sourceId": "BW-CJB-001"
+    },
+    {
+      "id": "th-myq-drc-cinemas",
+      "slug": "drc-cinemas-bm-habitat-mall-jayalakshmipuram",
+      "name": "DRC Cinemas: BM Habitat Mall, Jayalakshmipuram",
+      "chain": "DRC",
+      "cityId": "mysuru",
+      "address": "BM Habitat Mall, Gokulam Main Road, Jayalakshmipuram, Mysuru - 570012",
+      "area": "Jayalakshmipuram",
+      "latitude": 12.3271,
+      "longitude": 76.6267,
+      "amenities": [
+        "Dolby Atmos",
+        "4K RGB Laser Projection",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - 4K Atmos",
+          "format": "2D",
+          "seatingCapacity": 240
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 190
+        }
+      ],
+      "phone": "+91 821 424 2424",
+      "source": "chain_directory",
+      "sourceId": "DRC-MYQ-001"
+    },
+    {
+      "id": "th-bdq-inox-inorbit",
+      "slug": "inox-inorbit-mall-alembic-road",
+      "name": "PVR INOX: Inorbit Mall, Gorwa",
+      "chain": "PVR INOX",
+      "cityId": "vadodara",
+      "address": "Alembic Road, Subhanpura, Gorwa, Vadodara - 390023",
+      "area": "Gorwa",
+      "latitude": 22.3278,
+      "longitude": 73.1678,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Atmos Premier",
+          "format": "2D",
+          "seatingCapacity": 220
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 160
+        }
+      ],
+      "phone": "+91 265 670 1200",
+      "source": "chain_directory",
+      "sourceId": "INOX-BDQ-001"
+    },
+    {
+      "id": "th-bbi-cinepolis-esplanade",
+      "slug": "cinepolis-esplanade-one-mall-rasulgarh",
+      "name": "Cinepolis: Esplanade One Mall, Rasulgarh",
+      "chain": "Cinepolis",
+      "cityId": "bhubaneswar",
+      "address": "Unit No 32, 721, Rasulgarh, Bhubaneswar - 751010",
+      "area": "Rasulgarh",
+      "latitude": 20.2921,
+      "longitude": 85.8624,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Macro XE Atmos",
+          "format": "2D",
+          "seatingCapacity": 270
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - VIP Lounge",
+          "format": "2D",
+          "seatingCapacity": 75
+        }
+      ],
+      "phone": "+91 674 666 4400",
+      "source": "chain_directory",
+      "sourceId": "CIN-BBI-001"
+    },
+    {
+      "id": "th-nag-cinepolis-vr-nagpur",
+      "slug": "cinepolis-vr-mall-medical-square",
+      "name": "Cinepolis: VR Nagpur, Medical Square",
+      "chain": "Cinepolis",
+      "cityId": "nagpur",
+      "address": "Medical Square, Untkhana Road, Rambagh, Nagpur - 440009",
+      "area": "Medical Square",
+      "latitude": 21.1294,
+      "longitude": 79.0963,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Macro XE Atmos",
+          "format": "2D",
+          "seatingCapacity": 250
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 180
+        }
+      ],
+      "phone": "+91 712 666 5500",
+      "source": "chain_directory",
+      "sourceId": "CIN-NAG-001"
+    },
+    {
+      "id": "th-pat-cinepolis-p&m",
+      "slug": "cinepolis-p-and-m-mall-patliputra",
+      "name": "Cinepolis: P&M Mall, Patliputra",
+      "chain": "Cinepolis",
+      "cityId": "patna",
+      "address": "P&M Mall, Industrial Area, Patliputra Colony, Patna - 800013",
+      "area": "Patliputra Colony",
+      "latitude": 25.6315,
+      "longitude": 85.1095,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Atmos Premier",
+          "format": "2D",
+          "seatingCapacity": 260
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 190
+        }
+      ],
+      "phone": "+91 612 227 0000",
+      "source": "chain_directory",
+      "sourceId": "CIN-PAT-001"
+    },
+    {
+      "id": "th-trv-pvr-lulu-trivandrum",
+      "slug": "pvr-lulu-mall-akkulam-trivandrum",
+      "name": "PVR INOX: LuLu Mall, Akkulam",
+      "chain": "PVR INOX",
+      "cityId": "thiruvananthapuram",
+      "address": "LuLu Mall, NH 66, Akkulam, Thiruvananthapuram - 695029",
+      "area": "Akkulam",
+      "latitude": 8.5284,
+      "longitude": 76.9042,
+      "amenities": [
+        "IMAX with Laser",
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - IMAX Laser",
+          "format": "IMAX 2D",
+          "seatingCapacity": 310
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - P[XL] Atmos",
+          "format": "2D",
+          "seatingCapacity": 260
+        }
+      ],
+      "phone": "+91 471 277 8800",
+      "source": "chain_directory",
+      "sourceId": "PVR-TRV-001"
+    },
+    {
+      "id": "th-vt-inox-varun-beach",
+      "slug": "inox-varun-beach-beach-road",
+      "name": "PVR INOX: Varun Beach, Beach Road",
+      "chain": "PVR INOX",
+      "cityId": "visakhapatnam",
+      "address": "Dr NTR Beach Road, Pandurangapuram, Visakhapatnam - 530002",
+      "area": "Beach Road",
+      "latitude": 17.7128,
+      "longitude": 83.3197,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Atmos Premier",
+          "format": "2D",
+          "seatingCapacity": 240
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 170
+        }
+      ],
+      "phone": "+91 891 668 8800",
+      "source": "chain_directory",
+      "sourceId": "INOX-VT-001"
+    },
+    {
+      "id": "th-gau-pvr-city-centre",
+      "slug": "pvr-city-centre-mall-gs-road",
+      "name": "PVR INOX: City Centre Mall, GS Road",
+      "chain": "PVR INOX",
+      "cityId": "guwahati",
+      "address": "GS Road, Rukmini Gaon, Christian Basti, Guwahati - 781006",
+      "area": "GS Road",
+      "latitude": 26.1528,
+      "longitude": 91.7824,
+      "amenities": [
+        "Dolby Atmos",
+        "Recliner Seats",
+        "Wheelchair Accessible",
+        "Valet Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Atmos Premier",
+          "format": "2D",
+          "seatingCapacity": 230
+        },
+        {
+          "screenNumber": 2,
+          "name": "Screen 2 - RealD 3D",
+          "format": "3D",
+          "seatingCapacity": 160
+        }
+      ],
+      "phone": "+91 361 222 9900",
+      "source": "chain_directory",
+      "sourceId": "PVR-GAU-001"
+    },
+    {
+      "id": "th-osm-456039716",
+      "slug": "sampige-theatre-456039716",
+      "name": "Sampige Theatre",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Sampige Road, Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9931208,
+      "longitude": 77.5710734,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-456039716"
+    },
+    {
+      "id": "th-osm-953674808",
+      "slug": "eeshwari-theatre-953674808",
+      "name": "Eeshwari Theatre",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Outer Ring Road, Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9236391,
+      "longitude": 77.5534075,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-953674808"
+    },
+    {
+      "id": "th-osm-1060580206",
+      "slug": "super-talkies-1060580206",
+      "name": "Super talkies",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9677686,
+      "longitude": 77.569887,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-1060580206"
+    },
+    {
+      "id": "th-osm-1065137172",
+      "slug": "inox-garuda-mall-1065137172",
+      "name": "INOX Garuda Mall",
+      "chain": "INOX Leisure",
+      "cityId": "bengaluru",
+      "address": "Commissariat Road, Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9698334,
+      "longitude": 77.6098091,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-1065137172"
+    },
+    {
+      "id": "th-osm-1459472858",
+      "slug": "pvr-1459472858",
+      "name": "PVR",
+      "chain": "PVR Cinemas",
+      "cityId": "bengaluru",
+      "address": "Hosur Road, Bangalore",
+      "area": "Bengaluru",
+      "latitude": 12.9346877,
+      "longitude": 77.6116748,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-1459472858"
+    },
+    {
+      "id": "th-osm-1463547493",
+      "slug": "gopalan-cinemas-1463547493",
+      "name": "Gopalan Cinemas",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Mysore Road, Bangalore",
+      "area": "Bengaluru",
+      "latitude": 12.9357964,
+      "longitude": 77.5177929,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-1463547493"
+    },
+    {
+      "id": "th-osm-1463592177",
+      "slug": "vaishnavi-1463592177",
+      "name": "Vaishnavi",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.903508,
+      "longitude": 77.5442237,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-1463592177"
+    },
+    {
+      "id": "th-osm-1463771768",
+      "slug": "inox-1463771768",
+      "name": "Inox",
+      "chain": "INOX Leisure",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9162428,
+      "longitude": 77.592424,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-1463771768"
+    },
+    {
+      "id": "th-osm-1464782423",
+      "slug": "prakash-theatre-1464782423",
+      "name": "Prakash Theatre",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 13.0968515,
+      "longitude": 77.5964304,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-1464782423"
+    },
+    {
+      "id": "th-osm-1469265737",
+      "slug": "elgin-cinema-1469265737",
+      "name": "Elgin Cinema",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.98516,
+      "longitude": 77.6016342,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-1469265737"
+    },
+    {
+      "id": "th-osm-1474863994",
+      "slug": "mukunda-theatre-1474863994",
+      "name": "Mukunda Theatre",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 13.0032065,
+      "longitude": 77.6358178,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-1474863994"
+    },
+    {
+      "id": "th-osm-1691980738",
+      "slug": "pvr-cinemas-1691980738",
+      "name": "PVR Cinemas",
+      "chain": "PVR Cinemas",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9263148,
+      "longitude": 77.6753554,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-1691980738"
+    },
+    {
+      "id": "th-osm-1794163355",
+      "slug": "mohan-cinema-1794163355",
+      "name": "Mohan Cinema",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9986487,
+      "longitude": 77.5036725,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-1794163355"
+    },
+    {
+      "id": "th-osm-1809856714",
+      "slug": "swagath-shankarnag-chitramandira-1809856714",
+      "name": "Swagath ShankarNag Chitramandira",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9744138,
+      "longitude": 77.6095784,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-1809856714"
+    },
+    {
+      "id": "th-osm-2127406148",
+      "slug": "vaibhavi-2127406148",
+      "name": "Vaibhavi",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9036309,
+      "longitude": 77.5440956,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-2127406148"
+    },
+    {
+      "id": "th-osm-2322728638",
+      "slug": "cinepolis-2322728638",
+      "name": "Cinepolis",
+      "chain": "Cinepolis",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.8755826,
+      "longitude": 77.5952263,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-2322728638"
+    },
+    {
+      "id": "th-osm-2489017325",
+      "slug": "pvr-orion-mall-2489017325",
+      "name": "PVR Orion Mall",
+      "chain": "PVR Cinemas",
+      "cityId": "bengaluru",
+      "address": "Dr. Rajkumar Road, Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 13.0106061,
+      "longitude": 77.555373,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-2489017325"
+    },
+    {
+      "id": "th-osm-2623606892",
+      "slug": "kamakya-theatre-2623606892",
+      "name": "Kamakya Theatre",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9233245,
+      "longitude": 77.5533301,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-2623606892"
+    },
+    {
+      "id": "th-osm-2908625171",
+      "slug": "galaxy-paradise-2908625171",
+      "name": "Galaxy Paradise",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.8914338,
+      "longitude": 77.62642,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-2908625171"
+    },
+    {
+      "id": "th-osm-3122059772",
+      "slug": "lakshmi-tent-3122059772",
+      "name": "Lakshmi Tent",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Mathikere",
+      "area": "Bengaluru",
+      "latitude": 13.0356902,
+      "longitude": 77.5634153,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-3122059772"
+    },
+    {
+      "id": "th-osm-3664774925",
+      "slug": "inox-malleshwaram-mantri-square-3664774925",
+      "name": "INOX Malleshwaram - Mantri Square",
+      "chain": "INOX Leisure",
+      "cityId": "bengaluru",
+      "address": "Sampige Road, Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9920489,
+      "longitude": 77.5706285,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-3664774925"
+    },
+    {
+      "id": "th-osm-4101094993",
+      "slug": "santhosh-talkies-4101094993",
+      "name": "Santhosh Talkies",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Pipeline Road, Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9630364,
+      "longitude": 77.5439374,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-4101094993"
+    },
+    {
+      "id": "th-osm-4101097391",
+      "slug": "shobha-talkies-4101097391",
+      "name": "Shobha Talkies",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Mysore Road, Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.9574488,
+      "longitude": 77.5432851,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-4101097391"
+    },
+    {
+      "id": "th-osm-4130960190",
+      "slug": "cinepolis-eta-mall-4130960190",
+      "name": "Cinepolis ETA Mall",
+      "chain": "Cinepolis",
+      "cityId": "bengaluru",
+      "address": "Tank Bund Road, Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.965813,
+      "longitude": 77.5622167,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-4130960190"
+    },
+    {
+      "id": "th-osm-4130960992",
+      "slug": "sujatha-talkies-4130960992",
+      "name": "Sujatha Talkies",
+      "chain": "Independent",
+      "cityId": "bengaluru",
+      "address": "Bengaluru",
+      "area": "Bengaluru",
+      "latitude": 12.961869,
+      "longitude": 77.5471629,
+      "amenities": [
+        "Dolby Atmos",
+        "Food & Beverage Counter",
+        "Parking"
+      ],
+      "screens": [
+        {
+          "screenNumber": 1,
+          "name": "Screen 1 - Digital Audio",
+          "format": "2D",
+          "seatingCapacity": 250
+        }
+      ],
+      "source": "osm",
+      "sourceId": "osm-4130960992"
+    }
+  ],
+  "generatedAt": "2026-09-13T11:37:15.448Z"
+}

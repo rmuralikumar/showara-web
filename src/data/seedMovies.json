@@ -1,0 +1,1114 @@
+[
+  {
+    "id": "mov-dune-2",
+    "providerId": 693134,
+    "slug": "dune-part-two",
+    "title": "Dune: Part Two",
+    "originalTitle": "Dune: Part Two",
+    "synopsis": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, Paul endeavors to prevent a terrible future only he can foresee.",
+    "overview": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family.",
+    "posterPath": "/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+    "backdropPath": "",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+    "backdropUrl": "",
+    "trailerYoutubeId": "Way9Dexny3w",
+    "rating": 8.2,
+    "ratingCount": 612000,
+    "voteCount": 6120,
+    "tmdbRating": 8.2,
+    "showaraRating": 4.8,
+    "durationMinutes": 166,
+    "runtime": 166,
+    "releaseDate": "2024-03-01",
+    "certification": "UA 16+",
+    "languages": [
+      "English",
+      "Hindi",
+      "Telugu",
+      "Tamil"
+    ],
+    "originalLanguage": "en",
+    "formats": [
+      "IMAX 2D",
+      "2D",
+      "4DX",
+      "Dolby Cinema"
+    ],
+    "genres": [
+      "Science Fiction",
+      "Adventure",
+      "Action"
+    ],
+    "status": "now_showing",
+    "isFeatured": true,
+    "trendingRank": 1,
+    "popularity": 450.8,
+    "director": "Denis Villeneuve",
+    "cast": [
+      {
+        "id": "person-1190668",
+        "name": "Timothée Chalamet",
+        "character": "Paul Atreides",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      },
+      {
+        "id": "person-505710",
+        "name": "Zendaya",
+        "character": "Chani",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 1
+      },
+      {
+        "id": "person-93070",
+        "name": "Rebecca Ferguson",
+        "character": "Lady Jessica",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 2
+      },
+      {
+        "id": "person-3810",
+        "name": "Javier Bardem",
+        "character": "Stilgar",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 3
+      },
+      {
+        "id": "person-1373737",
+        "name": "Florence Pugh",
+        "character": "Princess Irulan",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 4
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-137427",
+        "name": "Denis Villeneuve",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      },
+      {
+        "id": "person-947",
+        "name": "Hans Zimmer",
+        "job": "Original Music Composer",
+        "department": "Sound",
+        "profilePath": ""
+      },
+      {
+        "id": "person-71649",
+        "name": "Greig Fraser",
+        "job": "Director of Photography",
+        "department": "Camera",
+        "profilePath": ""
+      }
+    ]
+  },
+  {
+    "id": "mov-kalki-2898-ad",
+    "providerId": 801688,
+    "slug": "kalki-2898-ad",
+    "title": "Kalki 2898 AD",
+    "originalTitle": "Kalki 2898 AD",
+    "synopsis": "Set in a post-apocalyptic world in the year 2898 AD, the last city of Kasi is ruled by the Supreme Yaskin. When a prophesied avatar is set to be born to end the tyranny, a weary bounty hunter Bhairava and the immortal warrior Ashwatthama clash in a mythic battle spanning centuries.",
+    "overview": "A modern avatar of Vishnu descends on earth to protect the world from evil forces in a dystopian landscape.",
+    "posterPath": "/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
+    "backdropPath": "/o8XSR1SONnjcsv84NRu6Mwsl5io.jpg",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/o8XSR1SONnjcsv84NRu6Mwsl5io.jpg",
+    "trailerYoutubeId": "kQDd1AhGIHk",
+    "rating": 7.9,
+    "ratingCount": 184000,
+    "voteCount": 1840,
+    "tmdbRating": 7.9,
+    "showaraRating": 4.7,
+    "durationMinutes": 181,
+    "runtime": 181,
+    "releaseDate": "2024-06-27",
+    "certification": "UA 13+",
+    "languages": [
+      "Telugu",
+      "Hindi",
+      "Tamil",
+      "Kannada",
+      "Malayalam"
+    ],
+    "originalLanguage": "te",
+    "formats": [
+      "IMAX 2D",
+      "3D",
+      "2D"
+    ],
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Fantasy"
+    ],
+    "status": "now_showing",
+    "isFeatured": true,
+    "trendingRank": 2,
+    "popularity": 380.2,
+    "director": "Nag Ashwin",
+    "cast": [
+      {
+        "id": "person-72649",
+        "name": "Prabhas",
+        "character": "Bhairava",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      },
+      {
+        "id": "person-35750",
+        "name": "Amitabh Bachchan",
+        "character": "Ashwatthama",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 1
+      },
+      {
+        "id": "person-74768",
+        "name": "Kamal Haasan",
+        "character": "Supreme Yaskin",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 2
+      },
+      {
+        "id": "person-126464",
+        "name": "Deepika Padukone",
+        "character": "SUM-80 / Sumathi",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 3
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-1383790",
+        "name": "Nag Ashwin",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      },
+      {
+        "id": "person-1033104",
+        "name": "Santhosh Narayanan",
+        "job": "Original Music Composer",
+        "department": "Sound",
+        "profilePath": ""
+      }
+    ]
+  },
+  {
+    "id": "mov-deadpool-wolverine",
+    "providerId": 533535,
+    "slug": "deadpool-and-wolverine",
+    "title": "Deadpool & Wolverine",
+    "originalTitle": "Deadpool & Wolverine",
+    "synopsis": "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine.",
+    "overview": "Deadpool's peaceful existence comes crashing down when the Time Variance Authority recruits him to help safeguard the multiverse alongside Wolverine.",
+    "posterPath": "/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+    "backdropPath": "",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+    "backdropUrl": "",
+    "trailerYoutubeId": "73_1biulkYk",
+    "rating": 7.7,
+    "ratingCount": 420000,
+    "voteCount": 4200,
+    "tmdbRating": 7.7,
+    "showaraRating": 4.6,
+    "durationMinutes": 128,
+    "runtime": 128,
+    "releaseDate": "2024-07-26",
+    "certification": "A",
+    "languages": [
+      "English",
+      "Hindi",
+      "Telugu",
+      "Tamil"
+    ],
+    "originalLanguage": "en",
+    "formats": [
+      "IMAX 3D",
+      "3D",
+      "2D",
+      "4DX"
+    ],
+    "genres": [
+      "Action",
+      "Comedy",
+      "Science Fiction"
+    ],
+    "status": "now_showing",
+    "isFeatured": true,
+    "trendingRank": 3,
+    "popularity": 520.1,
+    "director": "Shawn Levy",
+    "cast": [
+      {
+        "id": "person-10859",
+        "name": "Ryan Reynolds",
+        "character": "Wade Wilson / Deadpool",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      },
+      {
+        "id": "person-6968",
+        "name": "Hugh Jackman",
+        "character": "Logan / Wolverine",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 1
+      },
+      {
+        "id": "person-1929340",
+        "name": "Emma Corrin",
+        "character": "Cassandra Nova",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 2
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-17825",
+        "name": "Shawn Levy",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      }
+    ]
+  },
+  {
+    "id": "mov-stree-2",
+    "providerId": 1112426,
+    "slug": "stree-2",
+    "title": "Stree 2: Sarkate Ka Aatank",
+    "originalTitle": "Stree 2",
+    "synopsis": "After the town of Chanderi is rid of the female specter Stree, a new sinister threat emerges in the form of Sarkata, a headless spirit abducting modern, progressive women. Vicky, Bittu, J.D., and the mysterious woman must reunite to save their homeland.",
+    "overview": "The town of Chanderi faces a new headless evil spirit known as Sarkata that kidnaps women.",
+    "posterPath": "/nfnhwfUEFuSOxxf4jDdBlY6Lccw.jpg",
+    "backdropPath": "/fVV0A67kDjTTQ4CvUn8LoletRmI.jpg",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/nfnhwfUEFuSOxxf4jDdBlY6Lccw.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/fVV0A67kDjTTQ4CvUn8LoletRmI.jpg",
+    "trailerYoutubeId": "KVn5iB67X8E",
+    "rating": 7.8,
+    "ratingCount": 94000,
+    "voteCount": 940,
+    "tmdbRating": 7.8,
+    "showaraRating": 4.6,
+    "durationMinutes": 147,
+    "runtime": 147,
+    "releaseDate": "2024-08-15",
+    "certification": "UA 16+",
+    "languages": [
+      "Hindi"
+    ],
+    "originalLanguage": "hi",
+    "formats": [
+      "2D"
+    ],
+    "genres": [
+      "Horror",
+      "Comedy"
+    ],
+    "status": "now_showing",
+    "isFeatured": false,
+    "trendingRank": 4,
+    "popularity": 240.5,
+    "director": "Amar Kaushik",
+    "cast": [
+      {
+        "id": "person-103328",
+        "name": "Shraddha Kapoor",
+        "character": "The Mysterious Woman",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      },
+      {
+        "id": "person-117535",
+        "name": "Rajkummar Rao",
+        "character": "Vicky",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 1
+      },
+      {
+        "id": "person-103329",
+        "name": "Pankaj Tripathi",
+        "character": "Rudra",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 2
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-2051280",
+        "name": "Amar Kaushik",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      }
+    ]
+  },
+  {
+    "id": "mov-gladiator-2",
+    "providerId": 558449,
+    "slug": "gladiator-ii",
+    "title": "Gladiator II",
+    "originalTitle": "Gladiator II",
+    "synopsis": "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by tyrannical emperors who lead Rome with an iron fist. With rage in his heart and the future of the Empire at stake, Lucius must look to his past.",
+    "overview": "Years after Maximus' death, Lucius enters the Colosseum to free Rome from tyrannical rulers.",
+    "posterPath": "/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+    "backdropPath": "/tOqIwliWMovSIZ9DyvHcHI7p2im.jpg",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/tOqIwliWMovSIZ9DyvHcHI7p2im.jpg",
+    "trailerYoutubeId": "4rgYUipGJNo",
+    "rating": 7.5,
+    "ratingCount": 115000,
+    "voteCount": 1150,
+    "tmdbRating": 7.5,
+    "showaraRating": 4.5,
+    "durationMinutes": 148,
+    "runtime": 148,
+    "releaseDate": "2024-11-15",
+    "certification": "A",
+    "languages": [
+      "English",
+      "Hindi"
+    ],
+    "originalLanguage": "en",
+    "formats": [
+      "IMAX 2D",
+      "2D",
+      "4DX"
+    ],
+    "genres": [
+      "Action",
+      "Drama",
+      "History"
+    ],
+    "status": "now_showing",
+    "isFeatured": true,
+    "trendingRank": 5,
+    "popularity": 310.4,
+    "director": "Ridley Scott",
+    "cast": [
+      {
+        "id": "person-2576395",
+        "name": "Paul Mescal",
+        "character": "Lucius Verus",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      },
+      {
+        "id": "person-1253360",
+        "name": "Pedro Pascal",
+        "character": "Marcus Acacius",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 1
+      },
+      {
+        "id": "person-5292",
+        "name": "Denzel Washington",
+        "character": "Macrinus",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 2
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-578",
+        "name": "Ridley Scott",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      }
+    ]
+  },
+  {
+    "id": "mov-oppenheimer",
+    "providerId": 872585,
+    "slug": "oppenheimer",
+    "title": "Oppenheimer",
+    "originalTitle": "Oppenheimer",
+    "synopsis": "The story of J. Robert Oppenheimer's role in the development of the atomic bomb during World War II, examining the scientific brilliance and moral crisis of the Manhattan Project.",
+    "overview": "The life and moral dilemmas of J. Robert Oppenheimer, father of the atomic bomb.",
+    "posterPath": "/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+    "backdropPath": "/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
+    "trailerYoutubeId": "uYPbbksJxIg",
+    "rating": 8.1,
+    "ratingCount": 890000,
+    "voteCount": 8900,
+    "tmdbRating": 8.1,
+    "showaraRating": 4.9,
+    "durationMinutes": 180,
+    "runtime": 180,
+    "releaseDate": "2023-07-21",
+    "certification": "UA 16+",
+    "languages": [
+      "English",
+      "Hindi"
+    ],
+    "originalLanguage": "en",
+    "formats": [
+      "IMAX 2D",
+      "2D"
+    ],
+    "genres": [
+      "Drama",
+      "History"
+    ],
+    "status": "now_showing",
+    "isFeatured": false,
+    "trendingRank": 6,
+    "popularity": 280.9,
+    "director": "Christopher Nolan",
+    "cast": [
+      {
+        "id": "person-2037",
+        "name": "Cillian Murphy",
+        "character": "J. Robert Oppenheimer",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      },
+      {
+        "id": "person-5081",
+        "name": "Emily Blunt",
+        "character": "Katherine 'Kitty' Oppenheimer",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 1
+      },
+      {
+        "id": "person-3223",
+        "name": "Robert Downey Jr.",
+        "character": "Lewis Strauss",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 2
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-525",
+        "name": "Christopher Nolan",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      }
+    ]
+  },
+  {
+    "id": "mov-kgf-chapter-2",
+    "providerId": 587412,
+    "slug": "kgf-chapter-2",
+    "title": "K.G.F: Chapter 2",
+    "originalTitle": "K.G.F: Chapter 2",
+    "synopsis": "The blood-soaked land of Kolar Gold Fields (KGF) has a new overlord now - Rocky, whose name strikes fear in the heart of his foes. His allies look up to him as their savior, the government sees him as a threat, and his enemies are clamoring for revenge.",
+    "overview": "Rocky establishes his reign over Kolar Gold Fields while navigating attacks from Adheera and Prime Minister Ramika Sen.",
+    "posterPath": "/khNVygolU0TxLIDWff5tQlAhZ23.jpg",
+    "backdropPath": "/nsV5Mfi9FAV4w8eDsdr7uqVswOk.jpg",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/khNVygolU0TxLIDWff5tQlAhZ23.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/nsV5Mfi9FAV4w8eDsdr7uqVswOk.jpg",
+    "trailerYoutubeId": "JKa05nyUmuQ",
+    "rating": 8,
+    "ratingCount": 165000,
+    "voteCount": 1650,
+    "tmdbRating": 8,
+    "showaraRating": 4.9,
+    "durationMinutes": 168,
+    "runtime": 168,
+    "releaseDate": "2022-04-14",
+    "certification": "UA",
+    "languages": [
+      "Kannada",
+      "Hindi",
+      "Telugu",
+      "Tamil",
+      "Malayalam"
+    ],
+    "originalLanguage": "kn",
+    "formats": [
+      "IMAX 2D",
+      "2D"
+    ],
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "status": "now_showing",
+    "isFeatured": false,
+    "trendingRank": 7,
+    "popularity": 320.6,
+    "director": "Prashanth Neel",
+    "cast": [
+      {
+        "id": "person-103324",
+        "name": "Yash",
+        "character": "Rocky Bhai / Raja Krishnappa Bairya",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      },
+      {
+        "id": "person-35752",
+        "name": "Sanjay Dutt",
+        "character": "Adheera",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 1
+      },
+      {
+        "id": "person-35754",
+        "name": "Raveena Tandon",
+        "character": "Ramika Sen",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 2
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-1383792",
+        "name": "Prashanth Neel",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      },
+      {
+        "id": "person-1383793",
+        "name": "Ravi Basrur",
+        "job": "Original Music Composer",
+        "department": "Sound",
+        "profilePath": ""
+      }
+    ]
+  },
+  {
+    "id": "mov-rrr",
+    "providerId": 579974,
+    "slug": "rrr",
+    "title": "RRR",
+    "originalTitle": "RRR",
+    "synopsis": "A fictional story about two legendary Indian revolutionaries, Alluri Sitarama Raju and Komaram Bheem, and their fight against the British Raj in the 1920s.",
+    "overview": "Two Indian freedom fighters wage an epic rebellion against tyrannical British rulers.",
+    "posterPath": "/u0XUBNQWlOvrh0Gd97ARGpIkL0.jpg",
+    "backdropPath": "/i0Y0wP8H6SRgjr6QmuwbtQbS24D.jpg",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/u0XUBNQWlOvrh0Gd97ARGpIkL0.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/i0Y0wP8H6SRgjr6QmuwbtQbS24D.jpg",
+    "trailerYoutubeId": "NgBoMJy386M",
+    "rating": 8.2,
+    "ratingCount": 178000,
+    "voteCount": 1780,
+    "tmdbRating": 8.2,
+    "showaraRating": 4.9,
+    "durationMinutes": 182,
+    "runtime": 182,
+    "releaseDate": "2022-03-25",
+    "certification": "UA",
+    "languages": [
+      "Telugu",
+      "Hindi",
+      "Tamil",
+      "Kannada",
+      "Malayalam"
+    ],
+    "originalLanguage": "te",
+    "formats": [
+      "IMAX 2D",
+      "3D",
+      "2D"
+    ],
+    "genres": [
+      "Action",
+      "Drama",
+      "History"
+    ],
+    "status": "now_showing",
+    "isFeatured": false,
+    "trendingRank": 8,
+    "popularity": 290.4,
+    "director": "S. S. Rajamouli",
+    "cast": [
+      {
+        "id": "person-72648",
+        "name": "N. T. Rama Rao Jr.",
+        "character": "Komaram Bheem",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      },
+      {
+        "id": "person-126462",
+        "name": "Ram Charan",
+        "character": "Alluri Sitarama Raju",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 1
+      },
+      {
+        "id": "person-35753",
+        "name": "Ajay Devgn",
+        "character": "Venkata Rama Raju",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 2
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-1383794",
+        "name": "S. S. Rajamouli",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      },
+      {
+        "id": "person-1383795",
+        "name": "M. M. Keeravani",
+        "job": "Original Music Composer",
+        "department": "Sound",
+        "profilePath": ""
+      }
+    ]
+  },
+  {
+    "id": "mov-kantara",
+    "providerId": 858485,
+    "slug": "kantara",
+    "title": "Kantara",
+    "originalTitle": "Kantara",
+    "synopsis": "Set in the coastal Karnataka village of Keradi, the conflict between tradition, forest tribes, and authorities escalates when the demigod Bhoota Kola spirits awaken to protect the land against deceit and greed.",
+    "overview": "A tribal man stands in defense of his sacred ancestral grove against authority and a corrupt landlord.",
+    "posterPath": "/jIsKmkxMzdCZ0Ux1GVSnu8m6Na6.jpg",
+    "backdropPath": "/kXElm7wt2kAXEVwJqW4cFhP43nW.jpg",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/jIsKmkxMzdCZ0Ux1GVSnu8m6Na6.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/kXElm7wt2kAXEVwJqW4cFhP43nW.jpg",
+    "trailerYoutubeId": "8mrffpS_V5A",
+    "rating": 8.3,
+    "ratingCount": 112000,
+    "voteCount": 1120,
+    "tmdbRating": 8.3,
+    "showaraRating": 4.9,
+    "durationMinutes": 148,
+    "runtime": 148,
+    "releaseDate": "2022-09-30",
+    "certification": "UA",
+    "languages": [
+      "Kannada",
+      "Hindi",
+      "Telugu",
+      "Tamil",
+      "Malayalam"
+    ],
+    "originalLanguage": "kn",
+    "formats": [
+      "2D",
+      "Dolby Atmos"
+    ],
+    "genres": [
+      "Action",
+      "Drama",
+      "Thriller"
+    ],
+    "status": "now_showing",
+    "isFeatured": false,
+    "trendingRank": 9,
+    "popularity": 240.2,
+    "director": "Rishab Shetty",
+    "cast": [
+      {
+        "id": "person-158392",
+        "name": "Rishab Shetty",
+        "character": "Shiva / Kaadubettu Shiva",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      },
+      {
+        "id": "person-258392",
+        "name": "Sapthami Gowda",
+        "character": "Leela",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 1
+      },
+      {
+        "id": "person-158393",
+        "name": "Kishore",
+        "character": "Muralidhar (Forest Officer)",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 2
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-158392",
+        "name": "Rishab Shetty",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      },
+      {
+        "id": "person-158394",
+        "name": "B. Ajaneesh Loknath",
+        "job": "Original Music Composer",
+        "department": "Sound",
+        "profilePath": ""
+      }
+    ]
+  },
+  {
+    "id": "mov-interstellar",
+    "providerId": 157336,
+    "slug": "interstellar",
+    "title": "Interstellar",
+    "originalTitle": "Interstellar",
+    "synopsis": "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+    "overview": "A team of pioneers embarks on humanity's most crucial space mission to find a viable home beyond our galaxy.",
+    "posterPath": "/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+    "backdropPath": "/xJHokMbljvjADYdit5fK5VQsXEG.jpg",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/xJHokMbljvjADYdit5fK5VQsXEG.jpg",
+    "trailerYoutubeId": "zSWdZVtXT7E",
+    "rating": 8.4,
+    "ratingCount": 1100000,
+    "voteCount": 11000,
+    "tmdbRating": 8.4,
+    "showaraRating": 5,
+    "durationMinutes": 169,
+    "runtime": 169,
+    "releaseDate": "2014-11-05",
+    "certification": "UA",
+    "languages": [
+      "English",
+      "Hindi"
+    ],
+    "originalLanguage": "en",
+    "formats": [
+      "IMAX 2D",
+      "2D"
+    ],
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Science Fiction"
+    ],
+    "status": "now_showing",
+    "isFeatured": false,
+    "trendingRank": 10,
+    "popularity": 390.8,
+    "director": "Christopher Nolan",
+    "cast": [
+      {
+        "id": "person-10297",
+        "name": "Matthew McConaughey",
+        "character": "Cooper",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      },
+      {
+        "id": "person-1813",
+        "name": "Anne Hathaway",
+        "character": "Brand",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 1
+      },
+      {
+        "id": "person-83002",
+        "name": "Jessica Chastain",
+        "character": "Murph",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 2
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-525",
+        "name": "Christopher Nolan",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      },
+      {
+        "id": "person-947",
+        "name": "Hans Zimmer",
+        "job": "Original Music Composer",
+        "department": "Sound",
+        "profilePath": ""
+      }
+    ]
+  },
+  {
+    "id": "mov-pushpa-2",
+    "providerId": 857598,
+    "slug": "pushpa-2-the-rule",
+    "title": "Pushpa 2: The Rule",
+    "originalTitle": "Pushpa 2: The Rule",
+    "synopsis": "Pushpa Raj expands his red sanders smuggling empire across borders, going toe-to-toe with Bhanwar Singh Shekhawat in an explosive showdown of authority, pride, and vengeance.",
+    "overview": "The clash between Pushpa Raj and SP Bhanwar Singh Shekhawat reaches unprecedented heights.",
+    "posterPath": "/1T21FblunT0y8fz7YaW8JMYgUKm.jpg",
+    "backdropPath": "/5nEyyLkElpD7zkqh41aSkTCchcc.jpg",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1T21FblunT0y8fz7YaW8JMYgUKm.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/5nEyyLkElpD7zkqh41aSkTCchcc.jpg",
+    "trailerYoutubeId": "1kVK0MZlbI4",
+    "rating": 8.3,
+    "ratingCount": 140000,
+    "voteCount": 1400,
+    "tmdbRating": 8.3,
+    "showaraRating": 4.8,
+    "durationMinutes": 175,
+    "runtime": 175,
+    "releaseDate": "2024-12-05",
+    "certification": "UA 16+",
+    "languages": [
+      "Telugu",
+      "Hindi",
+      "Tamil",
+      "Kannada",
+      "Malayalam"
+    ],
+    "originalLanguage": "te",
+    "formats": [
+      "IMAX 2D",
+      "2D"
+    ],
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "status": "upcoming",
+    "isFeatured": true,
+    "trendingRank": 11,
+    "popularity": 510.7,
+    "director": "Sukumar",
+    "cast": [
+      {
+        "id": "person-72650",
+        "name": "Allu Arjun",
+        "character": "Pushpa Raj",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      },
+      {
+        "id": "person-126465",
+        "name": "Rashmika Mandanna",
+        "character": "Srivalli",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 1
+      },
+      {
+        "id": "person-74769",
+        "name": "Fahadh Faasil",
+        "character": "SP Bhanwar Singh Shekhawat",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 2
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-1383796",
+        "name": "Sukumar",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      },
+      {
+        "id": "person-1383797",
+        "name": "Devi Sri Prasad",
+        "job": "Original Music Composer",
+        "department": "Sound",
+        "profilePath": ""
+      }
+    ]
+  },
+  {
+    "id": "mov-kantara-chapter-1",
+    "providerId": 1083637,
+    "slug": "kantara-chapter-1",
+    "title": "Kantara: Chapter 1",
+    "originalTitle": "Kantara: Chapter 1",
+    "synopsis": "A prequel saga tracing the ancient mythological origin of the forest demigods, the royal dynasty of Kadamba kingdom, and the inception of the sacred Bhoota Kola spiritual ritual in Kadamba-era Karnataka.",
+    "overview": "The origin story exploring the legendary divine connection between humans, nature, and the deities.",
+    "posterPath": "/ehQPboTPaIMkMUOoNOh8e7pZ5Rp.jpg",
+    "backdropPath": "/w57nxiBIODAYHLRs1xmrCY9zEFe.jpg",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/ehQPboTPaIMkMUOoNOh8e7pZ5Rp.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/w57nxiBIODAYHLRs1xmrCY9zEFe.jpg",
+    "trailerYoutubeId": "o_7E85bYI_s",
+    "rating": 8.5,
+    "ratingCount": 65000,
+    "voteCount": 650,
+    "tmdbRating": 8.5,
+    "showaraRating": 4.9,
+    "durationMinutes": 160,
+    "runtime": 160,
+    "releaseDate": "2025-10-02",
+    "certification": "UA 16+",
+    "languages": [
+      "Kannada",
+      "Hindi",
+      "Telugu",
+      "Tamil",
+      "Malayalam",
+      "Bengali",
+      "English"
+    ],
+    "originalLanguage": "kn",
+    "formats": [
+      "IMAX 2D",
+      "2D",
+      "Dolby Atmos"
+    ],
+    "genres": [
+      "Action",
+      "Fantasy",
+      "Drama"
+    ],
+    "status": "upcoming",
+    "isFeatured": true,
+    "trendingRank": 12,
+    "popularity": 410.2,
+    "director": "Rishab Shetty",
+    "cast": [
+      {
+        "id": "person-158392",
+        "name": "Rishab Shetty",
+        "character": "The Ancestral Warrior",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-158392",
+        "name": "Rishab Shetty",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      },
+      {
+        "id": "person-158394",
+        "name": "B. Ajaneesh Loknath",
+        "job": "Original Music Composer",
+        "department": "Sound",
+        "profilePath": ""
+      }
+    ]
+  },
+  {
+    "id": "mov-avatar-3",
+    "providerId": 83533,
+    "slug": "avatar-fire-and-ash",
+    "title": "Avatar: Fire and Ash",
+    "originalTitle": "Avatar: Fire and Ash",
+    "synopsis": "Jake Sully and Neytiri encounter a new, aggressive volcanic clan of Na'vi known as the 'Ash People', led by Varang, testing their family's resilience on Pandora.",
+    "overview": "The third chapter in James Cameron's Avatar saga exploring the fiery volcanic realms of Pandora.",
+    "posterPath": "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+    "backdropPath": "/s16H6tpK2utvwDtzZ8Qy4qm5Emw.jpg",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/s16H6tpK2utvwDtzZ8Qy4qm5Emw.jpg",
+    "trailerYoutubeId": "d9MyW72ELq0",
+    "rating": 8.2,
+    "ratingCount": 150000,
+    "voteCount": 1500,
+    "tmdbRating": 8.2,
+    "showaraRating": 4.8,
+    "durationMinutes": 192,
+    "runtime": 192,
+    "releaseDate": "2025-12-19",
+    "certification": "UA 13+",
+    "languages": [
+      "English",
+      "Hindi",
+      "Tamil",
+      "Telugu"
+    ],
+    "originalLanguage": "en",
+    "formats": [
+      "IMAX 3D",
+      "3D",
+      "4DX",
+      "2D"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Science Fiction",
+      "Fantasy"
+    ],
+    "status": "upcoming",
+    "isFeatured": false,
+    "trendingRank": 13,
+    "popularity": 490.5,
+    "director": "James Cameron",
+    "cast": [
+      {
+        "id": "person-65731",
+        "name": "Sam Worthington",
+        "character": "Jake Sully",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 0
+      },
+      {
+        "id": "person-8691",
+        "name": "Zoe Saldaña",
+        "character": "Neytiri",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 1
+      },
+      {
+        "id": "person-10205",
+        "name": "Sigourney Weaver",
+        "character": "Kiri",
+        "profilePath": "",
+        "avatarUrl": "",
+        "order": 2
+      }
+    ],
+    "crew": [
+      {
+        "id": "person-2710",
+        "name": "James Cameron",
+        "job": "Director",
+        "department": "Directing",
+        "profilePath": ""
+      },
+      {
+        "id": "person-158398",
+        "name": "Simon Franglen",
+        "job": "Original Music Composer",
+        "department": "Sound",
+        "profilePath": ""
+      }
+    ]
+  }
+]

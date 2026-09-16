@@ -24,6 +24,7 @@ interface BookingContextType {
   initShowSelection: (movie: Movie, cinema: Cinema, show: Show, date: string, targetCount?: number) => void;
   setTargetSeatCount: (count: number) => void;
   toggleSeat: (seat: Seat, maxLimit?: number) => { added: boolean; error?: string };
+  removeSelectedSeats: (seatIds: string[]) => void;
   validateAndHoldSeats: (showId: string, seatIds: string[]) => Promise<{ success: boolean; unavailableSeats?: string[]; error?: string }>;
   applyDiscountCode: (code: string) => void;
   clearBooking: () => void;
@@ -147,6 +148,13 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
   };
 
   const toggleSeat = (seat: Seat, maxLimit?: number): { added: boolean; error?: string } => {
+    if (seat.status === "OCCUPIED" || seat.status === "LOCKED") {
+      return {
+        added: false,
+        error: `Seat ${seat.id} is no longer available. Please select another seat.`,
+      };
+    }
+
     const limit = maxLimit ?? draft.targetSeatCount ?? 2;
     const exists = draft.selectedSeats.some((s) => s.id === seat.id);
 
@@ -202,6 +210,27 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     return { added: true };
   };
 
+  const removeSelectedSeats = (seatIds: string[]) => {
+    if (!seatIds || seatIds.length === 0) return;
+    const seatIdSet = new Set(seatIds);
+    setDraft((prev) => {
+      const filtered = prev.selectedSeats.filter((s) => !seatIdSet.has(s.id));
+      if (filtered.length === prev.selectedSeats.length) return prev;
+      const newPricing = bookingService.calculatePricing(filtered, prev.discountCode);
+      const expiry = filtered.length > 0 ? prev.seatHoldExpiry : null;
+      const updated: BookingDraft = {
+        ...prev,
+        selectedSeats: filtered,
+        seatHoldExpiry: expiry,
+        pricing: newPricing,
+      };
+      try {
+        sessionStorage.setItem("showara_active_draft", JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+  };
+
   const validateAndHoldSeats = async (
     showId: string,
     seatIds: string[]
@@ -248,6 +277,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
         initShowSelection,
         setTargetSeatCount,
         toggleSeat,
+        removeSelectedSeats,
         validateAndHoldSeats,
         applyDiscountCode,
         clearBooking,

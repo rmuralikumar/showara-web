@@ -143,6 +143,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         orderId: existingOrder.razorpayOrderId,
         amount: serverExpectedTotal,
+        amountInPaise,
         currency: "INR",
         keyId,
       });
@@ -181,6 +182,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       orderId: razorpayOrder.id,
       amount: serverExpectedTotal,
+      amountInPaise,
       currency: "INR",
       keyId,
     });

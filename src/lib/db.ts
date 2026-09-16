@@ -321,7 +321,7 @@ export const db = {
         return {
           success: false,
           unavailableSeats: unavailable,
-          error: `Seat ${unavailable.join(", ")} is currently held or already booked by another user.`,
+          error: `Seat ${unavailable.join(", ")} is no longer available. Please select another seat.`,
         };
       }
 
@@ -542,7 +542,7 @@ export const db = {
         INSERT INTO payments (
           id, booking_id, razorpay_order_id, razorpay_payment_id,
           amount, amount_in_paise, currency, status, error_reason,
-          created_at, updatedAt
+          created_at, updated_at
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(razorpay_order_id) DO UPDATE SET
           razorpay_payment_id = excluded.razorpay_payment_id,

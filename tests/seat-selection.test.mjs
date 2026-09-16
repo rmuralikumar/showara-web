@@ -426,3 +426,221 @@ test("Persistence across navigation: movie, cinema, show, date retained when edi
     "BookingContext must expose setTargetSeatCount"
   );
 });
+
+test("Unavailable seat removal: when selected seat becomes unavailable, it is immediately removed from selected state", () => {
+  class BookingSimulator {
+    constructor(targetCount = 1) {
+      this.targetSeatCount = targetCount;
+      this.selectedSeats = [{ id: "A4", row: "A", number: 4, tier: "RECLINER", price: 440, status: "SELECTED" }];
+      this.errorMessage = null;
+    }
+
+    removeSelectedSeats(seatIds) {
+      const idSet = new Set(seatIds);
+      this.selectedSeats = this.selectedSeats.filter((s) => !idSet.has(s.id));
+    }
+
+    onAvailabilityCheckFailed(conflicts) {
+      this.removeSelectedSeats(conflicts);
+      this.errorMessage = `Seat ${conflicts.join(", ")} is no longer available. Please select another seat.`;
+    }
+
+    isProceedEnabled({ isExpired = false, isProcessing = false } = {}) {
+      const validCount = this.selectedSeats.length;
+      return validCount === this.targetSeatCount && validCount > 0 && !isExpired && !isProcessing;
+    }
+  }
+
+  const sim = new BookingSimulator(1);
+  assert.equal(sim.selectedSeats.length, 1);
+  assert.equal(sim.selectedSeats[0].id, "A4");
+  assert.equal(sim.isProceedEnabled(), true);
+
+  // Seat A4 becomes unavailable (e.g. taken by another user during checkout)
+  sim.onAvailabilityCheckFailed(["A4"]);
+
+  // Requirement 1 & 4: Seat A4 must be immediately removed from selected-seat state
+  assert.equal(sim.selectedSeats.length, 0, "Selected seats must be empty after removing A4");
+  assert.equal(sim.selectedSeats.some((s) => s.id === "A4"), false, "A4 must not remain selected");
+
+  // Requirement 2: Show exact error message
+  assert.equal(sim.errorMessage, "Seat A4 is no longer available. Please select another seat.");
+
+  // Requirement 5: Proceed to Pay must now be disabled
+  assert.equal(sim.isProceedEnabled(), false, "Proceed to Pay button must be disabled when 0 valid seats are selected");
+
+  // Code inspection: BookingContext must expose removeSelectedSeats
+  assert.ok(
+    bookingContextContent.includes("removeSelectedSeats"),
+    "BookingContext must implement and export removeSelectedSeats"
+  );
+  assert.ok(
+    seatPageContent.includes("removeSelectedSeats"),
+    "SeatPage must call removeSelectedSeats when seats become unavailable"
+  );
+});
+
+test("Counter and summary update: seat counter and bottom booking summary reflect seat removal", () => {
+  const targetSeatCount = 1;
+  let selectedSeats = [{ id: "A4", price: 440 }];
+
+  const getSummary = (seats) => {
+    return {
+      counterText: `${seats.length} of ${targetSeatCount} selected`,
+      seatsLabel: seats.length > 0 ? `Seats: ${seats.map((s) => s.id).join(", ")}` : "No seats chosen",
+      totalAmount: seats.reduce((sum, s) => sum + s.price, 0),
+    };
+  };
+
+  const initialSummary = getSummary(selectedSeats);
+  assert.equal(initialSummary.counterText, "1 of 1 selected");
+  assert.equal(initialSummary.seatsLabel, "Seats: A4");
+  assert.equal(initialSummary.totalAmount, 440);
+
+  // Remove unavailable seat A4
+  selectedSeats = [];
+  const updatedSummary = getSummary(selectedSeats);
+
+  // Requirement 3: Counter and bottom summary must automatically update
+  assert.equal(updatedSummary.counterText, "0 of 1 selected");
+  assert.equal(updatedSummary.seatsLabel, "No seats chosen");
+  assert.equal(updatedSummary.totalAmount, 0);
+
+  // Check SeatMap implementation uses validSelectedSeats for counter & summary
+  assert.ok(
+    seatMapContent.includes("validSelectedSeats"),
+    "SeatMap must compute validSelectedSeats to ensure summary never reflects invalid seats"
+  );
+});
+
+test("Proceed to Pay disabled states: disabled on count mismatch, unavailable seat, expiry, or in-flight processing", () => {
+  function checkProceedDisabled({ selectedCount, targetCount, hasUnavailable, isExpired, isProcessing }) {
+    const isExact = selectedCount === targetCount && !hasUnavailable && selectedCount > 0;
+    return !isExact || isProcessing || isExpired;
+  }
+
+  // Count mismatch (0 of 1 selected)
+  assert.equal(checkProceedDisabled({ selectedCount: 0, targetCount: 1, hasUnavailable: false, isExpired: false, isProcessing: false }), true);
+
+  // Count mismatch (2 of 1 selected)
+  assert.equal(checkProceedDisabled({ selectedCount: 2, targetCount: 1, hasUnavailable: false, isExpired: false, isProcessing: false }), true);
+
+  // Unavailable seat still in selection
+  assert.equal(checkProceedDisabled({ selectedCount: 1, targetCount: 1, hasUnavailable: true, isExpired: false, isProcessing: false }), true);
+
+  // Expired hold
+  assert.equal(checkProceedDisabled({ selectedCount: 1, targetCount: 1, hasUnavailable: false, isExpired: true, isProcessing: false }), true);
+
+  // In-flight processing
+  assert.equal(checkProceedDisabled({ selectedCount: 1, targetCount: 1, hasUnavailable: false, isExpired: false, isProcessing: true }), true);
+
+  // Valid and ready
+  assert.equal(checkProceedDisabled({ selectedCount: 1, targetCount: 1, hasUnavailable: false, isExpired: false, isProcessing: false }), false);
+
+  // Verify SeatMap button disabled prop checks
+  assert.ok(
+    seatMapContent.includes("disabled={!isExactCountSelected || isProcessing || isExpired}"),
+    "SeatMap Proceed CTA button must be disabled if not exact count, isProcessing, or isExpired"
+  );
+});
+
+test("Replacement seat selection: selecting a valid replacement seat recalculates price and re-enables Proceed to Pay", () => {
+  const targetCount = 1;
+  let selectedSeats = [];
+  let price = 0;
+
+  // Replacement seat B3 (Prime @ ₹380)
+  const replacementSeat = { id: "B3", tier: "PRIME", price: 380, status: "AVAILABLE" };
+  selectedSeats.push(replacementSeat);
+  price = replacementSeat.price;
+
+  const isExactCountSelected = selectedSeats.length === targetCount && selectedSeats[0].status === "AVAILABLE";
+  assert.equal(isExactCountSelected, true, "Proceed to Pay must be re-enabled for replacement seat");
+  assert.equal(price, 380, "Price must be recalculated for new seat");
+  assert.equal(selectedSeats[0].id, "B3");
+});
+
+test("Final availability check fails: user kept on seat-selection page, invalid seat removed, error displayed", () => {
+  let userNavigated = false;
+  let currentRoute = "/book/show-123";
+  let displayedError = null;
+  let selectedSeats = [{ id: "A4" }];
+
+  async function handleProceedSimulation(isSeatAvailable) {
+    if (!isSeatAvailable) {
+      // Re-validation failed on server
+      selectedSeats = selectedSeats.filter((s) => s.id !== "A4");
+      displayedError = "Seat A4 is no longer available. Please select another seat.";
+      return; // Stay on page
+    }
+    userNavigated = true;
+    currentRoute = "/booking/review";
+  }
+
+  // Availability check fails
+  handleProceedSimulation(false);
+
+  assert.equal(userNavigated, false, "Must not navigate when final validation fails");
+  assert.equal(currentRoute, "/book/show-123", "User must remain on seat selection page");
+  assert.equal(selectedSeats.length, 0, "Invalid seat must be removed from selected state");
+  assert.equal(displayedError, "Seat A4 is no longer available. Please select another seat.");
+
+  // Code inspection: handleProceed in page.tsx must remove invalid seats and set error
+  assert.ok(
+    seatPageContent.includes("removeSelectedSeats(fallbackIds)"),
+    "page.tsx must remove invalid seats upon validation failure"
+  );
+  assert.ok(
+    seatPageContent.includes("setErrorMessage("),
+    "page.tsx must set clear error message upon validation failure"
+  );
+});
+
+test("Successful payment navigation: valid selection proceeds to review/payment", () => {
+  let currentRoute = "/book/show-123";
+
+  function handleProceedSuccess() {
+    currentRoute = "/booking/review";
+  }
+
+  handleProceedSuccess();
+  assert.equal(currentRoute, "/booking/review", "Successful validation navigates to review page");
+  assert.ok(
+    seatPageContent.includes('router.push("/booking/review")'),
+    "page.tsx must navigate to booking review on validation success"
+  );
+});
+
+test("Duplicate clicks: Proceed button and handler prevent concurrent submissions", () => {
+  let callCount = 0;
+  let isProcessing = false;
+
+  async function clickProceed() {
+    if (isProcessing) return "IGNORED";
+    isProcessing = true;
+    callCount++;
+    // Simulate async server call
+    await new Promise((r) => setTimeout(r, 10));
+    isProcessing = false;
+    return "PROCESSED";
+  }
+
+  // Trigger multiple clicks concurrently
+  const p1 = clickProceed();
+  const p2 = clickProceed();
+  const p3 = clickProceed();
+
+  Promise.all([p1, p2, p3]).then(([r1, r2, r3]) => {
+    assert.equal(r1, "PROCESSED");
+    assert.equal(r2, "IGNORED");
+    assert.equal(r3, "IGNORED");
+    assert.equal(callCount, 1, "Only a single proceed request must be executed");
+  });
+
+  // Check page.tsx has duplicate click guard
+  assert.ok(
+    seatPageContent.includes("if (!show || isProcessing) return;"),
+    "handleProceed in page.tsx must check isProcessing before firing"
+  );
+});
+

@@ -33,6 +33,7 @@ function SeatSelectionContent({
   const {
     draft,
     toggleSeat,
+    removeSelectedSeats,
     setTargetSeatCount,
     validateAndHoldSeats,
     remainingSeconds,
@@ -117,12 +118,10 @@ function SeatSelectionContent({
 
         const contested = draft.selectedSeats.filter((s) => freshUnavailable.has(s.id));
         if (contested.length > 0) {
-          // Deselect contested seats and notify
-          for (const c of contested) {
-            toggleSeat(c);
-          }
+          const contestedIds = contested.map((s) => s.id);
+          removeSelectedSeats(contestedIds);
           setErrorMessage(
-            `Seat ${contested.map((s) => s.id).join(", ")} was just reserved by another guest. Please pick an alternate seat.`
+            `Seat ${contestedIds.join(", ")} is no longer available. Please select another seat.`
           );
         }
       } catch (err) {
@@ -131,7 +130,7 @@ function SeatSelectionContent({
     }, 15000);
 
     return () => clearInterval(pollInterval);
-  }, [show, draft.selectedSeats, toggleSeat]);
+  }, [show, draft.selectedSeats, removeSelectedSeats]);
 
   // Handle count confirmation from Step 1 modal
   const handleConfirmCount = useCallback(
@@ -142,13 +141,53 @@ function SeatSelectionContent({
     [setTargetSeatCount]
   );
 
+  // Handle toggling seat with automatic error clearing on valid replacement selection
+  const handleToggleSeat = useCallback(
+    (seat: Seat) => {
+      const res = toggleSeat(seat);
+      if (res.added) {
+        setErrorMessage(null);
+      } else if (res.error) {
+        setErrorMessage(res.error);
+      }
+      return res;
+    },
+    [toggleSeat]
+  );
+
   // Handle Proceed CTA with server-side double-booking re-validation
   const handleProceed = async () => {
-    if (!show) return;
+    if (!show || isProcessing) return;
+
+    if (draft.selectedSeats.length === 0) {
+      setErrorMessage("Please select your seats to proceed.");
+      return;
+    }
 
     if (draft.selectedSeats.length !== draft.targetSeatCount) {
       setErrorMessage(
         `Please select exactly ${draft.targetSeatCount} seat${draft.targetSeatCount > 1 ? "s" : ""} to proceed.`
+      );
+      return;
+    }
+
+    if (remainingSeconds <= 0 && draft.seatHoldExpiry) {
+      setErrorMessage("Your seat reservation has expired. Please select your seats again.");
+      return;
+    }
+
+    // Check if any selected seat is already known to be unavailable
+    const seatMap = new Map(allSeats.map((s) => [s.id, s]));
+    const invalidSelected = draft.selectedSeats.filter((s) => {
+      const current = seatMap.get(s.id);
+      return !current || current.status === "OCCUPIED" || current.status === "LOCKED";
+    });
+
+    if (invalidSelected.length > 0) {
+      const invalidIds = invalidSelected.map((s) => s.id);
+      removeSelectedSeats(invalidIds);
+      setErrorMessage(
+        `Seat ${invalidIds.join(", ")} is no longer available. Please select another seat.`
       );
       return;
     }
@@ -162,13 +201,28 @@ function SeatSelectionContent({
       const validationRes = await validateAndHoldSeats(show.id, selectedIds);
 
       if (!validationRes.success) {
-        setErrorMessage(
-          validationRes.error ||
-            "One or more of your selected seats are no longer available. Please select another seat."
-        );
         // Refresh local seats to reflect taken seats
         const freshSeats = await seatService.getSeatsForShow(show.id, show.priceConfig);
         setAllSeats(freshSeats);
+
+        // Identify unavailable seats from response or fresh seats
+        const unavailable =
+          validationRes.unavailableSeats && validationRes.unavailableSeats.length > 0
+            ? validationRes.unavailableSeats
+            : selectedIds.filter((id) => {
+                const s = freshSeats.find((fs) => fs.id === id);
+                return !s || s.status === "OCCUPIED" || s.status === "LOCKED";
+              });
+
+        const fallbackIds = unavailable.length > 0 ? unavailable : selectedIds;
+
+        // Immediately remove invalid seat(s) from state so UI and counters update
+        removeSelectedSeats(fallbackIds);
+
+        setErrorMessage(
+          validationRes.error ||
+            `Seat ${fallbackIds.join(", ")} is no longer available. Please select another seat.`
+        );
         setIsProcessing(false);
         return;
       }
@@ -291,10 +345,11 @@ function SeatSelectionContent({
           selectedSeats={draft.selectedSeats}
           targetSeatCount={draft.targetSeatCount || 2}
           pricing={draft.pricing}
-          onToggleSeat={toggleSeat}
+          onToggleSeat={handleToggleSeat}
           onProceed={handleProceed}
           onChangeCount={() => setIsCountModalOpen(true)}
           isProcessing={isProcessing}
+          isExpired={remainingSeconds <= 0 && !!draft.seatHoldExpiry}
         />
       </main>
 

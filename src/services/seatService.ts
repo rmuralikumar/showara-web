@@ -89,7 +89,7 @@ export const seatService = {
             unavailableSeats: errData.unavailableSeats || [],
             error:
               errData.error ||
-              `One or more of the selected seats are no longer available. Please choose alternate seats.`,
+              `Seat ${(errData.unavailableSeats || []).join(", ")} is no longer available. Please select another seat.`,
           };
         }
       } catch (networkErr) {

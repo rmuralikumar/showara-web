@@ -3,6 +3,7 @@ import { Booking, PaymentMethod } from "@/types/booking";
 export interface CreateOrderResponse {
   orderId: string;
   amount: number;
+  amountInPaise?: number;
   currency: string;
   keyId: string;
 }

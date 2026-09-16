@@ -6,6 +6,7 @@ import SafeImage from "@/components/ui/SafeImage";
 import { useRouter } from "next/navigation";
 import { useBooking } from "@/context/BookingContext";
 import { useAuth } from "@/context/AuthContext";
+import { seatService } from "@/services/seatService";
 import {
   ChevronLeft,
   Tag,
@@ -16,11 +17,12 @@ import {
   Ticket,
   CheckCircle2,
   AlertCircle,
+  ShieldAlert,
 } from "lucide-react";
 
 export default function BookingReviewPage() {
   const router = useRouter();
-  const { draft, applyDiscountCode, remainingSeconds } = useBooking();
+  const { draft, applyDiscountCode, removeSelectedSeats, remainingSeconds } = useBooking();
   const { user, updateProfile } = useAuth();
 
   const [couponInput, setCouponInput] = useState("");
@@ -28,6 +30,8 @@ export default function BookingReviewPage() {
   const [userName, setUserName] = useState(user.name);
   const [userEmail, setUserEmail] = useState(user.email);
   const [userPhone, setUserPhone] = useState(user.phone);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   if (!draft.show || !draft.movie || !draft.cinema || draft.selectedSeats.length === 0) {
     return (
@@ -63,9 +67,45 @@ export default function BookingReviewPage() {
     }
   };
 
-  const handleProceedToPayment = () => {
-    updateProfile({ name: userName, email: userEmail, phone: userPhone });
-    router.push("/booking/payment");
+  const handleProceedToPayment = async () => {
+    if (isProcessing) return;
+    if (!draft.show || draft.selectedSeats.length === 0) return;
+
+    if (remainingSeconds <= 0 && draft.seatHoldExpiry) {
+      setErrorMessage("Your seat reservation has expired. Redirecting to seat selection...");
+      setTimeout(() => {
+        router.push(`/book/${draft.show?.id}`);
+      }, 1200);
+      return;
+    }
+
+    setIsProcessing(true);
+    setErrorMessage(null);
+
+    try {
+      const selectedIds = draft.selectedSeats.map((s) => s.id);
+      const validationRes = await seatService.validateAndLockSeats(
+        draft.show.id,
+        selectedIds,
+        draft.show.priceConfig
+      );
+
+      if (!validationRes.success) {
+        const unavailable =
+          validationRes.unavailableSeats && validationRes.unavailableSeats.length > 0
+            ? validationRes.unavailableSeats
+            : selectedIds;
+        removeSelectedSeats(unavailable);
+        router.push(`/book/${draft.show.id}`);
+        return;
+      }
+
+      updateProfile({ name: userName, email: userEmail, phone: userPhone });
+      router.push("/booking/payment");
+    } catch {
+      setErrorMessage("Unable to verify seat availability. Please try again.");
+      setIsProcessing(false);
+    }
   };
 
   return (
@@ -87,6 +127,25 @@ export default function BookingReviewPage() {
         </div>
 
         <h1 className="text-2xl font-black text-[var(--text-primary)] tracking-tight">Review Your Booking</h1>
+
+        {errorMessage && (
+          <div
+            role="alert"
+            className="p-4 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-500 dark:text-rose-300 text-xs font-semibold flex items-center justify-between gap-3 shadow-md"
+          >
+            <div className="flex items-center gap-2">
+              <ShieldAlert className="w-4 h-4 text-rose-500 flex-shrink-0" />
+              <span>{errorMessage}</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setErrorMessage(null)}
+              className="px-2 py-1 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 text-rose-200 text-[11px]"
+            >
+              Dismiss
+            </button>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Left Column: Movie & Showtime Details */}
@@ -274,11 +333,18 @@ export default function BookingReviewPage() {
               {/* Action Button */}
               <button
                 type="button"
+                disabled={isProcessing || (remainingSeconds <= 0 && !!draft.seatHoldExpiry)}
                 onClick={handleProceedToPayment}
-                className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] text-white text-sm font-bold shadow-lg shadow-[var(--brand-primary-glow)] hover:brightness-110 active:scale-95 transition-all touch-target flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] text-white text-sm font-bold shadow-lg shadow-[var(--brand-primary-glow)] disabled:opacity-40 disabled:cursor-not-allowed hover:brightness-110 active:scale-95 transition-all touch-target flex items-center justify-center gap-2"
               >
-                <span>Proceed to Payment</span>
-                <span>• ₹{draft.pricing.totalAmount}</span>
+                {isProcessing ? (
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                ) : (
+                  <>
+                    <span>Proceed to Payment</span>
+                    <span>• ₹{draft.pricing.totalAmount}</span>
+                  </>
+                )}
               </button>
             </div>
           </div>

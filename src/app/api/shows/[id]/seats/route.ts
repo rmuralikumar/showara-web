@@ -74,7 +74,7 @@ export async function POST(
       {
         success: false,
         unavailableSeats: permanentlyOccupied,
-        error: `Seat ${permanentlyOccupied.join(", ")} is permanently occupied. Please select another seat.`,
+        error: `Seat ${permanentlyOccupied.join(", ")} is no longer available. Please select another seat.`,
       },
       { status: 409 }
     );
@@ -95,7 +95,7 @@ export async function POST(
         unavailableSeats: holdResult.unavailableSeats || [],
         error:
           holdResult.error ||
-          `One or more seats are no longer available. Please select alternate seats.`,
+          `Seat ${(holdResult.unavailableSeats || []).join(", ")} is no longer available. Please select another seat.`,
       },
       { status: 409 }
     );

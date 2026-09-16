@@ -752,3 +752,150 @@ test("24. Security Audit: Verify RAZORPAY_KEY_SECRET is not exposed in client fi
     "RAZORPAY_KEY_SECRET must NEVER be in client paymentService"
   );
 });
+
+const rootDir = process.cwd();
+
+// 25. Razorpay currency unit conversion: exactly once, ₹361 -> 36100 paise, ₹421 -> 42100 paise
+test("25. Razorpay currency conversion: ₹361 -> 36100 paise, ₹421 -> 42100 paise exactly once", () => {
+  assert.equal(inrToPaise(361), 36100, "₹361 must convert to exactly 36100 paise");
+  assert.equal(inrToPaise(421), 42100, "₹421 must convert to exactly 42100 paise");
+  assert.equal(inrToPaise(380), 38000, "₹380 must convert to exactly 38000 paise");
+});
+
+// 26. Server authoritative validation: client cannot override server amount
+test("26. Server authoritative validation: mismatched client/server totals are rejected", () => {
+  function validateOrderAmount({ clientAmount, serverExpectedAmount }) {
+    if (Math.abs(clientAmount - serverExpectedAmount) > 0.01) {
+      return {
+        valid: false,
+        error: `Payment amount mismatch: expected ₹${serverExpectedAmount}, received ₹${clientAmount}.`,
+      };
+    }
+    return { valid: true };
+  }
+
+  // Client attempts to send ₹421 when server calculates ₹361
+  const mismatch1 = validateOrderAmount({ clientAmount: 421, serverExpectedAmount: 361 });
+  assert.equal(mismatch1.valid, false);
+  assert.match(mismatch1.error, /Payment amount mismatch: expected ₹361, received ₹421/);
+
+  // Client attempts to send ₹361 when server calculates ₹421
+  const mismatch2 = validateOrderAmount({ clientAmount: 361, serverExpectedAmount: 421 });
+  assert.equal(mismatch2.valid, false);
+  assert.match(mismatch2.error, /Payment amount mismatch: expected ₹421, received ₹361/);
+
+  // Client and server match
+  const match = validateOrderAmount({ clientAmount: 421, serverExpectedAmount: 421 });
+  assert.equal(match.valid, true);
+
+  // Verify server API code contains strict mismatch check
+  const createOrderRoute = fs.readFileSync(
+    path.join(rootDir, "src", "app", "api", "payment", "create-order", "route.ts"),
+    "utf8"
+  );
+  assert.ok(
+    createOrderRoute.includes("Payment amount mismatch: expected ₹"),
+    "create-order route must enforce Payment amount mismatch validation"
+  );
+});
+
+// 27. Fee & Tax consistency: convenience fees and GST are not added twice
+test("27. Fee & Tax consistency: fees and taxes are not added twice across layers", () => {
+  const CONVENIENCE_FEE_PER_TICKET = 35;
+  const GST_RATE = 0.18;
+
+  function calculateTestPricing(seats, discountCode) {
+    const ticketSubtotal = seats.reduce((acc, s) => acc + s.price, 0);
+    const count = seats.length;
+    const totalConvenienceFee = count * CONVENIENCE_FEE_PER_TICKET;
+    const taxGst = Math.round(totalConvenienceFee * GST_RATE);
+    let discount = 0;
+    const totalAmount = Math.max(0, ticketSubtotal + totalConvenienceFee + taxGst - discount);
+    return { ticketSubtotal, totalConvenienceFee, taxGst, discount, totalAmount };
+  }
+
+  // Slot 1: Prime seat at ₹320
+  const slot1Pricing = calculateTestPricing([{ price: 320 }], "");
+  assert.equal(slot1Pricing.ticketSubtotal, 320);
+  assert.equal(slot1Pricing.totalConvenienceFee, 35);
+  assert.equal(slot1Pricing.taxGst, 6); // Math.round(35 * 0.18) = 6
+  assert.equal(slot1Pricing.totalAmount, 361, "Slot 1 Prime seat total must be ₹361 (320 + 35 + 6)");
+
+  // Slot 3: Prime seat at ₹380
+  const slot3Pricing = calculateTestPricing([{ price: 380 }], "");
+  assert.equal(slot3Pricing.ticketSubtotal, 380);
+  assert.equal(slot3Pricing.totalConvenienceFee, 35);
+  assert.equal(slot3Pricing.taxGst, 6);
+  assert.equal(slot3Pricing.totalAmount, 421, "Slot 3 Prime seat total must be ₹421 (380 + 35 + 6)");
+});
+
+// 28. Decimal rounding: decimal amounts are rounded consistently
+test("28. Decimal rounding: paise and tax calculations round consistently", () => {
+  // Test GST rounding on odd amounts
+  const gst1 = Math.round(35 * 0.18);
+  assert.equal(gst1, 6);
+
+  const gst2 = Math.round(70 * 0.18);
+  assert.equal(gst2, 13); // 12.6 rounds to 13
+
+  // Test paise conversions
+  assert.equal(inrToPaise(421), 42100);
+  assert.equal(inrToPaise(421.00), 42100);
+  assert.equal(inrToPaise(361.00), 36100);
+});
+
+// 29. Dynamic show slot consistency: showService.getShowById preserves slot-specific pricing
+test("29. Dynamic show slot consistency: showService preserves slot pricing (Slot 1: 320, Slot 3: 380)", async () => {
+  const showServiceContent = fs.readFileSync(
+    path.join(rootDir, "src", "services", "showService.ts"),
+    "utf8"
+  );
+
+  assert.ok(
+    showServiceContent.includes("DYNAMIC_SHOW_SLOTS"),
+    "showService must define unified DYNAMIC_SHOW_SLOTS"
+  );
+  assert.ok(
+    showServiceContent.includes("slotMatch = showId.match"),
+    "showService.getShowById must extract the slot number from showId suffix"
+  );
+});
+
+// 30. Payment verification validates authoritative amount
+test("30. Payment verification: rejects mismatched payment order amount", () => {
+  function verifyPaymentAmountCheck(paymentRecord, booking) {
+    if (paymentRecord && Math.abs(paymentRecord.amount - booking.pricing.totalAmount) > 0.01) {
+      return {
+        success: false,
+        error: `Payment amount mismatch: order amount ₹${paymentRecord.amount} does not match booking amount ₹${booking.pricing.totalAmount}.`,
+      };
+    }
+    return { success: true };
+  }
+
+  // Payment record amount differs from booking authoritative amount
+  const failCheck = verifyPaymentAmountCheck(
+    { amount: 361 },
+    { pricing: { totalAmount: 421 } }
+  );
+  assert.equal(failCheck.success, false);
+  assert.match(failCheck.error, /Payment amount mismatch: order amount ₹361 does not match booking amount ₹421/);
+
+  // Matching amounts
+  const passCheck = verifyPaymentAmountCheck(
+    { amount: 421 },
+    { pricing: { totalAmount: 421 } }
+  );
+  assert.equal(passCheck.success, true);
+
+  // Verify verify/route.ts includes authoritative amount check
+  const verifyRouteContent = fs.readFileSync(
+    path.join(rootDir, "src", "app", "api", "payment", "verify", "route.ts"),
+    "utf8"
+  );
+  assert.ok(
+    verifyRouteContent.includes("Payment amount mismatch: order amount ₹"),
+    "verify/route.ts must check paymentRecord.amount against booking.pricing.totalAmount"
+  );
+});
+

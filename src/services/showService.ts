@@ -2,6 +2,31 @@ import { BASE_SHOWS, getAvailableDates } from "@/data/shows";
 import { CINEMAS } from "@/data/cinemas";
 import { Show } from "@/types/booking";
 
+export const DYNAMIC_SHOW_SLOTS: Record<
+  string,
+  {
+    startTime: string;
+    endTime: string;
+    priceConfig: { RECLINER: number; PRIME: number; CLASSIC: number };
+  }
+> = {
+  "1": {
+    startTime: "11:00",
+    endTime: "13:30",
+    priceConfig: { RECLINER: 450, PRIME: 320, CLASSIC: 220 },
+  },
+  "2": {
+    startTime: "15:30",
+    endTime: "18:00",
+    priceConfig: { RECLINER: 480, PRIME: 350, CLASSIC: 240 },
+  },
+  "3": {
+    startTime: "19:15",
+    endTime: "21:45",
+    priceConfig: { RECLINER: 520, PRIME: 380, CLASSIC: 260 },
+  },
+};
+
 export const showService = {
   getAvailableDates: (): string[] => {
     return getAvailableDates(7);
@@ -34,50 +59,23 @@ export const showService = {
         // If this is a live TMDB movie without pre-seeded shows, generate verified showtimes
         if (matching.length === 0 && cinema.screens && cinema.screens.length > 0) {
           const screen = cinema.screens[0];
-          matching = [
-            {
-              id: `show-${movieId}-${cinema.id}-1`,
+          matching = (["1", "2", "3"] as const).map((slotKey) => {
+            const slot = DYNAMIC_SHOW_SLOTS[slotKey];
+            return {
+              id: `show-${movieId}-${cinema.id}-${slotKey}`,
               movieId,
               cinemaId: cinema.id,
               screenId: screen.id,
               screenName: `${screen.name} - ${screen.format}`,
               date,
-              startTime: "11:00",
-              endTime: "13:30",
+              startTime: slot.startTime,
+              endTime: slot.endTime,
               language: "English",
               format: screen.format as any,
-              priceConfig: { RECLINER: 450, PRIME: 320, CLASSIC: 220 },
+              priceConfig: { ...slot.priceConfig },
               cancellationCutoffHours: 2,
-            },
-            {
-              id: `show-${movieId}-${cinema.id}-2`,
-              movieId,
-              cinemaId: cinema.id,
-              screenId: screen.id,
-              screenName: `${screen.name} - ${screen.format}`,
-              date,
-              startTime: "15:30",
-              endTime: "18:00",
-              language: "English",
-              format: screen.format as any,
-              priceConfig: { RECLINER: 480, PRIME: 350, CLASSIC: 240 },
-              cancellationCutoffHours: 2,
-            },
-            {
-              id: `show-${movieId}-${cinema.id}-3`,
-              movieId,
-              cinemaId: cinema.id,
-              screenId: screen.id,
-              screenName: `${screen.name} - ${screen.format}`,
-              date,
-              startTime: "19:15",
-              endTime: "21:45",
-              language: "English",
-              format: screen.format as any,
-              priceConfig: { RECLINER: 520, PRIME: 380, CLASSIC: 260 },
-              cancellationCutoffHours: 2,
-            },
-          ];
+            };
+          });
         }
 
         const datedShows = matching.map((s) => ({
@@ -106,18 +104,32 @@ export const showService = {
     if (showId && showId.startsWith("show-")) {
       const cinema = CINEMAS.find((c) => showId.includes(c.id)) || CINEMAS[0];
       const screen = cinema?.screens?.[0];
+
+      // Extract slot number from suffix (e.g. "-1", "-2", "-3")
+      const slotMatch = showId.match(/-([1-3])$/);
+      const slotKey = slotMatch ? slotMatch[1] : "1";
+      const slot = DYNAMIC_SHOW_SLOTS[slotKey] || DYNAMIC_SHOW_SLOTS["1"];
+
+      // Extract movieId from showId: show-${movieId}-${cinema.id}-${slot}
+      let extractedMovieId = "mov-live-selected";
+      const idWithoutPrefix = showId.slice("show-".length);
+      const cinemaIndex = idWithoutPrefix.indexOf(cinema.id);
+      if (cinemaIndex > 1) {
+        extractedMovieId = idWithoutPrefix.slice(0, cinemaIndex - 1);
+      }
+
       return {
         id: showId,
-        movieId: "mov-live-selected",
+        movieId: extractedMovieId,
         cinemaId: cinema.id,
         screenId: screen?.id || "scr-default-1",
-        screenName: screen?.name || "Audi 1",
+        screenName: screen ? `${screen.name} - ${screen.format}` : "Audi 1",
         date: date || getAvailableDates(1)[0],
-        startTime: "18:30",
-        endTime: "21:00",
+        startTime: slot.startTime,
+        endTime: slot.endTime,
         language: "English",
         format: (screen?.format as any) || "2D",
-        priceConfig: { RECLINER: 450, PRIME: 320, CLASSIC: 220 },
+        priceConfig: { ...slot.priceConfig },
         cancellationCutoffHours: 2,
       };
     }

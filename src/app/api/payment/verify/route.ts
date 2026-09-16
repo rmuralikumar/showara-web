@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 5. Verify order belongs to the current booking
+    // 5. Verify order belongs to the current booking and matches authoritative amount
     const paymentRecord = serverPaymentStore.getPaymentRecordByOrderId(cleanOrderId);
     if (
       (booking.razorpayOrderId && booking.razorpayOrderId !== cleanOrderId) ||
@@ -104,6 +104,22 @@ export async function POST(request: NextRequest) {
         {
           success: false,
           error: "Security error: Payment order does not match booking reference.",
+        },
+        { status: 400 }
+      );
+    }
+
+    if (paymentRecord && Math.abs(paymentRecord.amount - booking.pricing.totalAmount) > 0.01) {
+      serverPaymentStore.recordPaymentFailure(
+        cleanBookingId,
+        cleanOrderId,
+        "Amount mismatch during verification",
+        cleanPaymentId
+      );
+      return NextResponse.json(
+        {
+          success: false,
+          error: `Payment amount mismatch: order amount ₹${paymentRecord.amount} does not match booking amount ₹${booking.pricing.totalAmount}.`,
         },
         { status: 400 }
       );

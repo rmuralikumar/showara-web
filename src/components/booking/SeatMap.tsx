@@ -26,6 +26,7 @@ interface SeatMapProps {
   onProceed: () => void;
   onChangeCount: () => void;
   isProcessing?: boolean;
+  isExpired?: boolean;
 }
 
 const TIER_ORDER: SeatTier[] = ["RECLINER", "PRIME", "CLASSIC"];
@@ -46,6 +47,7 @@ export default function SeatMap({
   onProceed,
   onChangeCount,
   isProcessing = false,
+  isExpired = false,
 }: SeatMapProps) {
   const [zoom, setZoom] = useState<number>(1.0);
   const [selectionNotice, setSelectionNotice] = useState<string | null>(null);
@@ -178,8 +180,32 @@ export default function SeatMap({
     }
   };
 
-  const isExactCountSelected = selectedSeats.length === targetSeatCount;
-  const remainingNeeded = targetSeatCount - selectedSeats.length;
+  // Check if any selected seat is unavailable in current allSeats
+  const unavailableSelectedSeats = useMemo(() => {
+    const seatMap = new Map(allSeats.map((s) => [s.id, s]));
+    return selectedSeats.filter((s) => {
+      const live = seatMap.get(s.id);
+      return !live || live.status === "OCCUPIED" || live.status === "LOCKED";
+    });
+  }, [allSeats, selectedSeats]);
+
+  const hasUnavailableSelected = unavailableSelectedSeats.length > 0;
+
+  const validSelectedSeats = useMemo(() => {
+    const seatMap = new Map(allSeats.map((s) => [s.id, s]));
+    return selectedSeats.filter((s) => {
+      const live = seatMap.get(s.id);
+      return live && live.status !== "OCCUPIED" && live.status !== "LOCKED";
+    });
+  }, [allSeats, selectedSeats]);
+
+  const isExactCountSelected =
+    validSelectedSeats.length === targetSeatCount &&
+    !hasUnavailableSelected &&
+    selectedSeats.length === targetSeatCount &&
+    validSelectedSeats.length > 0;
+
+  const remainingNeeded = targetSeatCount - validSelectedSeats.length;
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -193,7 +219,7 @@ export default function SeatMap({
               {targetSeatCount}
             </span>
             <span className="text-[var(--text-secondary)]">
-              ({selectedSeats.length}/{targetSeatCount} selected)
+              ({validSelectedSeats.length}/{targetSeatCount} selected)
             </span>
           </div>
 
@@ -415,11 +441,11 @@ export default function SeatMap({
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-xs text-[var(--text-muted)] font-medium">
-                  {selectedSeats.length > 0 ? (
+                  {validSelectedSeats.length > 0 ? (
                     <>
                       Seats:{" "}
                       <strong className="text-[var(--text-primary)]">
-                        {selectedSeats.map((s) => s.id).join(", ")}
+                        {validSelectedSeats.map((s) => s.id).join(", ")}
                       </strong>
                     </>
                   ) : (
@@ -427,7 +453,7 @@ export default function SeatMap({
                   )}
                 </span>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] font-bold text-[var(--brand-primary)]">
-                  {selectedSeats.length} of {targetSeatCount} selected
+                  {validSelectedSeats.length} of {targetSeatCount} selected
                 </span>
               </div>
 
@@ -440,20 +466,24 @@ export default function SeatMap({
             </div>
           </div>
 
-          {/* Right: Proceed CTA - Strictly Enabled ONLY when exact count is reached */}
+          {/* Right: Proceed CTA - Strictly Enabled ONLY when exact count of valid seats is reached and hold is active */}
           <button
             type="button"
-            disabled={!isExactCountSelected || isProcessing}
+            disabled={!isExactCountSelected || isProcessing || isExpired}
             onClick={onProceed}
             className="w-full sm:w-auto min-w-[240px] py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] text-white text-sm font-black shadow-lg shadow-[var(--brand-primary-glow)] disabled:opacity-40 disabled:cursor-not-allowed hover:brightness-110 active:scale-98 transition-all touch-target flex items-center justify-center gap-2"
           >
             {isProcessing ? (
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            ) : isExpired ? (
+              <span>Seat Hold Expired</span>
+            ) : hasUnavailableSelected ? (
+              <span>Seat {unavailableSelectedSeats.map((s) => s.id).join(", ")} Unavailable</span>
             ) : !isExactCountSelected ? (
               <span>
                 {remainingNeeded > 0
                   ? `Select ${remainingNeeded} more seat${remainingNeeded > 1 ? "s" : ""}`
-                  : `Deselect ${selectedSeats.length - targetSeatCount} seat(s)`}
+                  : `Deselect ${validSelectedSeats.length - targetSeatCount} seat(s)`}
               </span>
             ) : (
               <>

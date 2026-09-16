@@ -129,7 +129,7 @@ export default function BookingPaymentPage() {
       // 3. Configure Razorpay checkout options
       const options = {
         key: orderData.keyId,
-        amount: Math.round(orderData.amount * 100),
+        amount: orderData.amountInPaise || Math.round(orderData.amount * 100),
         currency: "INR",
         name: "Showara",
         description: `${draft.movie.title} (${draft.selectedSeats.length} Seat${

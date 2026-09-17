@@ -14,6 +14,7 @@ import {
   CreditCard,
   Edit3,
   Armchair,
+  ArrowLeftRight,
 } from "lucide-react";
 
 interface SeatMapProps {
@@ -208,11 +209,11 @@ export default function SeatMap({
   const remainingNeeded = targetSeatCount - validSelectedSeats.length;
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center pb-36 sm:pb-28">
       {/* Top Controls Toolbar: Count Pill + Zoom Toolbar */}
-      <div className="w-full max-w-4xl flex items-center justify-between gap-3 mb-6 px-2">
+      <div className="w-full max-w-4xl flex flex-wrap items-center justify-between gap-3 mb-6 px-2">
         {/* Seat Count Status & Change Trigger */}
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs">
             <span className="text-[var(--text-muted)]">Seats required:</span>
             <span className="font-black text-[var(--brand-primary)] text-sm">
@@ -292,18 +293,24 @@ export default function SeatMap({
       )}
 
       {/* Screen Direction Curved Indicator */}
-      <div className="w-full max-w-2xl text-center mb-8">
+      <div className="w-full max-w-2xl text-center mb-6">
         <div className="h-2.5 w-full bg-gradient-to-r from-transparent via-[var(--brand-primary)] to-transparent cinema-screen-curve opacity-90 shadow-md shadow-[var(--brand-primary-glow)]" />
         <p className="text-[11px] uppercase font-black tracking-widest text-[var(--text-muted)] mt-2.5 flex items-center justify-center gap-2">
           <span>All Eyes This Way — Cinema Screen</span>
         </p>
       </div>
 
+      {/* Mobile Swipe Hint */}
+      <div className="sm:hidden flex items-center justify-center gap-1.5 text-[11px] text-[var(--text-muted)] mb-3 px-4 text-center">
+        <ArrowLeftRight className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
+        <span>Swipe horizontally or use zoom controls to view all rows</span>
+      </div>
+
       {/* Zoomable Seat Grid Container */}
       <div
         ref={gridContainerRef}
         onKeyDown={handleGridKeyDown}
-        className="w-full overflow-x-auto py-4 px-3 select-none"
+        className="w-full overflow-x-auto py-4 px-3 select-none touch-pan-x"
       >
         <div
           style={{
@@ -434,8 +441,8 @@ export default function SeatMap({
       </div>
 
       {/* Sticky Bottom Bar for Mobile & Desktop */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[var(--bg-surface)]/95 backdrop-blur-md border-t border-[var(--border-subtle)] px-6 sm:px-8 py-3.5 shadow-2xl">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[var(--bg-surface)]/95 backdrop-blur-md border-t border-[var(--border-subtle)] px-4 sm:px-8 py-3 sm:py-3.5 pb-safe pl-safe pr-safe shadow-2xl">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           {/* Left: Selected Seat Tags & Subtotal */}
           <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-start">
             <div>

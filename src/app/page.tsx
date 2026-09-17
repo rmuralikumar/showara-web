@@ -31,13 +31,13 @@ export default async function HomePage() {
     ]);
 
   return (
-    <div className="flex flex-col min-h-screen w-full max-w-full">
+    <div className="flex flex-col min-h-screen w-full max-w-full pb-safe">
       {/* Featured Movie Hero Showcase */}
       <MovieHero featuredMovies={featuredMovies} />
 
       {/* Quick Discovery Chips: Languages & Genres */}
       <section className="py-6 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]/50 w-full max-w-full overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 w-full max-w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-4 w-full max-w-full">
           {/* Languages ribbon */}
           <div className="flex items-center gap-3 overflow-x-auto overflow-y-hidden w-full max-w-full no-scrollbar py-1">
             <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1.5 flex-shrink-0">
@@ -98,7 +98,7 @@ export default async function HomePage() {
 
       {/* A to Z Movie Directory Banner */}
       <section className="py-6 border-y border-[var(--border-subtle)] bg-[var(--bg-surface)] w-full max-w-full overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full max-w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full max-w-full">
           <div className="flex items-center gap-3 min-w-0">
             <div className="w-10 h-10 rounded-xl bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] border border-[var(--brand-primary)]/20 flex items-center justify-center flex-shrink-0 font-black">
               A-Z
@@ -139,12 +139,12 @@ export default async function HomePage() {
       />
 
       {/* Showara Experience Spotlight Banner */}
-      <section className="py-10 bg-gradient-to-b from-transparent via-[var(--bg-surface)] to-transparent w-full max-w-full overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
-          <div className="relative rounded-3xl p-6 sm:p-12 overflow-hidden border border-[var(--border-subtle)] bg-gradient-to-r from-[var(--bg-surface-elevated)] to-[var(--bg-surface-card)] shadow-2xl w-full max-w-full">
+      <section className="py-8 sm:py-10 bg-gradient-to-b from-transparent via-[var(--bg-surface)] to-transparent w-full max-w-full overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe w-full max-w-full min-w-0">
+          <div className="relative rounded-3xl p-6 sm:p-12 overflow-hidden [contain:paint] border border-[var(--border-subtle)] bg-gradient-to-r from-[var(--bg-surface-elevated)] to-[var(--bg-surface-card)] shadow-2xl w-full max-w-full min-w-0">
             {/* Background glowing orbs */}
-            <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[var(--brand-primary)]/15 blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-[var(--brand-secondary)]/15 blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 -mr-12 -mt-12 rounded-full bg-[var(--brand-primary)]/15 blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 -ml-12 -mb-12 rounded-full bg-[var(--brand-secondary)]/15 blur-3xl pointer-events-none" />
 
             <div className="relative z-10 max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/30 text-[var(--brand-primary)] text-xs font-bold uppercase tracking-wider mb-4">
@@ -183,8 +183,8 @@ export default async function HomePage() {
 
       {/* Featured Bengaluru Cinemas Directory Spotlight */}
       <section className="py-8 pb-16 w-full max-w-full overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
-          <div className="flex items-end justify-between mb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe w-full max-w-full">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
             <div>
               <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-[var(--brand-primary)]" />
@@ -203,7 +203,7 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {cinemas.slice(0, 3).map((cinema) => (
               <div
                 key={cinema.id}

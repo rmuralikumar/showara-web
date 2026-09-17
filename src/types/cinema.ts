@@ -7,6 +7,9 @@ export interface City {
   latitude?: number;
   longitude?: number;
   isPopular?: boolean;
+  pincodes?: string[];
+  aliases?: string[];
+  theatreLocations?: string[];
 }
 
 export type CinemaFacility =

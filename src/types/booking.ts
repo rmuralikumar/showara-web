@@ -68,7 +68,7 @@ export interface Booking {
   userId: string;
   userName: string;
   userEmail: string;
-  userPhone: string;
+  userPhone?: string;
   showId: string;
   movieTitle: string;
   moviePoster: string;

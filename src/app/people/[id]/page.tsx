@@ -49,8 +49,8 @@ export default async function PersonPage({ params }: PageProps) {
   );
 
   return (
-    <div className="min-h-screen bg-[var(--bg-main)] text-[var(--text-primary)] transition-colors py-8 sm:py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    <div className="min-h-screen bg-[var(--bg-main)] text-[var(--text-primary)] transition-colors py-8 sm:py-12 pb-16 pb-safe">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-10">
         {/* Navigation Breadcrumb */}
         <div>
           <Link
@@ -150,14 +150,14 @@ export default async function PersonPage({ params }: PageProps) {
           </div>
 
           {person.filmography && person.filmography.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 min-w-0 w-full">
               {person.filmography.map((item, idx) => {
                 const posterUrl = imageService.getPosterUrl(item.posterUrl, "w500", item.title);
                 return (
                   <Link
                     key={`${item.id}-${idx}`}
                     href={`/movies/${item.slug}`}
-                    className="group flex flex-col bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] rounded-2xl overflow-hidden hover:border-[var(--brand-primary)] hover:shadow-xl transition-all duration-300"
+                    className="group flex flex-col bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] rounded-2xl overflow-hidden hover:border-[var(--brand-primary)] hover:shadow-xl transition-all duration-300 w-full min-w-0"
                   >
                     {/* Poster */}
                     <div className="relative aspect-[2/3] w-full overflow-hidden bg-[var(--bg-surface-elevated)]">

@@ -58,11 +58,11 @@ export default function TrailerModal({
       role="dialog"
       aria-modal="true"
       aria-label={`${movieTitle} — ${displayTitle}`}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 pl-safe pr-safe pt-safe pb-safe bg-black/90 backdrop-blur-md animate-fade-in"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-4xl bg-black border border-[var(--border-subtle)] rounded-2xl overflow-hidden shadow-2xl relative"
+        className="w-full max-w-4xl max-h-[96vh] overflow-hidden flex flex-col bg-black border border-[var(--border-subtle)] rounded-2xl shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top bar with movie title, YouTube direct link, and close button */}

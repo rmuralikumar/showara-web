@@ -48,6 +48,17 @@ const ALPHABET = [
 
 const ITEMS_PER_PAGE = 12;
 
+function getPageNumbers(current: number, total: number): (number | string)[] {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+  if (current <= 4) {
+    return [1, 2, 3, 4, 5, "...", total];
+  }
+  if (current >= total - 3) {
+    return [1, "...", total - 4, total - 3, total - 2, total - 1, total];
+  }
+  return [1, "...", current - 1, current, current + 1, "...", total];
+}
+
 function AZDirectoryContent() {
   const searchParams = useSearchParams();
   const initialLetter = searchParams.get("letter") || "ALL";
@@ -126,8 +137,8 @@ function AZDirectoryContent() {
   const paginated = filtered.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
   return (
-    <div className="min-h-screen py-8 bg-[var(--bg-main)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <div className="min-h-screen py-8 pb-16 pb-safe bg-[var(--bg-main)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-6">
         {/* Header */}
         <div className="pb-6 border-b border-[var(--border-subtle)] flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
@@ -269,7 +280,7 @@ function AZDirectoryContent() {
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-5 min-w-0 w-full">
                 {paginated.map((movie) => (
                   <MovieCard key={movie.id} movie={movie} />
                 ))}
@@ -288,21 +299,39 @@ function AZDirectoryContent() {
                     <span>Previous</span>
                   </button>
 
-                  <div className="flex items-center gap-1">
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                      <button
-                        key={p}
-                        type="button"
-                        onClick={() => setCurrentPage(p)}
-                        className={`w-8 h-8 rounded-lg text-xs font-bold transition-all ${
-                          currentPage === p
-                            ? "bg-[var(--brand-primary)] text-white"
-                            : "bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-                        }`}
-                      >
-                        {p}
-                      </button>
-                    ))}
+                  {/* Compact Page Counter on Mobile (< 640px) */}
+                  <span className="sm:hidden text-xs font-semibold px-2 text-[var(--text-muted)]">
+                    Page {currentPage} of {totalPages}
+                  </span>
+
+                  {/* Windowed Page Numbers on Tablet and Desktop */}
+                  <div className="hidden sm:flex items-center gap-1">
+                    {getPageNumbers(currentPage, totalPages).map((p, idx) => {
+                      if (p === "...") {
+                        return (
+                          <span
+                            key={`ellipsis-${idx}`}
+                            className="w-8 h-8 flex items-center justify-center text-xs text-[var(--text-muted)]"
+                          >
+                            ...
+                          </span>
+                        );
+                      }
+                      return (
+                        <button
+                          key={p}
+                          type="button"
+                          onClick={() => setCurrentPage(Number(p))}
+                          className={`w-8 h-8 rounded-lg text-xs font-bold transition-all ${
+                            currentPage === p
+                              ? "bg-[var(--brand-primary)] text-white shadow-sm"
+                              : "bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                          }`}
+                        >
+                          {p}
+                        </button>
+                      );
+                    })}
                   </div>
 
                   <button

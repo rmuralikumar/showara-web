@@ -97,10 +97,10 @@ export default function CinemaDetailsPage({
   }
 
   return (
-    <div className="min-h-screen py-8 bg-[var(--bg-main)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div className="min-h-screen py-6 sm:py-8 pb-12 pb-safe bg-[var(--bg-main)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-6 sm:space-y-8">
         {/* Cinema Overview Card */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] shadow-xl">
+        <div className="p-5 sm:p-8 rounded-3xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] shadow-xl">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
               <div className="flex items-center gap-2 mb-2">
@@ -231,61 +231,91 @@ export default function CinemaDetailsPage({
               return (
                 <div
                   key={movie.id}
-                  className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] flex flex-col md:flex-row gap-6 items-start"
+                  className="p-4 sm:p-6 rounded-2xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] flex flex-col md:flex-row gap-4 sm:gap-6 items-start w-full min-w-0 max-w-full"
                 >
-                  {/* Poster Thumbnail */}
-                  <div className="relative w-24 aspect-[2/3] rounded-xl overflow-hidden bg-black flex-shrink-0 border border-white/10 hidden sm:block">
-                    <SafeImage
-                      src={movie.posterUrl}
-                      alt={movie.title}
-                      type="poster"
-                      fallbackTitle={movie.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] border border-[var(--border-subtle)] uppercase">
-                        {movie.certification}
-                      </span>
-                      <span className="text-xs text-[var(--text-muted)]">
-                        {movie.genres.join(", ")}
-                      </span>
+                  <div className="flex items-start gap-4 w-full md:w-auto min-w-0">
+                    {/* Poster Thumbnail */}
+                    <div className="relative w-20 sm:w-24 aspect-[2/3] rounded-xl overflow-hidden bg-black flex-shrink-0 border border-white/10 shadow-sm">
+                      <SafeImage
+                        src={movie.posterUrl}
+                        alt={movie.title}
+                        type="poster"
+                        fallbackTitle={movie.title}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
 
-                    <Link href={`/movies/${movie.slug}`}>
-                      <h3 className="text-base font-bold text-[var(--text-primary)] hover:text-[var(--brand-primary)] transition-colors">
-                        {movie.title}
-                      </h3>
-                    </Link>
-
-                    <div className="flex items-center gap-3 text-xs text-[var(--text-muted)] mt-1">
-                      <div className="flex items-center gap-1 text-amber-400 font-bold">
-                        <Star className="w-3.5 h-3.5 fill-amber-400" />
-                        <span>{movie.rating.toFixed(1)}</span>
+                    <div className="flex-1 min-w-0 md:hidden">
+                      <div className="flex flex-wrap items-center gap-1.5 mb-1">
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] border border-[var(--border-subtle)] uppercase">
+                          {movie.certification}
+                        </span>
+                        <span className="text-[11px] text-[var(--text-muted)] line-clamp-1">
+                          {movie.genres.join(", ")}
+                        </span>
                       </div>
-                      <span>•</span>
-                      <span>{Math.floor(movie.durationMinutes / 60)}h {movie.durationMinutes % 60}m</span>
-                      <span>•</span>
-                      <span>{movie.languages.join(", ")}</span>
+
+                      <Link href={`/movies/${movie.slug}`}>
+                        <h3 className="text-sm font-bold text-[var(--text-primary)] hover:text-[var(--brand-primary)] transition-colors line-clamp-2">
+                          {movie.title}
+                        </h3>
+                      </Link>
+
+                      <div className="flex items-center gap-2 text-[11px] text-[var(--text-muted)] mt-1">
+                        <div className="flex items-center gap-1 text-amber-400 font-bold">
+                          <Star className="w-3.5 h-3.5 fill-amber-400" />
+                          <span>{movie.rating.toFixed(1)}</span>
+                        </div>
+                        <span>•</span>
+                        <span>{Math.floor(movie.durationMinutes / 60)}h {movie.durationMinutes % 60}m</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex-1 min-w-0 w-full">
+                    <div className="hidden md:block">
+                      <div className="flex flex-wrap items-center gap-2 mb-1">
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] border border-[var(--border-subtle)] uppercase">
+                          {movie.certification}
+                        </span>
+                        <span className="text-xs text-[var(--text-muted)]">
+                          {movie.genres.join(", ")}
+                        </span>
+                      </div>
+
+                      <Link href={`/movies/${movie.slug}`}>
+                        <h3 className="text-base font-bold text-[var(--text-primary)] hover:text-[var(--brand-primary)] transition-colors">
+                          {movie.title}
+                        </h3>
+                      </Link>
+
+                      <div className="flex items-center gap-3 text-xs text-[var(--text-muted)] mt-1">
+                        <div className="flex items-center gap-1 text-amber-400 font-bold">
+                          <Star className="w-3.5 h-3.5 fill-amber-400" />
+                          <span>{movie.rating.toFixed(1)}</span>
+                        </div>
+                        <span>•</span>
+                        <span>{Math.floor(movie.durationMinutes / 60)}h {movie.durationMinutes % 60}m</span>
+                        <span>•</span>
+                        <span>{movie.languages.join(", ")}</span>
+                      </div>
                     </div>
 
                     {/* Showtimes for this movie */}
-                    <div className="flex flex-wrap gap-3 mt-4 pt-3 border-t border-[var(--border-subtle)]">
+                    <div className="flex flex-wrap gap-2 sm:gap-3 mt-4 pt-3 border-t border-[var(--border-subtle)] w-full min-w-0">
                       {sampleShows.map((show) => (
                         <button
                           key={show.id}
                           type="button"
                           onClick={() => handleSelectShow(movie, show)}
-                          className="flex flex-col items-center p-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] hover:border-[var(--brand-primary)] hover:bg-[var(--brand-primary)]/10 transition-all touch-target min-w-[100px]"
+                          className="flex flex-col items-center p-2 sm:p-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] hover:border-[var(--brand-primary)] hover:bg-[var(--brand-primary)]/10 transition-all touch-target min-w-[85px] sm:min-w-[100px] max-w-full"
                         >
-                          <span className="text-sm font-black text-[var(--text-primary)]">{show.startTime}</span>
-                          <span className="text-[10px] text-[var(--text-muted)] mt-0.5">
+                          <span className="text-xs sm:text-sm font-black text-[var(--text-primary)]">{show.startTime}</span>
+                          <span className="text-[9px] sm:text-[10px] text-[var(--text-muted)] mt-0.5">
                             {show.format} • {show.language}
                           </span>
-                          <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 mt-1">
+                          <span className="text-[9px] sm:text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 mt-1">
                             ₹{show.priceConfig.CLASSIC}
                           </span>
                         </button>

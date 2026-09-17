@@ -51,12 +51,12 @@ export default function CinemasPage() {
   });
 
   return (
-    <div className="min-h-screen py-8 bg-[var(--bg-main)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-8 pb-16 pb-safe bg-[var(--bg-main)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-[var(--border-subtle)]">
           <div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <h1 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight">
                 Cinemas in {currentCity.name}
               </h1>
@@ -118,7 +118,7 @@ export default function CinemasPage() {
             filteredCinemas.map((cinema) => (
               <div
                 key={cinema.id}
-                className="p-6 rounded-2xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col justify-between"
+                className="p-4 sm:p-6 rounded-2xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
@@ -159,7 +159,7 @@ export default function CinemasPage() {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between">
+                <div className="mt-6 pt-4 border-t border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-3">
                   <span className="text-xs text-[var(--text-muted)]">
                     {cinema.phone || "Official Cinema Partner"}
                   </span>

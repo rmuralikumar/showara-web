@@ -51,6 +51,17 @@ const ALPHABET = [
 
 const ITEMS_PER_PAGE = 12;
 
+function getPageNumbers(current: number, total: number): (number | string)[] {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+  if (current <= 4) {
+    return [1, 2, 3, 4, 5, "...", total];
+  }
+  if (current >= total - 3) {
+    return [1, "...", total - 4, total - 3, total - 2, total - 1, total];
+  }
+  return [1, "...", current - 1, current, current + 1, "...", total];
+}
+
 function MoviesContent() {
   const searchParams = useSearchParams();
 
@@ -214,8 +225,8 @@ function MoviesContent() {
   );
 
   return (
-    <div className="min-h-screen py-8 bg-[var(--bg-main)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <div className="min-h-screen py-8 pb-12 pb-safe bg-[var(--bg-main)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-6">
         {/* Page Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-[var(--border-subtle)]">
           <div>
@@ -311,7 +322,7 @@ function MoviesContent() {
         </div>
 
         {/* Layout: Filter Sidebar + Movie Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8 min-w-0 w-full">
           {/* Desktop Filter Sidebar */}
           <aside className="hidden lg:block space-y-6 bg-[var(--bg-surface)] p-5 rounded-2xl border border-[var(--border-subtle)] h-fit sticky top-24">
             <div className="flex items-center justify-between pb-3 border-b border-[var(--border-subtle)]">
@@ -429,13 +440,13 @@ function MoviesContent() {
           </aside>
 
           {/* Main Movie Grid */}
-          <div className="lg:col-span-3 space-y-6">
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-[var(--text-muted)]">
+          <div className="lg:col-span-3 space-y-6 min-w-0 w-full">
+            <div className="flex items-center justify-between min-w-0">
+              <span className="text-xs text-[var(--text-muted)] truncate">
                 Showing <strong className="text-[var(--text-primary)]">{filteredMovies.length}</strong> verified titles
               </span>
               {totalPages > 1 && (
-                <span className="text-xs text-[var(--text-muted)]">
+                <span className="text-xs text-[var(--text-muted)] shrink-0 ml-2">
                   Page {currentPage} of {totalPages}
                 </span>
               )}
@@ -460,7 +471,7 @@ function MoviesContent() {
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 min-w-0 w-full">
                   {paginatedMovies.map((movie) => (
                     <MovieCard key={movie.id} movie={movie} />
                   ))}
@@ -479,21 +490,36 @@ function MoviesContent() {
                       <span>Previous</span>
                     </button>
 
-                    <div className="flex items-center gap-1">
-                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                        <button
-                          key={p}
-                          type="button"
-                          onClick={() => setCurrentPage(p)}
-                          className={`w-8 h-8 rounded-lg text-xs font-bold transition-all ${
-                            currentPage === p
-                              ? "bg-[var(--brand-primary)] text-white"
-                              : "bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-                          }`}
-                        >
-                          {p}
-                        </button>
-                      ))}
+                    {/* Compact Page Counter on Mobile (< 640px) */}
+                    <span className="sm:hidden text-xs font-semibold px-2 text-[var(--text-muted)]">
+                      Page {currentPage} of {totalPages}
+                    </span>
+
+                    {/* Windowed Page Number Buttons on Tablet / Desktop */}
+                    <div className="hidden sm:flex items-center gap-1">
+                      {getPageNumbers(currentPage, totalPages).map((p, idx) =>
+                        typeof p === "number" ? (
+                          <button
+                            key={p}
+                            type="button"
+                            onClick={() => setCurrentPage(p)}
+                            className={`w-8 h-8 rounded-lg text-xs font-bold transition-all ${
+                              currentPage === p
+                                ? "bg-[var(--brand-primary)] text-white shadow-sm"
+                                : "bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                            }`}
+                          >
+                            {p}
+                          </button>
+                        ) : (
+                          <span
+                            key={`ellipsis-${idx}`}
+                            className="w-8 h-8 flex items-center justify-center text-xs text-[var(--text-muted)]"
+                          >
+                            ...
+                          </span>
+                        )
+                      )}
                     </div>
 
                     <button

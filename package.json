@@ -8,15 +8,17 @@
     "start": "next start",
     "lint": "eslint",
     "seed": "node scripts/seed.mjs",
-    "test": "node --test tests/booking.test.mjs tests/seat-selection.test.mjs tests/trailer.test.mjs tests/imageService.test.mjs tests/slug.test.mjs tests/layout-overflow.test.mjs tests/hero-contrast.test.mjs tests/payment.test.mjs",
+    "test": "node --test tests/booking.test.mjs tests/seat-selection.test.mjs tests/trailer.test.mjs tests/imageService.test.mjs tests/slug.test.mjs tests/layout-overflow.test.mjs tests/hero-contrast.test.mjs tests/payment.test.mjs tests/auth-state.test.mjs tests/ticket-qr.test.mjs",
     "test:visual": "node tests/visual-verification.mjs",
     "test:seats": "node tests/seat-flow-verification.mjs"
   },
   "dependencies": {
-    "@clerk/nextjs": "^7.9.3",
+    "@types/qrcode": "^1.5.6",
     "lucide-react": "^1.45.0",
     "next": "16.3.5",
+    "next-auth": "^5.0.0-beta.32",
     "pg": "^8.23.0",
+    "qrcode": "^1.5.4",
     "razorpay": "^2.9.8",
     "react": "19.2.8",
     "react-dom": "19.2.8"
@@ -29,6 +31,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
+    "jsqr": "^1.4.0",
     "playwright": "^1.63.0",
     "tailwindcss": "^4",
     "typescript": "^5"

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/auth";
 import { db } from "@/lib/db";
 import { getRazorpayClient, inrToPaise } from "@/lib/razorpay";
 import { getServerSession, verifyBookingOwnership } from "@/lib/auth";
@@ -24,8 +25,11 @@ export async function POST(
     const cleanId = bookingId.trim();
 
     // 2. Server-side session authentication
+    const authSession = await auth();
+    const sessionUser = authSession?.user;
     const session = getServerSession(request);
-    if (!session || !session.user) {
+
+    if (!sessionUser && (!session || !session.user)) {
       return NextResponse.json(
         { error: "Authentication required to cancel a booking." },
         { status: 401 }
@@ -39,8 +43,25 @@ export async function POST(
     }
 
     // 4. Ownership authorization check
-    const authCheck = verifyBookingOwnership(session, booking);
-    if (!authCheck.authorized) {
+    let isAuthorized = false;
+    if (sessionUser) {
+      if (sessionUser.id && booking.userId === sessionUser.id) {
+        isAuthorized = true;
+      } else if (
+        sessionUser.email &&
+        booking.userEmail &&
+        sessionUser.email.toLowerCase() === booking.userEmail.toLowerCase()
+      ) {
+        isAuthorized = true;
+      }
+    }
+
+    if (!isAuthorized && session) {
+      const authCheck = verifyBookingOwnership(session, booking);
+      isAuthorized = authCheck.authorized;
+    }
+
+    if (!isAuthorized) {
       return NextResponse.json(
         { error: "Access denied. You do not have permission to cancel this booking." },
         { status: 403 }
@@ -80,7 +101,7 @@ export async function POST(
           amount: amountInPaise,
           notes: {
             bookingId: booking.id,
-            cancelledBy: session.user.id,
+            cancelledBy: sessionUser?.id || session?.user.id || "user",
             reason: "Customer cancellation",
           },
         });

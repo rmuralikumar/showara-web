@@ -1,4 +1,4 @@
-import { ClerkProvider } from "@clerk/nextjs";
+import { SessionProvider } from "next-auth/react";
 import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
@@ -56,6 +56,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  viewportFit: "cover",
   themeColor: "#07090e",
 };
 
@@ -96,7 +97,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-[var(--bg-main)] text-[var(--text-primary)] antialiased selection:bg-[var(--brand-primary)] selection:text-white">
-        <ClerkProvider>
+        <SessionProvider>
           <ThemeProvider>
           <AuthProvider>
           <CityProvider>
@@ -109,7 +110,7 @@ export default function RootLayout({
           </CityProvider>
           </AuthProvider>
           </ThemeProvider>
-        </ClerkProvider>
+        </SessionProvider>
       </body>
     </html>
   );

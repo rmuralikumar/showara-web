@@ -78,8 +78,8 @@ function SearchContent() {
   ];
 
   return (
-    <div className="min-h-screen py-8 bg-[var(--bg-main)]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-8 pb-16 pb-safe bg-[var(--bg-main)]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe">
         {/* Search Input Box */}
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--text-muted)]" />

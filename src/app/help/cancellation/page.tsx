@@ -4,8 +4,8 @@ import { ShieldCheck, Clock, RefreshCw, AlertCircle, ChevronLeft } from "lucide-
 
 export default function CancellationPolicyPage() {
   return (
-    <div className="min-h-screen py-12 bg-[var(--bg-main)]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div className="min-h-screen py-8 sm:py-12 pb-16 pb-safe bg-[var(--bg-main)]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-8">
         <Link
           href="/"
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--text-secondary)] hover:text-white"

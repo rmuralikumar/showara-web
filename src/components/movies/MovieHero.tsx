@@ -38,7 +38,7 @@ export default function MovieHero({ featuredMovies }: MovieHeroProps) {
 
   return (
     <section className="relative w-full overflow-hidden bg-black py-4 sm:py-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe">
         <div className="relative rounded-3xl overflow-hidden min-h-[460px] md:min-h-[520px] flex items-end border border-[var(--border-subtle)] shadow-2xl bg-black">
           {/* Backdrop Image */}
           <div className="absolute inset-0">
@@ -57,7 +57,7 @@ export default function MovieHero({ featuredMovies }: MovieHeroProps) {
           </div>
 
           {/* Hero Content */}
-          <div className="relative z-10 p-6 sm:p-10 md:p-14 max-w-2xl flex flex-col justify-end">
+          <div className="relative z-10 p-5 sm:p-10 md:p-14 max-w-2xl flex flex-col justify-end">
             {/* Tagline / Formats Chip with solid semi-opaque background for contrast */}
             <div className="flex flex-wrap items-center gap-2 mb-3">
               <span className="px-2.5 py-1 rounded-full bg-[var(--brand-primary)] text-white text-[11px] font-extrabold uppercase tracking-wider shadow-md">
@@ -77,7 +77,7 @@ export default function MovieHero({ featuredMovies }: MovieHeroProps) {
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-3 drop-shadow-md">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-3 drop-shadow-md">
               {currentMovie.title}
             </h1>
 

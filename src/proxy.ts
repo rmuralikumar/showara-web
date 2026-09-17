@@ -1,6 +1,19 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import { auth } from "@/auth";
+import { NextResponse } from "next/server";
 
-export default clerkMiddleware();
+export default auth((req) => {
+  const { pathname } = req.nextUrl;
+  const isProtected =
+    pathname.startsWith("/profile") ||
+    pathname.startsWith("/account") ||
+    pathname.startsWith("/bookings");
+
+  if (isProtected && !req.auth) {
+    const signInUrl = new URL("/sign-in", req.nextUrl.origin);
+    signInUrl.searchParams.set("callbackUrl", req.nextUrl.pathname);
+    return NextResponse.redirect(signInUrl);
+  }
+});
 
 export const config = {
   matcher: [

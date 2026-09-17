@@ -4,6 +4,7 @@ import { serverPaymentStore, ServerBooking } from "@/lib/serverPaymentStore";
 import { showService } from "@/services/showService";
 import { bookingService } from "@/services/bookingService";
 import { getServerSession } from "@/lib/auth";
+import { auth } from "@/auth";
 import { checkRateLimit, rateLimitResponse } from "@/lib/rateLimit";
 import { Seat } from "@/types/booking";
 
@@ -14,6 +15,8 @@ export async function POST(request: NextRequest) {
       return rateLimitResponse(rl.resetInSeconds);
     }
 
+    const authSession = await auth();
+    const sessionUser = authSession?.user;
     const session = getServerSession(request);
     const body = await request.json();
     const { bookingId, amount, bookingDetails } = body;
@@ -54,10 +57,10 @@ export async function POST(request: NextRequest) {
           const pricing = bookingService.calculatePricing(validatedSeats, discountCode);
           booking = {
             id: cleanBookingId,
-            userId: user?.id || "guest",
-            userName: user?.name || "Guest User",
-            userEmail: user?.email || "",
-            userPhone: user?.phone || "",
+            userId: sessionUser?.id || session?.user.id || user?.id || (sessionUser?.email ? `usr_${sessionUser.email}` : "user"),
+            userName: sessionUser?.name || session?.user.name || user?.name || "Moviegoer",
+            userEmail: sessionUser?.email || session?.user.email || user?.email || "",
+            userPhone: "",
             showId: show.id,
             movieTitle: movie?.title || "Movie Booking",
             moviePoster: movie?.posterUrl || "",

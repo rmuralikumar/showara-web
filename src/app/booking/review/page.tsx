@@ -29,7 +29,6 @@ export default function BookingReviewPage() {
   const [couponMessage, setCouponMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
   const [userName, setUserName] = useState(user.name);
   const [userEmail, setUserEmail] = useState(user.email);
-  const [userPhone, setUserPhone] = useState(user.phone);
   const [isProcessing, setIsProcessing] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -100,7 +99,7 @@ export default function BookingReviewPage() {
         return;
       }
 
-      updateProfile({ name: userName, email: userEmail, phone: userPhone });
+      updateProfile({ name: userName, email: userEmail });
       router.push("/booking/payment");
     } catch {
       setErrorMessage("Unable to verify seat availability. Please try again.");
@@ -109,8 +108,8 @@ export default function BookingReviewPage() {
   };
 
   return (
-    <div className="min-h-screen py-8 bg-[var(--bg-main)]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <div className="min-h-screen py-6 sm:py-8 pb-12 pb-safe bg-[var(--bg-main)]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-6">
         {/* Navigation back */}
         <div className="flex items-center justify-between">
           <button
@@ -147,11 +146,11 @@ export default function BookingReviewPage() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 w-full min-w-0">
           {/* Left Column: Movie & Showtime Details */}
-          <div className="md:col-span-7 space-y-6">
+          <div className="md:col-span-7 space-y-6 w-full min-w-0">
             {/* Show Details Card */}
-            <div className="p-6 rounded-3xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] shadow-xl flex gap-4">
+            <div className="p-4 sm:p-6 rounded-3xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] shadow-xl flex flex-col sm:flex-row gap-4 w-full min-w-0">
               <div className="relative w-20 aspect-[2/3] rounded-xl overflow-hidden bg-black flex-shrink-0 border border-white/10">
                 <SafeImage
                   src={draft.movie.posterUrl}
@@ -200,12 +199,12 @@ export default function BookingReviewPage() {
             </div>
 
             {/* Contact Information Form */}
-            <div className="p-6 rounded-3xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] space-y-4">
+            <div className="p-4 sm:p-6 rounded-3xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] space-y-4">
               <h3 className="text-sm font-bold text-[var(--text-primary)] uppercase tracking-wider">
                 Contact Details (For M-Ticket Delivery)
               </h3>
               <p className="text-xs text-[var(--text-muted)]">
-                Your digital ticket and confirmation receipt will be delivered instantly via SMS and Email.
+                Your digital ticket and confirmation receipt will be delivered instantly via Email and saved to your Showara account.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
@@ -220,16 +219,6 @@ export default function BookingReviewPage() {
                   />
                 </div>
                 <div>
-                  <label className="text-[11px] text-[var(--text-muted)] block mb-1">Mobile Number</label>
-                  <input
-                    type="text"
-                    value={userPhone}
-                    onChange={(e) => setUserPhone(e.target.value)}
-                    className="w-full px-3 py-2 bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] rounded-xl text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--brand-primary)]"
-                    placeholder="+91 98765 43210"
-                  />
-                </div>
-                <div className="sm:col-span-2">
                   <label className="text-[11px] text-[var(--text-muted)] block mb-1">Email Address</label>
                   <input
                     type="email"
@@ -252,8 +241,8 @@ export default function BookingReviewPage() {
           </div>
 
           {/* Right Column: Pricing & Coupon */}
-          <div className="md:col-span-5 space-y-6">
-            <div className="p-6 rounded-3xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] shadow-xl space-y-6">
+          <div className="md:col-span-5 space-y-6 w-full min-w-0">
+            <div className="p-4 sm:p-6 rounded-3xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] shadow-xl space-y-6 w-full min-w-0">
               <h3 className="text-sm font-bold text-[var(--text-primary)] uppercase tracking-wider pb-3 border-b border-[var(--border-subtle)]">
                 Order Summary
               </h3>

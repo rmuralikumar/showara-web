@@ -17,6 +17,10 @@ export const serverPaymentStore = {
     return db.getBookingByOrderId(orderId);
   },
 
+  getBookingsForUser(userId: string, userEmail?: string): ServerBooking[] {
+    return db.getBookingsForUser(userId, userEmail);
+  },
+
   saveBooking(booking: ServerBooking): ServerBooking {
     return db.saveBooking(booking);
   },

@@ -128,6 +128,8 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -135,6 +137,8 @@ body {
   color: var(--text-primary);
   font-family: var(--font-sans);
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: clip;
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
@@ -190,6 +194,20 @@ body, header, nav, footer, aside, .theme-transition {
 .touch-target {
   min-width: var(--touch-target-min);
   min-height: var(--touch-target-min);
+}
+
+/* Safe Area Insets for Mobile/Notch/Landscape/Home Indicator */
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+}
+.pt-safe {
+  padding-top: max(0.75rem, env(safe-area-inset-top, 0px));
+}
+.pl-safe {
+  padding-left: max(0.5rem, env(safe-area-inset-left, 0px));
+}
+.pr-safe {
+  padding-right: max(0.5rem, env(safe-area-inset-right, 0px));
 }
 
 /* Reduced motion */

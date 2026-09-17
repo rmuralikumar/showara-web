@@ -145,7 +145,7 @@ export default function MovieDetailsPage({
   const isUpcoming = movie.status === "upcoming";
 
   return (
-    <div className="min-h-screen bg-[var(--bg-main)]">
+    <div className="min-h-screen pb-16 pb-safe bg-[var(--bg-main)]">
       {/* Hero Backdrop Showcase */}
       <section className="relative w-full overflow-hidden bg-black min-h-[380px] md:min-h-[440px] flex items-end">
         <div className="absolute inset-0">
@@ -161,7 +161,7 @@ export default function MovieDetailsPage({
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-main)] via-[var(--bg-main)]/70 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 w-full flex flex-col md:flex-row items-center md:items-end gap-6 md:gap-10">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe py-8 md:py-12 w-full flex flex-col md:flex-row items-center md:items-end gap-6 md:gap-10">
           {/* Poster Card */}
           <div className="relative w-44 sm:w-52 md:w-60 aspect-[2/3] flex-shrink-0 rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-[var(--bg-surface-elevated)]">
             <SafeImage
@@ -244,7 +244,7 @@ export default function MovieDetailsPage({
       </section>
 
       {/* Main Container: Booking & Cast Tabs */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe py-8 space-y-12">
         {/* Date Selector Ribbon (Only if now showing or has dates) */}
         {!isUpcoming ? (
           <section className="space-y-6">
@@ -361,13 +361,13 @@ export default function MovieDetailsPage({
                     </div>
 
                     {/* Showtime buttons grouped */}
-                    <div className="pt-4 flex flex-wrap gap-3">
+                    <div className="pt-4 flex flex-wrap gap-2.5 sm:gap-3">
                       {shows.map((show) => (
                         <button
                           key={show.id}
                           type="button"
                           onClick={() => handleSelectShow(cinema, show)}
-                          className="group flex flex-col items-center p-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] hover:border-[var(--brand-primary)] hover:bg-[var(--brand-primary)]/10 transition-all touch-target min-w-[110px]"
+                          className="group flex flex-col items-center p-2.5 sm:p-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] hover:border-[var(--brand-primary)] hover:bg-[var(--brand-primary)]/10 transition-all touch-target min-w-[95px] sm:min-w-[110px]"
                         >
                           <span className="text-sm font-black text-[var(--text-primary)] group-hover:text-[var(--brand-primary)]">
                             {show.startTime}

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, use } from "react";
 import Link from "next/link";
 import SafeImage from "@/components/ui/SafeImage";
+import TicketQRCode from "@/components/booking/TicketQRCode";
 import { bookingService } from "@/services/bookingService";
 import { Booking } from "@/types/booking";
 import {
@@ -82,8 +83,8 @@ export default function BookingConfirmationPage({
   }
 
   return (
-    <div className="min-h-screen py-10 bg-[var(--bg-main)]">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div className="min-h-screen py-8 sm:py-10 pb-16 pb-safe bg-[var(--bg-main)]">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-6 sm:space-y-8 w-full min-w-0">
         {/* Success Banner */}
         <div className="text-center space-y-2">
           <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto mb-3 shadow-lg shadow-emerald-500/10 animate-bounce">
@@ -92,7 +93,7 @@ export default function BookingConfirmationPage({
           <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
             Payment Completed Successfully
           </span>
-          <h1 className="text-3xl font-black text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
             Booking Confirmed!
           </h1>
           <p className="text-xs text-[var(--text-muted)]">
@@ -101,9 +102,9 @@ export default function BookingConfirmationPage({
         </div>
 
         {/* Digital Boarding-Pass Style Ticket */}
-        <div className="relative rounded-3xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] shadow-2xl overflow-hidden print:border-black print:text-black print:bg-white">
+        <div className="relative rounded-3xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] shadow-2xl overflow-hidden print:border-black print:text-black print:bg-white w-full max-w-full min-w-0">
           {/* Top Brand Header */}
-          <div className="p-6 bg-gradient-to-r from-[var(--bg-surface-card)] to-[var(--bg-surface-elevated)] border-b border-[var(--border-subtle)] flex items-center justify-between">
+          <div className="p-4 sm:p-6 bg-gradient-to-r from-[var(--bg-surface-card)] to-[var(--bg-surface-elevated)] border-b border-[var(--border-subtle)] flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-[var(--brand-primary)] flex items-center justify-center text-white font-black text-sm">
                 S
@@ -121,7 +122,7 @@ export default function BookingConfirmationPage({
           </div>
 
           {/* Ticket Body */}
-          <div className="p-6 space-y-6">
+          <div className="p-4 sm:p-6 space-y-5 sm:space-y-6">
             <div className="flex gap-4">
               <div className="relative w-20 aspect-[2/3] rounded-xl overflow-hidden bg-black flex-shrink-0 border border-white/10">
                 <SafeImage
@@ -170,16 +171,16 @@ export default function BookingConfirmationPage({
             </div>
 
             {/* Seats Row */}
-            <div className="p-4 rounded-2xl bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/30 flex items-center justify-between">
-              <div>
+            <div className="p-4 rounded-2xl bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+              <div className="min-w-0 flex-1">
                 <span className="text-[10px] uppercase font-bold text-[var(--brand-primary)] block">
                   Confirmed Seats ({booking.seats.length})
                 </span>
-                <span className="text-xl font-black text-white tracking-wide">
+                <span className="text-lg sm:text-xl font-black text-white tracking-wide break-words">
                   {booking.seats.map((s) => s.id).join(", ")}
                 </span>
               </div>
-              <div className="text-right">
+              <div className="w-full sm:w-auto text-left sm:text-right pt-2 sm:pt-0 border-t sm:border-t-0 border-[var(--brand-primary)]/20">
                 <span className="text-[10px] text-[var(--text-muted)] block">Total Paid</span>
                 <span className="text-lg font-black text-emerald-400">
                   ₹{booking.pricing.totalAmount}
@@ -189,40 +190,28 @@ export default function BookingConfirmationPage({
 
             {/* Visual Barcode & QR Code Section */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)]">
-              <div className="flex items-center gap-3">
-                {/* Simulated High-Res QR code box */}
-                <div className="w-20 h-20 bg-white p-2 rounded-xl flex items-center justify-center shadow-inner">
-                  <div className="w-full h-full border-2 border-black grid grid-cols-4 grid-rows-4 gap-0.5 p-1">
-                    <div className="bg-black" />
-                    <div className="bg-transparent" />
-                    <div className="bg-black" />
-                    <div className="bg-black" />
-                    <div className="bg-black" />
-                    <div className="bg-black" />
-                    <div className="bg-transparent" />
-                    <div className="bg-black" />
-                    <div className="bg-transparent" />
-                    <div className="bg-black" />
-                    <div className="bg-black" />
-                    <div className="bg-transparent" />
-                    <div className="bg-black" />
-                    <div className="bg-transparent" />
-                    <div className="bg-black" />
-                    <div className="bg-black" />
-                  </div>
+              <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4 w-full sm:w-auto">
+                {/* Real Scannable High-Res Ticket QR code */}
+                <div className="shrink-0">
+                  <TicketQRCode booking={booking} size={88} />
                 </div>
-                <div>
-                  <h4 className="text-xs font-bold text-white">Scan at Gate Entry</h4>
+                <div className="min-w-0">
+                  <h4 className="text-xs font-bold text-white flex items-center justify-center sm:justify-start gap-1.5">
+                    <span>Scan at Gate Entry</span>
+                    <span className="inline-flex items-center px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[9px] font-semibold border border-emerald-500/20">
+                      Verified
+                    </span>
+                  </h4>
                   <p className="text-[11px] text-[var(--text-muted)] mt-0.5">
-                    Present this QR code directly on your phone at auditorium entrance.
+                    Present this QR code directly on your phone at auditorium entrance. Tap to enlarge.
                   </p>
-                  <p className="text-[10px] font-mono text-[var(--text-muted)] mt-1">
-                    TXN: {booking.paymentTransactionId}
+                  <p className="text-[10px] font-mono text-[var(--text-muted)] mt-1 break-all">
+                    ID: {booking.id} • TXN: {booking.paymentTransactionId}
                   </p>
                 </div>
               </div>
 
-              <div className="hidden sm:block text-right">
+              <div className="hidden sm:block text-right flex-shrink-0">
                 <span className="text-[10px] font-bold text-white px-2 py-1 rounded bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)]">
                   Gate Opens: 15 Mins Prior
                 </span>
@@ -232,16 +221,16 @@ export default function BookingConfirmationPage({
 
           {/* Ticket Footer Tear-off Notch effect */}
           <div className="p-4 bg-[var(--bg-surface)] border-t border-dashed border-[var(--border-subtle)] text-center text-[11px] text-[var(--text-muted)]">
-            A confirmation SMS & Email has been dispatched to {booking.userPhone} • {booking.userEmail}
+            A digital confirmation receipt has been dispatched to {booking.userEmail || "your account email"} and saved to your Showara account.
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center gap-3 pt-2 w-full">
           <button
             type="button"
             onClick={handlePrint}
-            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-bold text-white transition-all touch-target"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-bold text-white transition-all touch-target"
           >
             <Printer className="w-4 h-4" />
             <span>Print / Save PDF</span>
@@ -250,7 +239,7 @@ export default function BookingConfirmationPage({
           <button
             type="button"
             onClick={handleShare}
-            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-bold text-white transition-all touch-target"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-bold text-white transition-all touch-target"
           >
             <Share2 className="w-4 h-4" />
             <span>{copied ? "Link Copied!" : "Share Ticket"}</span>
@@ -258,7 +247,7 @@ export default function BookingConfirmationPage({
 
           <Link
             href="/account/bookings"
-            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--brand-primary)] text-white text-xs font-bold shadow-lg shadow-[var(--brand-primary-glow)] hover:brightness-110 active:scale-95 transition-all touch-target"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--brand-primary)] text-white text-xs font-bold shadow-lg shadow-[var(--brand-primary-glow)] hover:brightness-110 active:scale-95 transition-all touch-target"
           >
             <Ticket className="w-4 h-4" />
             <span>View in Booking History</span>

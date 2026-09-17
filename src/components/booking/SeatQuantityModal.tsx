@@ -457,7 +457,7 @@ export default function SeatQuantityModal({
         </div>
 
         {/* 3. STICKY BOTTOM CTA */}
-        <div className="sticky bottom-0 z-20 p-4 sm:p-5 border-t border-[var(--border-subtle)] bg-white dark:bg-[var(--bg-surface)] shrink-0">
+        <div className="sticky bottom-0 z-20 p-4 sm:p-5 pb-safe pl-safe pr-safe border-t border-[var(--border-subtle)] bg-white dark:bg-[var(--bg-surface)] shrink-0">
           <button
             ref={confirmBtnRef}
             type="button"

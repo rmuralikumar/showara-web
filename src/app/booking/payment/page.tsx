@@ -137,9 +137,8 @@ export default function BookingPaymentPage() {
         })`,
         order_id: orderData.orderId,
         prefill: {
-          name: user.name || "Moviegoer",
-          email: user.email || "guest@showara.com",
-          contact: user.phone || "+919876543210",
+          name: user.name || "",
+          email: user.email || "",
         },
         theme: {
           color: "#e50914",
@@ -225,8 +224,8 @@ export default function BookingPaymentPage() {
   };
 
   return (
-    <div className="min-h-screen py-8 bg-[var(--bg-main)]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <div className="min-h-screen py-6 sm:py-8 pb-12 pb-safe bg-[var(--bg-main)]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-6">
         {/* Navigation header */}
         <div className="flex items-center justify-between">
           <button
@@ -245,23 +244,23 @@ export default function BookingPaymentPage() {
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2">
           <div>
-            <h1 className="text-2xl font-black text-[var(--text-primary)] tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-black text-[var(--text-primary)] tracking-tight">
               Real Online INR Payment
             </h1>
             <p className="text-xs text-[var(--text-muted)] mt-0.5">
               Secure INR transaction processed via official Razorpay Payment Gateway
             </p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             {remainingSeconds > 0 && (
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold">
                 <Clock className="w-3.5 h-3.5 animate-pulse" />
                 <span>Seats Held: {formatTimer(remainingSeconds)}</span>
               </div>
             )}
-            <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)]">
+            <div className="flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)]">
               <span className="text-xs text-[var(--text-muted)]">Amount:</span>
-              <span className="text-lg font-black text-[var(--brand-primary)]">
+              <span className="text-base sm:text-lg font-black text-[var(--brand-primary)]">
                 ₹{draft.pricing.totalAmount}
               </span>
             </div>
@@ -285,10 +284,10 @@ export default function BookingPaymentPage() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {/* Payment Gateway Information (Left Column) */}
-          <div className="md:col-span-5 space-y-4">
-            <div className="p-5 rounded-3xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] space-y-4 shadow-md">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 w-full min-w-0">
+          {/* Payment Gateway Information (Left on desktop, bottom on mobile) */}
+          <div className="order-2 md:order-1 md:col-span-5 space-y-4 w-full min-w-0">
+            <div className="p-4 sm:p-5 rounded-3xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] space-y-4 shadow-md w-full min-w-0">
               <div className="flex items-center justify-between pb-3 border-b border-[var(--border-subtle)]">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--text-primary)]">
                   Supported Payment Options
@@ -371,9 +370,9 @@ export default function BookingPaymentPage() {
             </div>
           </div>
 
-          {/* Payment Action Card (Right Column) */}
-          <div className="md:col-span-7">
-            <div className="p-6 rounded-3xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] shadow-xl space-y-6">
+          {/* Payment Action Card (Right on desktop, top on mobile) */}
+          <div className="order-1 md:order-2 md:col-span-7 w-full min-w-0">
+            <div className="p-4 sm:p-6 rounded-3xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] shadow-xl space-y-6 w-full min-w-0">
               <div className="space-y-1">
                 <h3 className="text-base font-bold text-[var(--text-primary)]">
                   Order Summary & Authorization

@@ -35,6 +35,15 @@ export interface DBBookingRecord extends Booking {
   confirmedAt?: string;
 }
 
+export interface DBUserRecord {
+  id: string;
+  name: string | null;
+  email: string;
+  image: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
 // Global reference across dev hot-reloads
 const globalForDB = globalThis as unknown as {
   __showaraDBInstance?: DatabaseSync;
@@ -80,6 +89,16 @@ function getSqliteInstance(): DatabaseSync {
       );
       CREATE INDEX IF NOT EXISTS idx_bookings_show ON bookings(show_id);
       CREATE INDEX IF NOT EXISTS idx_bookings_order ON bookings(razorpay_order_id);
+
+      CREATE TABLE IF NOT EXISTS users (
+        id TEXT PRIMARY KEY,
+        name TEXT,
+        email TEXT UNIQUE NOT NULL,
+        image TEXT,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
 
       CREATE TABLE IF NOT EXISTS payments (
         id TEXT PRIMARY KEY,
@@ -211,6 +230,120 @@ export const db = {
       confirmedAt: row.confirmed_at || undefined,
       expiresAt: row.expires_at || undefined,
     };
+  },
+
+  getBookingsForUser(userId: string, userEmail?: string): DBBookingRecord[] {
+    const sqlite = getSqliteInstance();
+    let rows: any[] = [];
+    if (userEmail && userEmail.trim().length > 0) {
+      rows = sqlite
+        .prepare(
+          "SELECT * FROM bookings WHERE user_id = ? OR LOWER(user_email) = LOWER(?) ORDER BY created_at DESC"
+        )
+        .all(userId, userEmail.trim()) as any[];
+    } else {
+      rows = sqlite
+        .prepare("SELECT * FROM bookings WHERE user_id = ? ORDER BY created_at DESC")
+        .all(userId) as any[];
+    }
+
+    return rows.map((row) => ({
+      id: row.id,
+      userId: row.user_id,
+      userName: row.user_name,
+      userEmail: row.user_email,
+      userPhone: row.user_phone,
+      showId: row.show_id,
+      movieTitle: row.movie_title,
+      moviePoster: row.movie_poster,
+      cinemaName: row.cinema_name,
+      cinemaAddress: row.cinema_address,
+      screenName: row.screen_name,
+      date: row.date,
+      startTime: row.start_time,
+      format: row.format,
+      language: row.language,
+      seats: JSON.parse(row.seats || "[]"),
+      pricing: JSON.parse(row.pricing || "{}"),
+      status: row.status as BookingStatus,
+      paymentMethod: (row.payment_method || "UPI") as PaymentMethod,
+      paymentTransactionId: row.payment_transaction_id || "",
+      razorpayOrderId: row.razorpay_order_id || undefined,
+      qrCodeData: row.qr_code_data || "",
+      createdAt: row.created_at,
+      confirmedAt: row.confirmed_at || undefined,
+      expiresAt: row.expires_at || undefined,
+    }));
+  },
+
+  upsertUser(user: { id: string; name?: string | null; email: string; image?: string | null }): DBUserRecord {
+    const sqlite = getSqliteInstance();
+    const now = new Date().toISOString();
+    const existing = sqlite.prepare("SELECT * FROM users WHERE email = ?").get(user.email) as any;
+    if (existing) {
+      sqlite.prepare(`
+        UPDATE users
+        SET name = COALESCE(?, name),
+            image = COALESCE(?, image),
+            updated_at = ?
+        WHERE email = ?
+      `).run(user.name ?? null, user.image ?? null, now, user.email);
+      return {
+        id: existing.id,
+        name: user.name ?? existing.name,
+        email: existing.email,
+        image: user.image ?? existing.image,
+        createdAt: existing.created_at,
+        updatedAt: now,
+      };
+    } else {
+      sqlite.prepare(`
+        INSERT INTO users (id, name, email, image, created_at, updated_at)
+        VALUES (?, ?, ?, ?, ?, ?)
+      `).run(user.id, user.name ?? null, user.email, user.image ?? null, now, now);
+      return {
+        id: user.id,
+        name: user.name ?? null,
+        email: user.email,
+        image: user.image ?? null,
+        createdAt: now,
+        updatedAt: now,
+      };
+    }
+  },
+
+  getUserById(id: string): DBUserRecord | null {
+    const sqlite = getSqliteInstance();
+    const row = sqlite.prepare("SELECT * FROM users WHERE id = ?").get(id) as any;
+    if (!row) return null;
+    return {
+      id: row.id,
+      name: row.name,
+      email: row.email,
+      image: row.image,
+      createdAt: row.created_at,
+      updatedAt: row.updated_at,
+    };
+  },
+
+  getUserByEmail(email: string): DBUserRecord | null {
+    const sqlite = getSqliteInstance();
+    const row = sqlite.prepare("SELECT * FROM users WHERE email = ?").get(email) as any;
+    if (!row) return null;
+    return {
+      id: row.id,
+      name: row.name,
+      email: row.email,
+      image: row.image,
+      createdAt: row.created_at,
+      updatedAt: row.updated_at,
+    };
+  },
+
+  updateUserName(id: string, name: string): void {
+    const sqlite = getSqliteInstance();
+    const now = new Date().toISOString();
+    sqlite.prepare("UPDATE users SET name = ?, updated_at = ? WHERE id = ?").run(name, now, id);
   },
 
   saveBooking(booking: DBBookingRecord): DBBookingRecord {

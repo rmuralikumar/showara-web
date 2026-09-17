@@ -3,10 +3,12 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 import { Home, Film, Clapperboard, Ticket, User } from "lucide-react";
 
 export default function MobileNav() {
   const pathname = usePathname();
+  const { isSignedIn } = useAuth();
 
   // Hide mobile nav during seat selection or active payment to prevent distraction / accidental navigation
   const isBookingFunnel =
@@ -29,7 +31,7 @@ export default function MobileNav() {
   return (
     <nav
       aria-label="Mobile Navigation"
-      className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[var(--bg-surface-elevated)]/95 backdrop-blur-lg border-t border-[var(--border-subtle)] pb-safe shadow-2xl"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[var(--bg-surface-elevated)]/95 backdrop-blur-lg border-t border-[var(--border-subtle)] pb-safe pl-safe pr-safe shadow-2xl"
     >
       <div className="grid grid-cols-5 h-16 max-w-md mx-auto items-center px-1">
         {navItems.map((item) => {
@@ -42,7 +44,7 @@ export default function MobileNav() {
           return (
             <Link
               key={item.href}
-              href={item.href}
+              href={!isSignedIn && (item.href === "/account" || item.href === "/account/bookings") ? "/sign-in" : item.href}
               aria-label={item.label}
               className={`flex flex-col items-center justify-center h-full touch-target transition-all ${
                 isActive

@@ -5,9 +5,9 @@ import { Film, ShieldCheck, Clock, Award, Heart } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[var(--bg-surface)] border-t border-[var(--border-subtle)] text-[var(--text-secondary)]">
+    <footer className="w-full bg-[var(--bg-surface)] border-t border-[var(--border-subtle)] text-[var(--text-secondary)] pb-20 md:pb-6 pb-safe">
       {/* Brand Values Banner */}
-      <div className="border-b border-[var(--border-subtle)] py-8 px-4 sm:px-6 lg:px-8">
+      <div className="border-b border-[var(--border-subtle)] py-8 px-4 sm:px-6 lg:px-8 pl-safe pr-safe">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left">
           <div className="flex items-center gap-4 justify-center sm:justify-start">
             <div className="p-3 rounded-xl bg-[var(--brand-primary)]/10 text-[var(--brand-primary)]">
@@ -40,10 +40,10 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Links */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand Info */}
-          <div className="col-span-2">
+          <div className="col-span-1 sm:col-span-2">
             <Link href="/" className="flex items-center gap-2.5 group mb-4">
               <div className="relative w-9 h-9 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                 <Image

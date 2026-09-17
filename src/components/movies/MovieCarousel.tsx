@@ -31,12 +31,12 @@ export default function MovieCarousel({
   if (!movies || movies.length === 0) return null;
 
   return (
-    <section className="py-8 w-full max-w-full overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
+    <section className="py-6 sm:py-8 w-full max-w-full overflow-x-clip">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe w-full max-w-full min-w-0">
         {/* Carousel Header */}
-        <div className="flex items-end justify-between mb-5 gap-2">
+        <div className="flex items-end justify-between mb-4 sm:mb-5 gap-2">
           <div className="min-w-0 flex-1 pr-2">
-            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight flex items-center gap-2">
+            <h2 className="text-lg sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight flex items-center gap-2">
               <span className="truncate">{title}</span>
               <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-[var(--bg-surface-elevated)] text-[var(--brand-primary)] border border-[var(--border-subtle)] flex-shrink-0">
                 {movies.length}
@@ -53,7 +53,7 @@ export default function MovieCarousel({
             {viewAllHref && (
               <Link
                 href={viewAllHref}
-                className="text-xs sm:text-sm font-semibold text-[var(--brand-primary)] hover:underline mr-2 flex-shrink-0 whitespace-nowrap"
+                className="text-xs sm:text-sm font-semibold text-[var(--brand-primary)] hover:underline mr-1 sm:mr-2 flex-shrink-0 whitespace-nowrap"
               >
                 View All
               </Link>
@@ -80,12 +80,12 @@ export default function MovieCarousel({
         {/* Scrollable Cards Container - Strictly bounded scroll container */}
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto overflow-y-hidden w-full max-w-full no-scrollbar scroll-smooth pb-4"
+          className="flex gap-3 sm:gap-4 overflow-x-auto overflow-y-hidden w-full max-w-full no-scrollbar scroll-smooth pb-4 touch-pan-x min-w-0"
         >
           {movies.map((movie, index) => (
             <div
               key={movie.id}
-              className="w-[180px] sm:w-[220px] md:w-[240px] flex-shrink-0"
+              className="w-[145px] sm:w-[190px] md:w-[220px] flex-shrink-0 min-w-0"
             >
               <MovieCard movie={movie} priority={index < 3} />
             </div>

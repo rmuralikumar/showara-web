@@ -24,7 +24,19 @@ export default function BookingsHistoryPage() {
   const [cancelModalBooking, setCancelModalBooking] = useState<Booking | null>(null);
   const [cancelStatusMessage, setCancelStatusMessage] = useState<string | null>(null);
 
-  const loadBookings = () => {
+  const loadBookings = async () => {
+    try {
+      const res = await fetch("/api/user/bookings");
+      if (res.ok) {
+        const data = await res.json();
+        if (data.bookings && Array.isArray(data.bookings)) {
+          setBookings(data.bookings);
+          return;
+        }
+      }
+    } catch (err) {
+      console.warn("Failed to fetch server bookings, falling back to local:", err);
+    }
     const list = bookingService.getAllBookings();
     setBookings(list);
   };
@@ -58,8 +70,8 @@ export default function BookingsHistoryPage() {
   };
 
   return (
-    <div className="min-h-screen py-10 bg-[var(--bg-main)]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <div className="min-h-screen py-8 sm:py-10 pb-16 pb-safe bg-[var(--bg-main)]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-6">
         {/* Page Title */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[var(--border-subtle)]">
           <div>
@@ -81,7 +93,7 @@ export default function BookingsHistoryPage() {
         </div>
 
         {/* Tab Filters */}
-        <div className="flex items-center gap-2 border-b border-[var(--border-subtle)] pb-2">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar border-b border-[var(--border-subtle)] pb-2">
           {[
             { id: "ALL", label: `All Bookings (${bookings.length})` },
             { id: "UPCOMING", label: `Confirmed (${bookings.filter((b) => b.status === "CONFIRMED").length})` },
@@ -125,13 +137,13 @@ export default function BookingsHistoryPage() {
               return (
                 <div
                   key={b.id}
-                  className={`p-6 rounded-3xl border transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 ${
+                  className={`p-4 sm:p-6 rounded-3xl border transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 w-full max-w-full min-w-0 ${
                     isCancelled
                       ? "bg-[var(--bg-surface-card)]/50 border-[var(--border-subtle)] opacity-75"
                       : "bg-[var(--bg-surface-card)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
                   }`}
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-start sm:items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
                     <div className="relative w-16 aspect-[2/3] rounded-xl overflow-hidden bg-black flex-shrink-0 border border-white/10">
                       <SafeImage
                         src={b.moviePoster}
@@ -143,8 +155,8 @@ export default function BookingsHistoryPage() {
                       />
                     </div>
 
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1">
                         <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--brand-primary)] text-white">
                           {b.format}
                         </span>
@@ -167,17 +179,17 @@ export default function BookingsHistoryPage() {
                         {b.cinemaName} • {b.screenName}
                       </p>
 
-                      <div className="flex items-center gap-3 text-xs text-[var(--text-secondary)] mt-2 font-medium">
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-[var(--text-secondary)] mt-2 font-medium">
                         <span className="flex items-center gap-1">
                           <Calendar className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                           {b.date}
                         </span>
-                        <span>•</span>
+                        <span className="hidden sm:inline">•</span>
                         <span className="flex items-center gap-1">
                           <Clock className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                           {b.startTime}
                         </span>
-                        <span>•</span>
+                        <span className="hidden sm:inline">•</span>
                         <span className="text-white font-bold">
                           Seats: {b.seats.map((s) => s.id).join(", ")}
                         </span>
@@ -194,10 +206,10 @@ export default function BookingsHistoryPage() {
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
                       <Link
                         href={`/booking/confirmation/${b.id}`}
-                        className="px-4 py-2 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs font-bold text-white hover:border-[var(--brand-primary)] hover:text-[var(--brand-primary)] transition-all touch-target"
+                        className="flex-1 sm:flex-initial text-center px-4 py-2 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs font-bold text-white hover:border-[var(--brand-primary)] hover:text-[var(--brand-primary)] transition-all touch-target"
                       >
                         View Ticket
                       </Link>

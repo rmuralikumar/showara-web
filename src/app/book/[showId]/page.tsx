@@ -275,9 +275,9 @@ function SeatSelectionContent({
   }
 
   return (
-    <div className="min-h-screen bg-[var(--bg-main)] pb-28">
+    <div className="min-h-screen bg-[var(--bg-main)] pb-32 pb-safe">
       {/* Top Showtime Info Header */}
-      <div className="sticky top-0 z-30 bg-[var(--bg-surface)]/95 backdrop-blur-md border-b border-[var(--border-subtle)] py-3 px-4 shadow-sm">
+      <div className="sticky top-0 z-30 bg-[var(--bg-surface)]/95 backdrop-blur-md border-b border-[var(--border-subtle)] py-3 px-4 sm:px-6 lg:px-8 pl-safe pr-safe pt-safe shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <button
@@ -317,7 +317,7 @@ function SeatSelectionContent({
       </div>
 
       {/* Main Container: Seat Map & Flow */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <main className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pl-safe pr-safe pt-6">
         {/* Error / Race Condition Notification Banner */}
         {errorMessage && (
           <div

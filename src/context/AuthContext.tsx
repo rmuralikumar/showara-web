@@ -1,131 +1,104 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useMemo } from "react";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export interface UserProfile {
   id: string;
   name: string;
   email: string;
-  phone: string;
+  imageUrl?: string;
   isLoggedIn: boolean;
 }
 
 interface AuthContextType {
   user: UserProfile;
-  login: (email: string, name?: string) => Promise<void>;
+  isLoaded: boolean;
+  isSignedIn: boolean;
   logout: () => Promise<void>;
-  updateProfile: (data: Partial<UserProfile>) => void;
+  updateProfile: (data: {
+    name?: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+  }) => Promise<void>;
 }
 
-const DEFAULT_USER: UserProfile = {
-  id: "usr-88210",
-  name: "Murali Kumar",
-  email: "murali@showara.internal",
-  phone: "+91 98840 12345",
-  isLoggedIn: true,
+const ANONYMOUS_USER: UserProfile = {
+  id: "",
+  name: "",
+  email: "",
+  imageUrl: "",
+  isLoggedIn: false,
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<UserProfile>(DEFAULT_USER);
+  const router = useRouter();
+  const { data: session, status, update } = useSession();
+  const isLoaded = status !== "loading";
+  const isSignedIn = status === "authenticated" && Boolean(session?.user);
 
-  useEffect(() => {
-    // 1. Initial local state check
-    try {
-      const saved = localStorage.getItem("showara_user_profile");
-      if (saved) {
-        setUser(JSON.parse(saved));
-      }
-    } catch {}
-
-    // 2. Sync / establish secure server-side session
-    fetch("/api/auth/session", { credentials: "include" })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.authenticated && data.user) {
-          const syncedUser: UserProfile = {
-            id: data.user.id,
-            name: data.user.name || "Moviegoer",
-            email: data.user.email || "",
-            phone: data.user.phone || "+91 98840 12345",
-            isLoggedIn: !data.user.isGuest,
-          };
-          setUser(syncedUser);
-          localStorage.setItem("showara_user_profile", JSON.stringify(syncedUser));
-        }
-      })
-      .catch((err) => {
-        console.warn("Server session sync error:", err);
-      });
-  }, []);
-
-  const login = async (email: string, name?: string) => {
-    try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ email, name }),
-      });
-      const data = await res.json();
-      if (res.ok && data.user) {
-        const updated: UserProfile = {
-          id: data.user.id,
-          name: data.user.name,
-          email: data.user.email,
-          phone: data.user.phone || "+91 98840 12345",
-          isLoggedIn: true,
-        };
-        setUser(updated);
-        localStorage.setItem("showara_user_profile", JSON.stringify(updated));
-        return;
-      }
-    } catch (err) {
-      console.error("Login request error:", err);
+  const user: UserProfile = useMemo(() => {
+    if (!isSignedIn || !session?.user) {
+      return ANONYMOUS_USER;
     }
 
-    // Fallback local state
-    const fallback: UserProfile = {
-      id: `usr-${Date.now().toString().slice(-5)}`,
-      name: name || "Cinema Enthusiast",
-      email,
-      phone: "+91 98840 12345",
+    const primaryEmail = session.user.email || "";
+    const fullName =
+      session.user.name ||
+      (primaryEmail ? primaryEmail.split("@")[0] : "Moviegoer");
+
+    return {
+      id: session.user.id || (primaryEmail ? `usr_${primaryEmail.replace(/[^a-zA-Z0-9]/g, "_")}` : ""),
+      name: fullName,
+      email: primaryEmail,
+      imageUrl: session.user.image || "",
       isLoggedIn: true,
     };
-    setUser(fallback);
-    localStorage.setItem("showara_user_profile", JSON.stringify(fallback));
-  };
+  }, [isSignedIn, session]);
 
   const logout = async () => {
     try {
-      await fetch("/api/auth/logout", {
-        method: "POST",
-        credentials: "include",
-      });
+      await signOut({ callbackUrl: "/" });
+      router.push("/");
     } catch (err) {
-      console.warn("Logout request error:", err);
+      console.warn("SignOut error:", err);
     }
-
-    const guest: UserProfile = {
-      id: "guest",
-      name: "Guest User",
-      email: "",
-      phone: "",
-      isLoggedIn: false,
-    };
-    setUser(guest);
-    localStorage.setItem("showara_user_profile", JSON.stringify(guest));
   };
 
-  const updateProfile = (data: Partial<UserProfile>) => {
-    const updated = { ...user, ...data };
-    setUser(updated);
-    localStorage.setItem("showara_user_profile", JSON.stringify(updated));
+  const updateProfile = async (data: {
+    name?: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+  }) => {
+    try {
+      let fullName = data.name;
+      if (!fullName && (data.firstName || data.lastName)) {
+        fullName = [data.firstName, data.lastName].filter(Boolean).join(" ");
+      }
+      if (fullName) {
+        await update({ name: fullName });
+      }
+    } catch (err) {
+      console.error("User profile update error:", err);
+      throw err;
+    }
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, updateProfile }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        isLoaded,
+        isSignedIn,
+        logout,
+        updateProfile,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
@@ -133,6 +106,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
 export function useAuth() {
   const ctx = useContext(AuthContext);
-  if (!ctx) throw new Error("useAuth must be used within AuthProvider");
+  if (!ctx) {
+    throw new Error("useAuth must be used within AuthProvider");
+  }
   return ctx;
 }

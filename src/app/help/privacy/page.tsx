@@ -4,8 +4,8 @@ import { ChevronLeft } from "lucide-react";
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen py-12 bg-[var(--bg-main)]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <div className="min-h-screen py-8 sm:py-12 pb-16 pb-safe bg-[var(--bg-main)]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-6">
         <Link
           href="/"
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--text-secondary)] hover:text-white"
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         <div className="space-y-4 text-xs text-[var(--text-secondary)] leading-relaxed p-6 rounded-3xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)]">
           <h2 className="text-sm font-bold text-white">1. Data We Collect</h2>
           <p>
-            Showara collects your name, phone number, and email address solely for delivering your digital cinema admission pass (M-Ticket) and transactional SMS notifications.
+            Showara collects your name and email address solely for delivering your digital cinema admission pass (M-Ticket) and transactional booking notifications.
           </p>
 
           <h2 className="text-sm font-bold text-white pt-2">2. Payment Security</h2>

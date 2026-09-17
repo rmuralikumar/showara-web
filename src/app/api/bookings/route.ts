@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/auth";
 import { showService } from "@/services/showService";
 import { bookingService } from "@/services/bookingService";
 import { serverPaymentStore, ServerBooking } from "@/lib/serverPaymentStore";
@@ -13,7 +14,11 @@ export async function POST(request: NextRequest) {
       return rateLimitResponse(rl.resetInSeconds);
     }
 
+    // Authenticated session from Auth.js / NextAuth
+    const authSession = await auth();
+    const sessionUser = authSession?.user;
     const session = getServerSession(request);
+
     const body = await request.json();
     const {
       bookingId,
@@ -56,10 +61,10 @@ export async function POST(request: NextRequest) {
 
     const serverBooking: ServerBooking = {
       id,
-      userId: session?.user.id || user?.id || "guest",
-      userName: session?.user.name || user?.name || "Guest User",
-      userEmail: session?.user.email || user?.email || "",
-      userPhone: session?.user.phone || user?.phone || "",
+      userId: sessionUser?.id || session?.user.id || user?.id || (sessionUser?.email ? `usr_${sessionUser.email}` : "user"),
+      userName: sessionUser?.name || session?.user.name || user?.name || "Moviegoer",
+      userEmail: sessionUser?.email || session?.user.email || user?.email || "",
+      userPhone: "",
       showId: show.id,
       movieTitle: movie?.title || "Movie Booking",
       moviePoster: movie?.posterUrl || "",

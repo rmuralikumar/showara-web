@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/auth";
 import { serverPaymentStore } from "@/lib/serverPaymentStore";
 import { getServerSession, verifyBookingOwnership } from "@/lib/auth";
 
@@ -15,8 +16,11 @@ export async function GET(
     const cleanId = bookingId.trim();
 
     // 1. Verify authenticated server session
+    const authSession = await auth();
+    const sessionUser = authSession?.user;
     const session = getServerSession(request);
-    if (!session || !session.user) {
+
+    if (!sessionUser && (!session || !session.user)) {
       return NextResponse.json(
         { error: "Authentication required to access booking details." },
         { status: 401 }
@@ -30,8 +34,25 @@ export async function GET(
     }
 
     // 3. Verify user ownership authorization
-    const authCheck = verifyBookingOwnership(session, booking);
-    if (!authCheck.authorized) {
+    let isAuthorized = false;
+    if (sessionUser) {
+      if (sessionUser.id && booking.userId === sessionUser.id) {
+        isAuthorized = true;
+      } else if (
+        sessionUser.email &&
+        booking.userEmail &&
+        sessionUser.email.toLowerCase() === booking.userEmail.toLowerCase()
+      ) {
+        isAuthorized = true;
+      }
+    }
+
+    if (!isAuthorized && session) {
+      const authCheck = verifyBookingOwnership(session, booking);
+      isAuthorized = authCheck.authorized;
+    }
+
+    if (!isAuthorized) {
       return NextResponse.json(
         { error: "Access denied. You do not have permission to view this booking." },
         { status: 403 }

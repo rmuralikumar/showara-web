@@ -6,9 +6,7 @@ export interface SessionUser {
   id: string;
   name: string;
   email: string;
-  phone?: string;
   role?: "user" | "admin";
-  isGuest?: boolean;
 }
 
 export interface SessionPayload {

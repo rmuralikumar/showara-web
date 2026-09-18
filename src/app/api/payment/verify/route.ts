@@ -1,7 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyPaymentSignature } from "@/lib/razorpay";
+import { verifyPaymentSignature, getRazorpayClient } from "@/lib/razorpay";
 import { serverPaymentStore } from "@/lib/serverPaymentStore";
 import { checkRateLimit, rateLimitResponse } from "@/lib/rateLimit";
+import { PaymentMethod } from "@/types/booking";
+
+/**
+ * Maps Razorpay's actual payment method string (e.g. "upi", "card",
+ * "netbanking", "wallet", "emi") to Showara's PaymentMethod union.
+ */
+function mapRazorpayMethod(method: string | undefined): PaymentMethod {
+  switch (method) {
+    case "upi":
+      return "UPI";
+    case "netbanking":
+      return "NETBANKING";
+    default:
+      return "CARD";
+  }
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -125,10 +141,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 6. Confirm booking in server persistence
+    // 6. Fetch the actual payment method the user selected/completed with in
+    // Razorpay Checkout. The client callback only provides the payment id,
+    // order id, and signature -- not the method used -- so it must be looked
+    // up server-side from Razorpay directly (the only authoritative source).
+    let paymentMethod: PaymentMethod | undefined;
+    try {
+      const razorpayPayment = await getRazorpayClient().payments.fetch(cleanPaymentId);
+      paymentMethod = mapRazorpayMethod(razorpayPayment.method);
+    } catch (fetchErr) {
+      console.error("Failed to fetch Razorpay payment method for", cleanPaymentId, fetchErr);
+    }
+
+    // 7. Confirm booking in server persistence
     const confirmResult = serverPaymentStore.confirmBookingPayment(cleanBookingId, {
       razorpayOrderId: cleanOrderId,
       razorpayPaymentId: cleanPaymentId,
+      paymentMethod,
     });
 
     if (!confirmResult.success || !confirmResult.booking) {

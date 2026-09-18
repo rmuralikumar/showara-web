@@ -247,10 +247,10 @@ export default function SeatQuantityModal({
       <div
         ref={modalRef}
         onClick={(e) => e.stopPropagation()}
-        className="w-full sm:max-w-[560px] bg-white dark:bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-2xl overflow-hidden flex flex-col max-h-[92vh] max-sm:fixed max-sm:bottom-0 max-sm:inset-x-0 max-sm:rounded-t-3xl max-sm:rounded-b-none sm:rounded-3xl transition-all duration-200"
+        className="w-full sm:max-w-[560px] bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-2xl overflow-hidden flex flex-col max-h-[92vh] max-sm:fixed max-sm:bottom-0 max-sm:inset-x-0 max-sm:rounded-t-3xl max-sm:rounded-b-none sm:rounded-3xl transition-all duration-200"
       >
         {/* 1. STICKY / FIXED HEADER */}
-        <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 border-b border-[var(--border-subtle)] bg-white dark:bg-[var(--bg-surface)] shrink-0">
+        <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)] shrink-0">
           <div className="pr-4">
             <h2
               id="seat-count-modal-title"
@@ -280,7 +280,7 @@ export default function SeatQuantityModal({
         {/* 2. SCROLLABLE BODY */}
         <div className="p-5 sm:p-6 space-y-5 overflow-y-auto flex-1 overscroll-contain">
           {/* Ticket / Movie-Type Info Card */}
-          <div className="p-4 rounded-2xl bg-slate-100/90 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 shadow-xs">
+          <div className="p-4 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] shadow-xs">
             <div className="flex items-start justify-between gap-3">
               <div className="space-y-1">
                 <div className="flex items-center gap-2 flex-wrap">
@@ -363,8 +363,8 @@ export default function SeatQuantityModal({
                     }}
                     className={`flex-1 min-w-[36px] h-10 rounded-full text-xs font-black transition-all duration-150 flex items-center justify-center touch-target focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] ${
                       isSelected
-                        ? "bg-[var(--brand-primary)] text-white shadow-md shadow-[var(--brand-primary-glow)] scale-105 ring-2 ring-[var(--brand-primary)] ring-offset-2 ring-offset-white dark:ring-offset-[var(--bg-surface)]"
-                        : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-black/5 dark:hover:bg-white/5"
+                        ? "bg-[var(--brand-primary)] text-white shadow-md shadow-[var(--brand-primary-glow)] scale-105 ring-2 ring-[var(--brand-primary)] ring-offset-2 ring-offset-[var(--bg-surface)]"
+                        : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)]"
                     }`}
                   >
                     {num}
@@ -457,7 +457,7 @@ export default function SeatQuantityModal({
         </div>
 
         {/* 3. STICKY BOTTOM CTA */}
-        <div className="sticky bottom-0 z-20 p-4 sm:p-5 pb-safe pl-safe pr-safe border-t border-[var(--border-subtle)] bg-white dark:bg-[var(--bg-surface)] shrink-0">
+        <div className="sticky bottom-0 z-20 p-4 sm:p-5 pb-safe pl-safe pr-safe border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] shrink-0">
           <button
             ref={confirmBtnRef}
             type="button"

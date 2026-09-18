@@ -8,7 +8,7 @@ export default function CancellationPolicyPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-8">
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--text-secondary)] hover:text-white"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
         >
           <ChevronLeft className="w-4 h-4" />
           <span>Back to Home</span>
@@ -18,7 +18,7 @@ export default function CancellationPolicyPage() {
           <span className="text-xs font-bold text-[var(--brand-primary)] uppercase tracking-wider">
             Showara Guarantees
           </span>
-          <h1 className="text-3xl font-black text-white tracking-tight mt-1">
+          <h1 className="text-3xl font-black text-[var(--text-primary)] tracking-tight mt-1">
             Ticket Cancellation & Refund Policy
           </h1>
           <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
@@ -28,7 +28,7 @@ export default function CancellationPolicyPage() {
 
         <div className="space-y-6 text-sm text-[var(--text-secondary)] leading-relaxed">
           <div className="p-6 rounded-3xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] space-y-3">
-            <div className="flex items-center gap-2 text-white font-bold text-base">
+            <div className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-base">
               <Clock className="w-5 h-5 text-[var(--brand-primary)]" />
               <span>1. Cancellation Timelines</span>
             </div>
@@ -38,7 +38,7 @@ export default function CancellationPolicyPage() {
           </div>
 
           <div className="p-6 rounded-3xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] space-y-3">
-            <div className="flex items-center gap-2 text-white font-bold text-base">
+            <div className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-base">
               <RefreshCw className="w-5 h-5 text-emerald-400" />
               <span>2. Refund Calculations</span>
             </div>
@@ -49,7 +49,7 @@ export default function CancellationPolicyPage() {
           </div>
 
           <div className="p-6 rounded-3xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] space-y-3">
-            <div className="flex items-center gap-2 text-white font-bold text-base">
+            <div className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-base">
               <ShieldCheck className="w-5 h-5 text-amber-400" />
               <span>3. Processing Timeline</span>
             </div>

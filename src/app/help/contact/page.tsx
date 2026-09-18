@@ -17,7 +17,7 @@ export default function ContactPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pl-safe pr-safe space-y-8">
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--text-secondary)] hover:text-white"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
         >
           <ChevronLeft className="w-4 h-4" />
           <span>Back to Home</span>
@@ -27,7 +27,7 @@ export default function ContactPage() {
           <span className="text-xs font-bold text-[var(--brand-primary)] uppercase tracking-wider">
             Help & Support
           </span>
-          <h1 className="text-3xl font-black text-white tracking-tight mt-1">
+          <h1 className="text-3xl font-black text-[var(--text-primary)] tracking-tight mt-1">
             Get in Touch with Showara
           </h1>
           <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
@@ -44,7 +44,7 @@ export default function ContactPage() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white">Email Support</h3>
+                  <h3 className="text-sm font-bold text-[var(--text-primary)]">Email Support</h3>
                   <p className="text-xs text-[var(--text-muted)]">support@showara.internal</p>
                 </div>
               </div>
@@ -54,7 +54,7 @@ export default function ContactPage() {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white">Helpline (Toll-Free)</h3>
+                  <h3 className="text-sm font-bold text-[var(--text-primary)]">Helpline (Toll-Free)</h3>
                   <p className="text-xs text-[var(--text-muted)]">1800-419-SHOW (7 AM - 11 PM)</p>
                 </div>
               </div>
@@ -64,7 +64,7 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white">Headquarters</h3>
+                  <h3 className="text-sm font-bold text-[var(--text-primary)]">Headquarters</h3>
                   <p className="text-xs text-[var(--text-muted)]">
                     Showara Media Center, 80 Feet Road, Koramangala, Bengaluru - 560034
                   </p>
@@ -78,20 +78,20 @@ export default function ContactPage() {
             {submitted ? (
               <div className="text-center py-8 space-y-3">
                 <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
-                <h3 className="text-lg font-bold text-white">Message Received</h3>
+                <h3 className="text-lg font-bold text-[var(--text-primary)]">Message Received</h3>
                 <p className="text-xs text-[var(--text-muted)]">
                   Our customer support team will reply to your registered email address within 2 hours.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <h3 className="text-base font-bold text-white mb-2">Send us a message</h3>
+                <h3 className="text-base font-bold text-[var(--text-primary)] mb-2">Send us a message</h3>
                 <div>
                   <label className="text-xs text-[var(--text-muted)] block mb-1">Your Name</label>
                   <input
                     type="text"
                     required
-                    className="w-full px-3 py-2 bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] rounded-xl text-xs text-white focus:outline-none focus:border-[var(--brand-primary)]"
+                    className="w-full px-3 py-2 bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] rounded-xl text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--brand-primary)]"
                   />
                 </div>
                 <div>
@@ -99,7 +99,7 @@ export default function ContactPage() {
                   <input
                     type="email"
                     required
-                    className="w-full px-3 py-2 bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] rounded-xl text-xs text-white focus:outline-none focus:border-[var(--brand-primary)]"
+                    className="w-full px-3 py-2 bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] rounded-xl text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--brand-primary)]"
                   />
                 </div>
                 <div>
@@ -107,7 +107,7 @@ export default function ContactPage() {
                   <textarea
                     rows={3}
                     required
-                    className="w-full px-3 py-2 bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] rounded-xl text-xs text-white focus:outline-none focus:border-[var(--brand-primary)]"
+                    className="w-full px-3 py-2 bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] rounded-xl text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--brand-primary)]"
                     placeholder="Describe your inquiry..."
                   />
                 </div>

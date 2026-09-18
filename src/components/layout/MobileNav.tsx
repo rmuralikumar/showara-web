@@ -49,7 +49,7 @@ export default function MobileNav() {
               className={`flex flex-col items-center justify-center h-full touch-target transition-all ${
                 isActive
                   ? "text-[var(--brand-primary)]"
-                  : "text-[var(--text-muted)] hover:text-white"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
               }`}
             >
               <div className="relative">
@@ -64,7 +64,7 @@ export default function MobileNav() {
               </div>
               <span
                 className={`text-[10px] mt-1 tracking-tight font-medium ${
-                  isActive ? "font-bold text-white" : ""
+                  isActive ? "font-bold" : ""
                 }`}
               >
                 {item.label}

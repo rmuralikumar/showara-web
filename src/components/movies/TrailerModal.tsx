@@ -67,7 +67,7 @@ export default function TrailerModal({
       >
         {/* Top bar with movie title, YouTube direct link, and close button */}
         <div className="flex items-center justify-between p-3.5 bg-[var(--bg-surface-elevated)] border-b border-[var(--border-subtle)] gap-2">
-          <h3 className="text-sm font-bold text-white truncate max-w-md">
+          <h3 className="text-sm font-bold text-[var(--text-primary)] truncate max-w-md">
             {movieTitle} — {displayTitle}
           </h3>
 
@@ -78,7 +78,7 @@ export default function TrailerModal({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Watch on YouTube"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--bg-surface-hover)] hover:bg-[var(--border-strong)] text-[var(--text-primary)] text-xs font-semibold transition-colors"
               >
                 <span className="hidden sm:inline">Watch on YouTube</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -89,7 +89,7 @@ export default function TrailerModal({
               type="button"
               onClick={onClose}
               aria-label="Close trailer"
-              className="p-1.5 rounded-lg text-[var(--text-secondary)] hover:text-white hover:bg-[var(--bg-surface-hover)] transition-colors"
+              className="p-1.5 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -103,7 +103,7 @@ export default function TrailerModal({
               <div className="w-14 h-14 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-3 text-amber-400">
                 <AlertTriangle className="w-7 h-7" />
               </div>
-              <h4 className="text-base font-bold text-white">
+              <h4 className="text-base font-bold text-[var(--text-primary)]">
                 This trailer can’t be played inside Showara
               </h4>
               <p className="text-xs text-[var(--text-muted)] mt-1.5 max-w-md leading-relaxed">
@@ -122,7 +122,7 @@ export default function TrailerModal({
               <button
                 type="button"
                 onClick={() => setShowEmbedFallback(false)}
-                className="mt-3 text-[11px] text-[var(--text-muted)] hover:text-white underline transition-colors"
+                className="mt-3 text-[11px] text-[var(--text-muted)] hover:text-[var(--text-primary)] underline transition-colors"
               >
                 Try player again
               </button>
@@ -154,7 +154,7 @@ export default function TrailerModal({
                     href={verifiedYoutubeUrl || undefined}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:text-[var(--brand-primary)] flex items-center gap-1 font-semibold"
+                    className="text-[var(--text-primary)] hover:text-[var(--brand-primary)] flex items-center gap-1 font-semibold"
                   >
                     <span>Watch on YouTube</span>
                     <ExternalLink className="w-3 h-3" />
@@ -165,10 +165,10 @@ export default function TrailerModal({
           )
         ) : (
           <div className="relative aspect-video w-full bg-[var(--bg-surface-elevated)] flex flex-col items-center justify-center p-8 text-center">
-            <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-3 text-[var(--text-muted)]">
+            <div className="w-14 h-14 rounded-full bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] flex items-center justify-center mb-3 text-[var(--text-muted)]">
               <Film className="w-7 h-7" />
             </div>
-            <h4 className="text-base font-bold text-white">Trailer Unavailable</h4>
+            <h4 className="text-base font-bold text-[var(--text-primary)]">Trailer Unavailable</h4>
             <p className="text-xs text-[var(--text-muted)] mt-1.5 max-w-sm leading-relaxed">
               An official video trailer is not currently available for {movieTitle}.
             </p>

@@ -89,7 +89,7 @@ function SearchContent() {
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && saveSearch(query)}
             placeholder="Search movies, cast, languages, or cinemas..."
-            className="w-full pl-12 pr-10 py-4 bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] rounded-2xl text-base text-white placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--brand-primary)] focus:ring-1 focus:ring-[var(--brand-primary)] transition-all shadow-lg"
+            className="w-full pl-12 pr-10 py-4 bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] rounded-2xl text-base text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--brand-primary)] focus:ring-1 focus:ring-[var(--brand-primary)] transition-all shadow-lg"
             autoFocus
           />
           {query && (
@@ -97,7 +97,7 @@ function SearchContent() {
               type="button"
               onClick={() => setQuery("")}
               aria-label="Clear search"
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full text-[var(--text-muted)] hover:text-white"
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)]"
             >
               <X className="w-4 h-4" />
             </button>
@@ -120,11 +120,11 @@ function SearchContent() {
                       key={term}
                       type="button"
                       onClick={() => setQuery(term)}
-                      className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] text-xs text-[var(--text-secondary)] hover:text-white hover:border-[var(--border-strong)] transition-all"
+                      className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)] transition-all"
                     >
                       <span>{term}</span>
                       <X
-                        className="w-3 h-3 text-[var(--text-muted)] hover:text-white"
+                        className="w-3 h-3 text-[var(--text-muted)] hover:text-[var(--text-primary)]"
                         onClick={(e) => removeRecent(term, e)}
                       />
                     </button>
@@ -163,7 +163,7 @@ function SearchContent() {
             {/* Movie Results */}
             <div>
               <div className="flex items-center justify-between pb-3 border-b border-[var(--border-subtle)] mb-4">
-                <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                <h3 className="text-sm font-bold text-[var(--text-primary)] uppercase tracking-wider flex items-center gap-2">
                   <Film className="w-4 h-4 text-[var(--brand-primary)]" />
                   <span>Movies ({matchingMovies.length})</span>
                 </h3>
@@ -193,12 +193,12 @@ function SearchContent() {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="text-sm font-bold text-white group-hover:text-[var(--brand-primary)] truncate">
+                        <h4 className="text-sm font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] truncate">
                           {movie.title}
                         </h4>
                         <div className="flex items-center gap-1.5 text-xs text-[var(--text-muted)] mt-1">
                           <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                          <span className="font-semibold text-white">{movie.rating.toFixed(1)}</span>
+                          <span className="font-semibold text-[var(--text-primary)]">{movie.rating.toFixed(1)}</span>
                           <span>•</span>
                           <span>{movie.languages.slice(0, 2).join(", ")}</span>
                         </div>
@@ -216,7 +216,7 @@ function SearchContent() {
             {/* Cinema Results */}
             <div>
               <div className="flex items-center justify-between pb-3 border-b border-[var(--border-subtle)] mb-4">
-                <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                <h3 className="text-sm font-bold text-[var(--text-primary)] uppercase tracking-wider flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-[var(--brand-primary)]" />
                   <span>Cinemas ({matchingCinemas.length})</span>
                 </h3>
@@ -238,7 +238,7 @@ function SearchContent() {
                       <span className="text-[10px] font-bold text-[var(--brand-primary)] uppercase">
                         {cinema.area}
                       </span>
-                      <h4 className="text-sm font-bold text-white group-hover:text-[var(--brand-primary)] mt-0.5 truncate">
+                      <h4 className="text-sm font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] mt-0.5 truncate">
                         {cinema.name}
                       </h4>
                       <p className="text-xs text-[var(--text-muted)] mt-1 line-clamp-1">

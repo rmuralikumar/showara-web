@@ -151,7 +151,7 @@ export default function TicketQRCode({
               type="button"
               onClick={() => setIsModalOpen(false)}
               aria-label="Close QR Modal"
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-[var(--bg-surface-card)] transition-colors"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-card)] transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -161,7 +161,7 @@ export default function TicketQRCode({
               <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">
                 Official Admission Gate Pass
               </span>
-              <h3 className="text-base sm:text-lg font-black text-white mt-1.5 sm:mt-2">
+              <h3 className="text-base sm:text-lg font-black text-[var(--text-primary)] mt-1.5 sm:mt-2">
                 {booking.movieTitle}
               </h3>
               <p className="text-xs text-[var(--text-muted)] mt-0.5">
@@ -185,7 +185,7 @@ export default function TicketQRCode({
             <div className="p-3 rounded-2xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] grid grid-cols-2 gap-2 text-xs">
               <div className="text-left">
                 <span className="text-[10px] text-[var(--text-muted)] block">Booking ID</span>
-                <span className="font-mono font-bold text-white">{booking.id}</span>
+                <span className="font-mono font-bold text-[var(--text-primary)]">{booking.id}</span>
               </div>
               <div className="text-right">
                 <span className="text-[10px] text-[var(--text-muted)] block">Seats</span>
@@ -195,7 +195,7 @@ export default function TicketQRCode({
               </div>
               <div className="text-left">
                 <span className="text-[10px] text-[var(--text-muted)] block">Date & Time</span>
-                <span className="font-semibold text-white">
+                <span className="font-semibold text-[var(--text-primary)]">
                   {booking.date} • {booking.startTime}
                 </span>
               </div>
@@ -219,7 +219,7 @@ export default function TicketQRCode({
               <button
                 type="button"
                 onClick={handleCopyTicketData}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] hover:border-[var(--brand-primary)] text-[var(--text-secondary)] hover:text-white text-xs font-semibold transition-all touch-target"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] hover:border-[var(--brand-primary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] text-xs font-semibold transition-all touch-target"
               >
                 {copied ? (
                   <>

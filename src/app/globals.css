@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Bind Tailwind's `dark:` variant to the .dark class the app toggles on
+   <html> (ThemeContext), instead of Tailwind v4's default of matching
+   `prefers-color-scheme` directly. Without this, every `dark:` utility in
+   the codebase ignores the in-app Light/Dark toggle and only reacts to the
+   OS-level preference. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ----------------------------------------------------
    SHOWARA DESIGN SYSTEM: DUAL THEME TOKENS
    Light Mode (default on :root) and Dark Mode (on .dark)

@@ -68,7 +68,7 @@ export default function BookingConfirmationPage({
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center p-8 text-center bg-[var(--bg-main)]">
         <Film className="w-12 h-12 text-[var(--text-muted)] mb-3" />
-        <h2 className="text-xl font-bold text-white">Booking Record Not Found</h2>
+        <h2 className="text-xl font-bold text-[var(--text-primary)]">Booking Record Not Found</h2>
         <p className="text-xs text-[var(--text-muted)] mt-1">
           Reference #{resolvedParams.bookingId} could not be retrieved.
         </p>
@@ -93,11 +93,11 @@ export default function BookingConfirmationPage({
           <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
             Payment Completed Successfully
           </span>
-          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight">
             Booking Confirmed!
           </h1>
           <p className="text-xs text-[var(--text-muted)]">
-            Booking Reference ID: <strong className="text-white font-mono">{booking.id}</strong>
+            Booking Reference ID: <strong className="text-[var(--text-primary)] font-mono">{booking.id}</strong>
           </p>
         </div>
 
@@ -110,7 +110,7 @@ export default function BookingConfirmationPage({
                 S
               </div>
               <div>
-                <div className="text-sm font-black text-white tracking-wider">SHOWARA M-TICKET</div>
+                <div className="text-sm font-black text-[var(--text-primary)] tracking-wider">SHOWARA M-TICKET</div>
                 <div className="text-[10px] text-[var(--text-muted)]">Official Digital Admission Pass</div>
               </div>
             </div>
@@ -142,7 +142,7 @@ export default function BookingConfirmationPage({
                 <span className="text-[10px] text-[var(--text-muted)]">
                   {booking.language}
                 </span>
-                <h2 className="text-xl font-black text-white mt-1 line-clamp-1">
+                <h2 className="text-xl font-black text-[var(--text-primary)] mt-1 line-clamp-1">
                   {booking.movieTitle}
                 </h2>
                 <p className="text-xs text-[var(--text-muted)] mt-0.5">
@@ -158,15 +158,15 @@ export default function BookingConfirmationPage({
             <div className="grid grid-cols-3 gap-3 p-4 rounded-2xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] text-center">
               <div>
                 <span className="text-[10px] uppercase font-bold text-[var(--text-muted)]">Date</span>
-                <div className="text-xs sm:text-sm font-bold text-white mt-0.5">{booking.date}</div>
+                <div className="text-xs sm:text-sm font-bold text-[var(--text-primary)] mt-0.5">{booking.date}</div>
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold text-[var(--text-muted)]">Time</span>
-                <div className="text-xs sm:text-sm font-bold text-white mt-0.5">{booking.startTime}</div>
+                <div className="text-xs sm:text-sm font-bold text-[var(--text-primary)] mt-0.5">{booking.startTime}</div>
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold text-[var(--text-muted)]">Screen</span>
-                <div className="text-xs sm:text-sm font-bold text-white mt-0.5">{booking.screenName}</div>
+                <div className="text-xs sm:text-sm font-bold text-[var(--text-primary)] mt-0.5">{booking.screenName}</div>
               </div>
             </div>
 
@@ -176,7 +176,7 @@ export default function BookingConfirmationPage({
                 <span className="text-[10px] uppercase font-bold text-[var(--brand-primary)] block">
                   Confirmed Seats ({booking.seats.length})
                 </span>
-                <span className="text-lg sm:text-xl font-black text-white tracking-wide break-words">
+                <span className="text-lg sm:text-xl font-black text-[var(--text-primary)] tracking-wide break-words">
                   {booking.seats.map((s) => s.id).join(", ")}
                 </span>
               </div>
@@ -196,7 +196,7 @@ export default function BookingConfirmationPage({
                   <TicketQRCode booking={booking} size={88} />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs font-bold text-white flex items-center justify-center sm:justify-start gap-1.5">
+                  <h4 className="text-xs font-bold text-[var(--text-primary)] flex items-center justify-center sm:justify-start gap-1.5">
                     <span>Scan at Gate Entry</span>
                     <span className="inline-flex items-center px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[9px] font-semibold border border-emerald-500/20">
                       Verified
@@ -212,7 +212,7 @@ export default function BookingConfirmationPage({
               </div>
 
               <div className="hidden sm:block text-right flex-shrink-0">
-                <span className="text-[10px] font-bold text-white px-2 py-1 rounded bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)]">
+                <span className="text-[10px] font-bold text-[var(--text-primary)] px-2 py-1 rounded bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)]">
                   Gate Opens: 15 Mins Prior
                 </span>
               </div>
@@ -230,7 +230,7 @@ export default function BookingConfirmationPage({
           <button
             type="button"
             onClick={handlePrint}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-bold text-white transition-all touch-target"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-bold text-[var(--text-primary)] transition-all touch-target"
           >
             <Printer className="w-4 h-4" />
             <span>Print / Save PDF</span>
@@ -239,7 +239,7 @@ export default function BookingConfirmationPage({
           <button
             type="button"
             onClick={handleShare}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-bold text-white transition-all touch-target"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs font-bold text-[var(--text-primary)] transition-all touch-target"
           >
             <Share2 className="w-4 h-4" />
             <span>{copied ? "Link Copied!" : "Share Ticket"}</span>

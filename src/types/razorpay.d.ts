@@ -15,6 +15,12 @@ export interface RazorpayOptions {
     name?: string;
     email?: string;
     contact?: string;
+    /**
+     * Pre-selects/opens the given tab in Razorpay Checkout. This only sets
+     * the tab Checkout opens on -- it does not restrict or lock the payer
+     * to that method; Razorpay's own modal still lets them switch tabs.
+     */
+    method?: "card" | "netbanking" | "wallet" | "emi" | "upi";
   };
   notes?: Record<string, string>;
   theme?: {

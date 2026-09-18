@@ -62,7 +62,7 @@ export default function MovieCarousel({
               type="button"
               onClick={() => handleScroll("left")}
               aria-label={`Scroll ${title} left`}
-              className="hidden md:flex p-2 rounded-xl bg-[var(--bg-surface-elevated)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-white transition-colors"
+              className="hidden md:flex p-2 rounded-xl bg-[var(--bg-surface-elevated)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -70,7 +70,7 @@ export default function MovieCarousel({
               type="button"
               onClick={() => handleScroll("right")}
               aria-label={`Scroll ${title} right`}
-              className="hidden md:flex p-2 rounded-xl bg-[var(--bg-surface-elevated)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-white transition-colors"
+              className="hidden md:flex p-2 rounded-xl bg-[var(--bg-surface-elevated)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
               <ChevronRight className="w-4 h-4" />
             </button>

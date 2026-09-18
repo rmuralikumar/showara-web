@@ -75,7 +75,7 @@ export default function BookingsHistoryPage() {
         {/* Page Title */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[var(--border-subtle)]">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight">
               Booking History
             </h1>
             <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
@@ -106,7 +106,7 @@ export default function BookingsHistoryPage() {
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                 activeTab === tab.id
                   ? "bg-[var(--brand-primary)] text-white shadow-sm"
-                  : "bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-white"
+                  : "bg-[var(--bg-surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
               }`}
             >
               {tab.label}
@@ -118,7 +118,7 @@ export default function BookingsHistoryPage() {
         {filteredBookings.length === 0 ? (
           <div className="p-12 text-center bg-[var(--bg-surface-card)] rounded-3xl border border-[var(--border-subtle)] space-y-3">
             <Film className="w-12 h-12 text-[var(--text-muted)] mx-auto" />
-            <h3 className="text-base font-bold text-white">No Bookings Found</h3>
+            <h3 className="text-base font-bold text-[var(--text-primary)]">No Bookings Found</h3>
             <p className="text-xs text-[var(--text-muted)] max-w-sm mx-auto">
               You do not have any {activeTab.toLowerCase()} movie ticket bookings at the moment.
             </p>
@@ -174,7 +174,7 @@ export default function BookingsHistoryPage() {
                         )}
                       </div>
 
-                      <h3 className="text-base font-bold text-white line-clamp-1">{b.movieTitle}</h3>
+                      <h3 className="text-base font-bold text-[var(--text-primary)] line-clamp-1">{b.movieTitle}</h3>
                       <p className="text-xs text-[var(--text-muted)] mt-0.5">
                         {b.cinemaName} • {b.screenName}
                       </p>
@@ -190,7 +190,7 @@ export default function BookingsHistoryPage() {
                           {b.startTime}
                         </span>
                         <span className="hidden sm:inline">•</span>
-                        <span className="text-white font-bold">
+                        <span className="text-[var(--text-primary)] font-bold">
                           Seats: {b.seats.map((s) => s.id).join(", ")}
                         </span>
                       </div>
@@ -199,7 +199,7 @@ export default function BookingsHistoryPage() {
 
                   {/* Actions & Price */}
                   <div className="flex flex-col sm:items-end w-full sm:w-auto pt-4 sm:pt-0 border-t sm:border-t-0 border-[var(--border-subtle)]">
-                    <div className="text-base font-black text-white mb-3">
+                    <div className="text-base font-black text-[var(--text-primary)] mb-3">
                       ₹{b.pricing.totalAmount}
                       <span className="text-[10px] font-normal text-[var(--text-muted)] ml-1">
                         ({b.seats.length} Tickets)
@@ -209,7 +209,7 @@ export default function BookingsHistoryPage() {
                     <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
                       <Link
                         href={`/booking/confirmation/${b.id}`}
-                        className="flex-1 sm:flex-initial text-center px-4 py-2 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs font-bold text-white hover:border-[var(--brand-primary)] hover:text-[var(--brand-primary)] transition-all touch-target"
+                        className="flex-1 sm:flex-initial text-center px-4 py-2 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs font-bold text-[var(--text-primary)] hover:border-[var(--brand-primary)] hover:text-[var(--brand-primary)] transition-all touch-target"
                       >
                         View Ticket
                       </Link>
@@ -245,7 +245,7 @@ export default function BookingsHistoryPage() {
             </div>
 
             <div className="text-center space-y-1">
-              <h3 className="text-lg font-bold text-white">Cancel Booking?</h3>
+              <h3 className="text-lg font-bold text-[var(--text-primary)]">Cancel Booking?</h3>
               <p className="text-xs text-[var(--text-muted)]">
                 Booking ID: {cancelModalBooking.id} • {cancelModalBooking.movieTitle}
               </p>
@@ -254,7 +254,7 @@ export default function BookingsHistoryPage() {
             <div className="p-4 rounded-2xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] text-xs space-y-2">
               <div className="flex justify-between text-[var(--text-secondary)]">
                 <span>Total Paid:</span>
-                <span className="text-white font-bold">₹{cancelModalBooking.pricing.totalAmount}</span>
+                <span className="text-[var(--text-primary)] font-bold">₹{cancelModalBooking.pricing.totalAmount}</span>
               </div>
               <div className="flex justify-between text-emerald-400">
                 <span>Refund Amount (Ticket Subtotal):</span>
@@ -279,7 +279,7 @@ export default function BookingsHistoryPage() {
                 <button
                   type="button"
                   onClick={() => setCancelModalBooking(null)}
-                  className="py-2.5 rounded-xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-secondary)] hover:text-white"
+                  className="py-2.5 rounded-xl bg-[var(--bg-surface-card)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                 >
                   Keep Booking
                 </button>

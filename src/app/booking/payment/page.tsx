@@ -21,6 +21,14 @@ import {
   RefreshCw,
 } from "lucide-react";
 
+// Maps Showara's PaymentMethod values to the lowercase tab names Razorpay
+// Checkout's `prefill.method` option expects.
+const RAZORPAY_METHOD_MAP: Record<PaymentMethod, "upi" | "card" | "netbanking"> = {
+  UPI: "upi",
+  CARD: "card",
+  NETBANKING: "netbanking",
+};
+
 export default function BookingPaymentPage() {
   const router = useRouter();
   const { draft, clearBooking, remainingSeconds } = useBooking();
@@ -30,6 +38,7 @@ export default function BookingPaymentPage() {
   const [processingStatus, setProcessingStatus] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [bookingRefId, setBookingRefId] = useState<string>("");
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<PaymentMethod>("UPI");
 
   // Initialize or maintain a stable booking ID for this session draft
   useEffect(() => {
@@ -139,6 +148,7 @@ export default function BookingPaymentPage() {
         prefill: {
           name: user.name || "",
           email: user.email || "",
+          method: RAZORPAY_METHOD_MAP[selectedPaymentMethod],
         },
         theme: {
           color: "#e50914",
@@ -174,11 +184,12 @@ export default function BookingPaymentPage() {
               );
             }
 
-            // 5. Success: save verified booking locally for instant receipt access
+            // 5. Success: save verified booking locally for instant receipt access.
+            // paymentMethod comes from the server (verifyRes.booking), which
+            // looks it up from Razorpay directly -- never override it here.
             const confirmedBooking: Booking = {
               ...verifyRes.booking,
               paymentTransactionId: response.razorpay_payment_id,
-              paymentMethod: "UPI",
             };
 
             bookingService.saveBooking(confirmedBooking);
@@ -269,15 +280,15 @@ export default function BookingPaymentPage() {
 
         {/* Error notification */}
         {errorMessage && (
-          <div className="p-4 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs flex items-center justify-between">
+          <div className="p-4 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-700 dark:text-rose-300 text-xs flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <AlertTriangle className="w-4 h-4 text-rose-400 flex-shrink-0" />
+              <AlertTriangle className="w-4 h-4 text-rose-500 dark:text-rose-400 flex-shrink-0" />
               <span>{errorMessage}</span>
             </div>
             <button
               type="button"
               onClick={() => setErrorMessage(null)}
-              className="text-white hover:underline text-[11px] ml-4 flex-shrink-0"
+              className="text-rose-800 dark:text-white hover:underline text-[11px] ml-4 flex-shrink-0"
             >
               Dismiss
             </button>
@@ -297,49 +308,61 @@ export default function BookingPaymentPage() {
                 </span>
               </div>
 
-              {/* Supported methods list */}
-              <div className="space-y-3">
-                <div className="flex items-start gap-3 p-3 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)]">
-                  <div className="p-2 rounded-xl bg-[var(--brand-primary)]/10 text-[var(--brand-primary)]">
-                    <Smartphone className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-[var(--text-primary)]">
-                      Instant UPI & QR Code
-                    </h4>
-                    <p className="text-[11px] text-[var(--text-muted)] mt-0.5">
-                      Google Pay, PhonePe, Paytm, BHIM, CRED
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)]">
-                  <div className="p-2 rounded-xl bg-[var(--brand-primary)]/10 text-[var(--brand-primary)]">
-                    <CreditCard className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-[var(--text-primary)]">
-                      Credit & Debit Cards
-                    </h4>
-                    <p className="text-[11px] text-[var(--text-muted)] mt-0.5">
-                      Visa, MasterCard, RuPay, Diners, American Express
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)]">
-                  <div className="p-2 rounded-xl bg-[var(--brand-primary)]/10 text-[var(--brand-primary)]">
-                    <Building2 className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-[var(--text-primary)]">
-                      Net Banking & Wallets
-                    </h4>
-                    <p className="text-[11px] text-[var(--text-muted)] mt-0.5">
-                      HDFC, ICICI, SBI, Axis, Kotak, and 50+ retail banks
-                    </p>
-                  </div>
-                </div>
+              {/* Supported / selectable methods list */}
+              <div className="space-y-3" role="radiogroup" aria-label="Preferred payment method">
+                {(
+                  [
+                    {
+                      value: "UPI" as PaymentMethod,
+                      icon: Smartphone,
+                      title: "Instant UPI & QR Code",
+                      subtitle: "Google Pay, PhonePe, Paytm, BHIM, CRED",
+                    },
+                    {
+                      value: "CARD" as PaymentMethod,
+                      icon: CreditCard,
+                      title: "Credit & Debit Cards",
+                      subtitle: "Visa, MasterCard, RuPay, Diners, American Express",
+                    },
+                    {
+                      value: "NETBANKING" as PaymentMethod,
+                      icon: Building2,
+                      title: "Net Banking & Wallets",
+                      subtitle: "HDFC, ICICI, SBI, Axis, Kotak, and 50+ retail banks",
+                    },
+                  ]
+                ).map(({ value, icon: Icon, title, subtitle }) => {
+                  const isSelected = selectedPaymentMethod === value;
+                  return (
+                    <button
+                      key={value}
+                      type="button"
+                      role="radio"
+                      aria-checked={isSelected}
+                      onClick={() => setSelectedPaymentMethod(value)}
+                      className={`w-full flex items-start gap-3 p-3 rounded-2xl border text-left transition-all touch-target focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] ${
+                        isSelected
+                          ? "bg-[var(--brand-primary)]/10 border-[var(--brand-primary)] ring-1 ring-[var(--brand-primary)]"
+                          : "bg-[var(--bg-surface-elevated)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
+                      }`}
+                    >
+                      <div className="p-2 rounded-xl bg-[var(--brand-primary)]/10 text-[var(--brand-primary)]">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-xs font-bold text-[var(--text-primary)]">
+                          {title}
+                        </h4>
+                        <p className="text-[11px] text-[var(--text-muted)] mt-0.5">
+                          {subtitle}
+                        </p>
+                      </div>
+                      {isSelected && (
+                        <CheckCircle2 className="w-4 h-4 text-[var(--brand-primary)] shrink-0 mt-0.5" />
+                      )}
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Security Badges */}
@@ -359,11 +382,11 @@ export default function BookingPaymentPage() {
             <div className="p-4 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-xs text-[var(--text-muted)] space-y-1">
               <div className="flex justify-between">
                 <span>Booking Session:</span>
-                <span className="font-mono text-white font-bold">{bookingRefId}</span>
+                <span className="font-mono text-[var(--text-primary)] font-bold">{bookingRefId}</span>
               </div>
               <div className="flex justify-between">
                 <span>Selected Seats:</span>
-                <span className="text-white font-semibold">
+                <span className="text-[var(--text-primary)] font-semibold">
                   {draft.selectedSeats.map((s) => s.id).join(", ")}
                 </span>
               </div>

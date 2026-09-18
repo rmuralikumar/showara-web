@@ -1,5 +1,6 @@
 import path from "path";
 import fs from "fs";
+import os from "os";
 import { DatabaseSync } from "node:sqlite";
 import { Booking, BookingStatus, PaymentMethod, Seat } from "@/types/booking";
 
@@ -51,7 +52,9 @@ const globalForDB = globalThis as unknown as {
 
 function getSqliteInstance(): DatabaseSync {
   if (!globalForDB.__showaraDBInstance) {
-    const dbDir = path.resolve(process.cwd(), "src", "data");
+    const dbDir = process.env.VERCEL
+      ? path.join(os.tmpdir(), "showara-data")
+      : path.resolve(process.cwd(), "src", "data");
     if (!fs.existsSync(dbDir)) {
       fs.mkdirSync(dbDir, { recursive: true });
     }

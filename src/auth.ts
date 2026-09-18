@@ -19,29 +19,42 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     async signIn({ user }) {
       if (user?.email) {
-        const normalizedEmail = user.email.toLowerCase().trim();
-        const userId = user.id || `usr_${normalizedEmail.replace(/[^a-zA-Z0-9]/g, "_")}`;
-        db.upsertUser({
-          id: userId,
-          name: user.name ?? null,
-          email: normalizedEmail,
-          image: user.image ?? null,
-        });
+        try {
+          const normalizedEmail = user.email.toLowerCase().trim();
+          const userId = user.id || `usr_${normalizedEmail.replace(/[^a-zA-Z0-9]/g, "_")}`;
+          db.upsertUser({
+            id: userId,
+            name: user.name ?? null,
+            email: normalizedEmail,
+            image: user.image ?? null,
+          });
+        } catch (error) {
+          console.error("Failed to upsert user record during sign-in:", error);
+        }
       }
       return true;
     },
     async jwt({ token, user, trigger, session }) {
       if (user) {
         const normalizedEmail = (user.email || "").toLowerCase().trim();
-        const dbUser = normalizedEmail ? db.getUserByEmail(normalizedEmail) : null;
+        let dbUser = null;
+        try {
+          dbUser = normalizedEmail ? db.getUserByEmail(normalizedEmail) : null;
+        } catch (error) {
+          console.error("Failed to look up user record during sign-in:", error);
+        }
         token.id = dbUser?.id || user.id || `usr_${normalizedEmail.replace(/[^a-zA-Z0-9]/g, "_")}`;
         token.name = user.name || dbUser?.name;
         token.email = normalizedEmail;
         token.picture = user.image || dbUser?.image;
       }
       if (trigger === "update" && session?.name && token.id) {
+        try {
+          db.updateUserName(token.id as string, session.name);
+        } catch (error) {
+          console.error("Failed to update user name:", error);
+        }
         token.name = session.name;
-        db.updateUserName(token.id as string, session.name);
       }
       return token;
     },

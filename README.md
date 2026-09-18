@@ -1,36 +1,178 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 Showara — Movie Ticket Booking Platform
 
-## Getting Started
+Showara is a modern movie ticket booking platform designed to provide a smooth end-to-end cinema booking experience.
 
-First, run the development server:
+Users can discover movies, select cinemas and showtimes, choose seats, review their booking, complete payment, and receive a digital ticket with a QR code.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+
+### 🎥 Movie Discovery
+- Browse currently showing movies
+- Movie posters, ratings, genres and languages
+- Cinema and showtime information
+- Movie detail pages
+- Location-based cinema browsing
+
+### 📅 Showtimes
+- Select booking date
+- Browse available cinemas
+- View available showtimes
+- Cinema facilities and screen information
+
+### 💺 Seat Selection
+- Interactive cinema seating layout
+- Multiple seat categories
+- Real-time selected-seat state
+- Seat pricing by category
+- Automatic ticket total calculation
+- Visual indication of selected seats
+
+### 🧾 Booking Review
+- Movie and cinema details
+- Selected date and showtime
+- Selected seats
+- Ticket price
+- Convenience fee
+- GST/tax calculation
+- Promo code support
+- Final payable amount
+
+### 💳 Payment
+- Multiple payment method options
+- UPI & QR payments
+- Credit/Debit Cards
+- Net Banking & Wallets
+- Razorpay payment integration
+- Payment verification
+- Booking confirmation after successful payment
+
+### 🎟️ Digital Ticket
+- Booking confirmation page
+- Unique booking ID
+- QR code ticket
+- Confirmed seat information
+- Transaction information
+- Save ticket image
+- Copy booking information
+
+### 🔐 Authentication
+- Google OAuth authentication
+- User account
+- Protected booking flow
+- Booking history
+
+### 🎨 UI / UX
+- Modern cinema-focused interface
+- Responsive design
+- Light/Dark mode
+- Smooth booking flow
+- Responsive seat-selection experience
+- Mobile-friendly layouts
+
+---
+
+## 🔄 Booking Flow
+
+```text
+Browse Movies
+      ↓
+Select Movie
+      ↓
+Select Cinema
+      ↓
+Select Date & Showtime
+      ↓
+Select Seats
+      ↓
+Review Booking
+      ↓
+Select Payment Method
+      ↓
+Razorpay Checkout
+      ↓
+Payment Verification
+      ↓
+Booking Confirmation
+      ↓
+Digital QR Ticket
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework:** Next.js 16 (App Router, Turbopack)
+- **Auth:** Auth.js / NextAuth v5 with Google OAuth
+- **Payments:** Razorpay (server-verified orders, HMAC signature verification, refunds)
+- **Data:** Movie/cast data from TMDB; bookings, payments, and users persisted in SQLite (`src/lib/db.ts`, via Node's built-in `node:sqlite`)
+- **Styling:** Tailwind CSS v4 with a CSS-variable-based Light/Dark theme system (`src/app/globals.css`, `src/context/ThemeContext.tsx`)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Install dependencies and run the dev server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm install
+npm run dev
+```
 
-## Deploy on Vercel
+Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔑 Environment Variables
+
+Copy `.env.example` to `.env.local` and fill in real values:
+
+| Variable | Purpose |
+| --- | --- |
+| `AUTH_SECRET` | Auth.js session signing secret |
+| `AUTH_URL` | Base URL for Auth.js callbacks (e.g. `http://localhost:3000`) |
+| `AUTH_GOOGLE_ID` / `AUTH_GOOGLE_SECRET` | Google OAuth client credentials |
+| `TMDB_API_KEY` / `TMDB_READ_ACCESS_TOKEN` | The Movie Database API credentials |
+| `RAZORPAY_KEY_ID` / `RAZORPAY_KEY_SECRET` | Razorpay API credentials |
+| `RAZORPAY_WEBHOOK_SECRET` | Verifies incoming Razorpay webhook signatures |
+| `NEXT_PUBLIC_APP_URL` | Public site URL |
+| `DATABASE_URL` | Optional; enables Postgres instead of the default local SQLite file |
+
+Google OAuth requires this redirect URI to be authorized in Google Cloud Console for each environment:
+
+```
+<your-app-url>/api/auth/callback/google
+```
+
+---
+
+## 📜 Scripts
+
+```bash
+npm run dev     # start the dev server
+npm run build   # production build
+npm run start   # run the production build
+npm run lint    # eslint
+npm run test    # run the test suite (node --test)
+npm run seed    # seed sample data
+```
+
+---
+
+## 📁 Project Structure
+
+- `src/app` — routes (movies, cinemas, booking flow, account, API routes)
+- `src/components` — UI components (movies, booking, layout, auth)
+- `src/context` — React context providers (auth, booking, theme, city)
+- `src/lib` — server-side logic (auth, db, Razorpay, rate limiting)
+- `src/services` — client-side data/service layers
+- `tests` — test suite
+
+---
+
+## 📚 Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Auth.js Documentation](https://authjs.dev)
+- [Razorpay Docs](https://razorpay.com/docs/)
